@@ -1,14 +1,36 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/people/people",
+    "pages/introduce/introduce",
+    "pages/consultation/consultation",
+    "pages/register/register",
+    "pages/record/record"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationBarTitleText": "医疗管理系统",
+    "navigationBarBackgroundColor": "#87CEFF",
     "backgroundColor": "#F8F8F8"
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "tabBar": {
+    "selectedColor": "#87CEFF",
+    "color": "#C0C0C0",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/img/home.png",
+        "selectedIconPath": "static/img/active_home.png"
+      },
+      {
+        "text": "个人中心",
+        "pagePath": "pages/people/people",
+        "iconPath": "static/img/people.png",
+        "selectedIconPath": "static/img/active_people.png"
+      }
+    ]
+  },
+  "usingComponents": {}
 }

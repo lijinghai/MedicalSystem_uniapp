@@ -1,0 +1,37 @@
+{
+  "id": "2550511",
+  "name": "医院",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "794263",
+      "name": "会诊",
+      "font_class": "huizhen",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "7395437",
+      "name": "预约",
+      "font_class": "yuyue",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "8645325",
+      "name": "医生",
+      "font_class": "yisheng",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "11140249",
+      "name": "记录 (1)",
+      "font_class": "jilu",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    }
+  ]
+}

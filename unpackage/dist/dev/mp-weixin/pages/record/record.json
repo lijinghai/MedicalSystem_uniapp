@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "医疗管理系统",
+  "navigationBarTitleText": "门诊记录",
   "enablePullDownRefresh": true,
   "usingComponents": {}
 }
