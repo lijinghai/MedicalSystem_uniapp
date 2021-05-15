@@ -58,7 +58,7 @@
 			// 获取轮播图的数据
 			async getSwipers() {
 				const res = await this.$myRequest({
-					url: '/unbo?limit=3&page=1&sort=1'
+					// url: '/unbo?limit=3&page=1&sort=1'
 				})
 				console.log(res)
 				this.swipers = res.data.data.items
@@ -116,7 +116,7 @@
 				background: #089cff;
 				border-radius: 60rpx;
 				margin: 10px auto;
-				line-height: 50px;
+				line-height: 55px;
 				color: #fff;
 				font-size: 70rpx;
 			}
