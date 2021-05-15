@@ -4,8 +4,11 @@
 		<!-- indicator-dots 图片下的点 -->
 		<!-- circular 循环 -->
 		<swiper indicator-dots circular>
-			<swiper-item v-for="item in swipers" :key='item.id'>
-				<image :src="item.imgUrl"></image>
+			<swiper-item >
+				<image src="../../static/unbo/yisheng.jpg" mode=""></image>
+			</swiper-item>
+			<swiper-item >
+				<image src="../../static/unbo/yiyuan.jpg" mode=""></image>
 			</swiper-item>
 		</swiper>
 
