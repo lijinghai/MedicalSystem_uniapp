@@ -61,7 +61,7 @@
   background: #089cff;
   border-radius: 60rpx;
   margin: 10px auto;
-  line-height: 50px;
+  line-height: 55px;
   color: #fff;
   font-size: 70rpx;
 }
