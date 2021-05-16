@@ -17,37 +17,37 @@
             
         },
 		{
-            "path" : "pages/introduce/introduce",
+            "path" : "pages/parameter/parameter",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "医院介绍",
+                "navigationBarTitleText": "病理参数",
                 "enablePullDownRefresh": true
             }
             
         },
 		{
-            "path" : "pages/consultation/consultation",
+            "path" : "pages/manage/manage",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "自助会诊",
+                "navigationBarTitleText": "事件管理",
                 "enablePullDownRefresh": true
             }
             
         },
 		{
-            "path" : "pages/register/register",
+            "path" : "pages/alarm/alarm",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "预约挂号",
+                "navigationBarTitleText": "闹钟设置",
                 "enablePullDownRefresh": true
             }
             
         },
 		{
-            "path" : "pages/record/record",
+            "path" : "pages/report/report",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "门诊记录",
+                "navigationBarTitleText": "事件报表",
                 "enablePullDownRefresh": true
             }
             

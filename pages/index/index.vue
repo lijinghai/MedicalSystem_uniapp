@@ -5,14 +5,14 @@
 		<!-- circular 循环 -->
 		<swiper indicator-dots circular>
 			<swiper-item >
-				<image src="../../static/unbo/yisheng.jpg" mode=""></image>
+				<image src="../../static/unbo/yiyuan.jpg" mode=""></image>
 			</swiper-item>
 			<swiper-item >
-				<image src="../../static/unbo/yiyuan.jpg" mode=""></image>
+				<image src="../../static/unbo/yisheng.jpg" mode=""></image>
 			</swiper-item>
 		</swiper>
 
-		<!-- 导航区 -->
+		<!-- 导航区1 -->
 		<view class="nav">
 			<view class="nav_item" v-for="(item,index) in navs" :key="index" @click="navItemClick(item.path)">
 				<view :class="item.icon"></view>
@@ -28,25 +28,26 @@
 		data() {
 			return {
 				swipers: [],
+				// 首页导航区一
 				navs: [{
-						icon: 'iconfont icon-yisheng',
-						title: '医院介绍',
-						path: '/pages/introduce/introduce'
+						icon: 'iconfont icon-canshuzu',
+						title: '病理参数',
+						path: '/pages/parameter/parameter'
 					},
 					{
-						icon: 'iconfont icon-huizhen',
-						title: '自助会诊',
-						path: '/pages/consultation/consultation'
+						icon: 'iconfont icon-shijianguanli',
+						title: '事件管理',
+						path: '/pages/manage/manage'
 					},
 					{
-						icon: 'iconfont icon-yuyue',
-						title: '预约挂号',
-						path: '/pages/register/register'
+						icon: 'iconfont icon-naozhong3',
+						title: '闹钟设置',
+						path: '/pages/alarm/alarm'
 					},
 					{
-						icon: 'iconfont icon-jilu',
-						title: '门诊记录',
-						path: '/pages/record/record'
+						icon: 'iconfont icon-baobiaobiaoweiguanli',
+						title: '事件报表',
+						path: '/pages/report/report'
 					}
 				]
 			}

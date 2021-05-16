@@ -1,6 +1,6 @@
 <template>
 	<view>
-		会诊
+		事件管理
 	</view>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		记录
+		事件报表
 	</view>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		预约挂号
+		闹钟设置
 	</view>
 </template>
 
