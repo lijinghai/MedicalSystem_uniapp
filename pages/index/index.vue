@@ -20,6 +20,8 @@
 			</view>
 		</view>
 
+		
+
 	</view>
 </template>
 
@@ -53,17 +55,9 @@
 			}
 		},
 		onLoad() {
-			this.getSwipers()
+			
 		},
 		methods: {
-			// 获取轮播图的数据
-			async getSwipers() {
-				const res = await this.$myRequest({
-					// url: '/unbo?limit=3&page=1&sort=1'
-				})
-				console.log(res)
-				this.swipers = res.data.data.items
-			},
 			// 导航事件的处理
 			navItemClick(url) {
 				console.log('跳转', url)
@@ -132,4 +126,5 @@
 			}
 		}
 	}
+
 </style>
