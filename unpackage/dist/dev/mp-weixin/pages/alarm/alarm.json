@@ -1,8 +1,5 @@
 {
   "navigationBarTitleText": "闹钟设置",
   "enablePullDownRefresh": true,
-  "usingComponents": {
-    "uni-section": "/uni_modules/uni-section/components/uni-section/uni-section",
-    "uni-countdown": "/uni_modules/uni-countdown/components/uni-countdown/uni-countdown"
-  }
+  "usingComponents": {}
 }
