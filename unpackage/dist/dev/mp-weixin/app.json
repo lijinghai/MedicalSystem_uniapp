@@ -6,7 +6,8 @@
     "pages/parameter/parameter",
     "pages/manage/manage",
     "pages/alarm/alarm",
-    "pages/report/report"
+    "pages/report/report",
+    "pages/register/register"
   ],
   "subPackages": [],
   "window": {
@@ -36,6 +37,5 @@
   "uniStatistics": {
     "enable": true
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

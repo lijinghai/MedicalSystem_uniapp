@@ -196,6 +196,8 @@ var _default =
 
   },
   methods: {
+
+    //登录事件
     login: function login() {
       var _this = this; // 获取此时的this为一个常量，防止下面请求回调改变出错
       console.log("表单提交");
@@ -225,6 +227,15 @@ var _default =
         fail: function fail(res) {
           console.log("错误");
         } });
+
+    },
+
+    //用户注册页面
+    register: function register() {
+      console.log("点击");
+      // 跳转到注册页面
+      uni.switchTab({
+        url: '../register/register' });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

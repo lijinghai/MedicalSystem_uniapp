@@ -20,7 +20,7 @@
 		<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'" @click="login">登录
 		</view>
 		<view class="select_login">
-			<view @click="navigateBack()">验证码登录</view>
+			<view @click="register">用户注册</view>
 			<view @click="openUrl('/pages/login/forget')">忘记密码？</view>
 		</view>
 		<view class="des">
@@ -44,6 +44,8 @@
 			};
 		},
 		methods: {
+			
+			//登录事件
 			login() {
 				const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
 				console.log("表单提交")
@@ -74,7 +76,17 @@
 						console.log("错误")
 					}
 				})
+			},
+			
+			//用户注册页面
+			register(){
+				console.log("点击")
+				// 跳转到注册页面
+				uni.switchTab({ 
+					url: '../register/register'
+				})
 			}
+			
 		}
 	};
 </script>
