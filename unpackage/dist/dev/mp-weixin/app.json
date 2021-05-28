@@ -7,7 +7,10 @@
     "pages/manage/manage",
     "pages/alarm/alarm",
     "pages/report/report",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/forget/forget",
+    "pages/agree/agree",
+    "pages/hideAgree/hideAgree"
   ],
   "subPackages": [],
   "window": {

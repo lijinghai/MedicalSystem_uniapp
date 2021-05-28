@@ -61,6 +61,30 @@
 				"enablePullDownRefresh": true
 			}
 		
+		},
+		{
+			"path": "pages/forget/forget",
+			"style": {
+				"navigationBarTitleText": "忘记密码",
+				"enablePullDownRefresh": true
+			}
+		
+		},
+		{
+			"path": "pages/agree/agree",
+			"style": {
+				"navigationBarTitleText": "用户协议",
+				"enablePullDownRefresh": true
+			}
+		
+		},
+		{
+			"path": "pages/hideAgree/hideAgree",
+			"style": {
+				"navigationBarTitleText": "用户隐私协议",
+				"enablePullDownRefresh": true
+			}
+		
 		}
 
 	],

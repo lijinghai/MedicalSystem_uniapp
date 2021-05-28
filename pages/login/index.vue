@@ -21,13 +21,13 @@
 		</view>
 		<view class="select_login">
 			<view @click="register">用户注册</view>
-			<view @click="openUrl('/pages/login/forget')">忘记密码？</view>
+			<view @click="forget">忘记密码？</view>
 		</view>
 		<view class="des">
 			登录表示您已阅读并同意
-			<text class="text2" @click="openUrl('/pages/html/html?key=user_agreement&title=Uplay用户协议')">《用户协议》</text>
+			<text class="text2" @click="ageree">《用户协议》</text>
 			、
-			<text class="text2" @click="openUrl('/pages/html/html?key=privacy_policy&title=用户隐私协议')">《用户隐私协议》</text>
+			<text class="text2" @click="hideAgree">《用户隐私协议》</text>
 		</view>
 	</view>
 </template>
@@ -80,12 +80,35 @@
 			
 			//用户注册页面
 			register(){
-				console.log("点击")
 				// 跳转到注册页面
 				uni.navigateTo({ 
 					url: '../register/register'
 				})
-			}
+			},
+			
+			//忘记密码页面
+			forget(){
+				// 跳转到忘记密码页面
+				uni.navigateTo({ 
+					url: '../forget/forget'
+				})
+			},
+			
+			//用户协议
+			ageree(){
+				// 跳转到用户协议
+				uni.navigateTo({
+					url: '../agree/agree'
+				})
+			},
+			
+			//用户协议
+			hideAgree(){
+				// 跳转到用户隐私协议
+				uni.navigateTo({
+					url: '../hideAgree/hideAgree'
+				})
+			},
 			
 		}
 	};

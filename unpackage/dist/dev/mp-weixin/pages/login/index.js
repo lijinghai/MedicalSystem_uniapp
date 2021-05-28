@@ -232,10 +232,33 @@ var _default =
 
     //用户注册页面
     register: function register() {
-      console.log("点击");
       // 跳转到注册页面
       uni.navigateTo({
         url: '../register/register' });
+
+    },
+
+    //忘记密码页面
+    forget: function forget() {
+      // 跳转到忘记密码页面
+      uni.navigateTo({
+        url: '../forget/forget' });
+
+    },
+
+    //用户协议
+    ageree: function ageree() {
+      // 跳转到用户协议
+      uni.navigateTo({
+        url: '../agree/agree' });
+
+    },
+
+    //用户协议
+    hideAgree: function hideAgree() {
+      // 跳转到用户隐私协议
+      uni.navigateTo({
+        url: '../hideAgree/hideAgree' });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
