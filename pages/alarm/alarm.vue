@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 	<view class="box">
 		<view class="tit">欢迎登录</view>
 		<view class="ul">
@@ -196,4 +196,4 @@ export default {
 		}
 	}
 }
-</style>
+</style> -->

@@ -1,6 +1,13 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "医疗管理系统",
@@ -8,51 +15,46 @@
 			}
 		},
 		{
-            "path" : "pages/people/people",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "个人中心",
-                "enablePullDownRefresh": true
-            }
-            
-        },
+			"path": "pages/people/people",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"enablePullDownRefresh": true
+			}
+
+		},
 		{
-            "path" : "pages/parameter/parameter",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "病理参数",
-                "enablePullDownRefresh": true
-            }
-            
-        },
+			"path": "pages/parameter/parameter",
+			"style": {
+				"navigationBarTitleText": "病理参数",
+				"enablePullDownRefresh": true
+			}
+
+		},
 		{
-            "path" : "pages/manage/manage",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "事件管理",
-                "enablePullDownRefresh": true
-            }
-            
-        },
+			"path": "pages/manage/manage",
+			"style": {
+				"navigationBarTitleText": "事件管理",
+				"enablePullDownRefresh": true
+			}
+
+		},
 		{
-            "path" : "pages/alarm/alarm",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "闹钟设置",
-                "enablePullDownRefresh": true
-            }
-            
-        },
+			"path": "pages/alarm/alarm",
+			"style": {
+				"navigationBarTitleText": "闹钟设置",
+				"enablePullDownRefresh": true
+			}
+
+		},
 		{
-            "path" : "pages/report/report",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "事件报表",
-                "enablePullDownRefresh": true
-            }
-            
-        }
-        
+			"path": "pages/report/report",
+			"style": {
+				"navigationBarTitleText": "事件报表",
+				"enablePullDownRefresh": true
+			}
+
+		}
+
 	],
 	// 头部导航栏设置
 	"globalStyle": {
@@ -62,21 +64,20 @@
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
-		"selectedColor":"#87CEFF",
-		"color":"#C0C0C0",
-		"list": [
-			{
-				"text":"首页",
-				"pagePath":"pages/index/index",
-				"iconPath":"static/img/home.png",
-				"selectedIconPath":"static/img/active_home.png"
+		"selectedColor": "#87CEFF",
+		"color": "#C0C0C0",
+		"list": [{
+				"text": "首页",
+				"pagePath": "pages/index/index",
+				"iconPath": "static/img/home.png",
+				"selectedIconPath": "static/img/active_home.png"
 			},
 			{
-				"text":"个人中心",
-				"pagePath":"pages/people/people",
-				"iconPath":"static/img/people.png",
-				"selectedIconPath":"static/img/active_people.png"
+				"text": "个人中心",
+				"pagePath": "pages/people/people",
+				"iconPath": "static/img/people.png",
+				"selectedIconPath": "static/img/active_people.png"
 			}
-			]
-		}
+		]
+	}
 }

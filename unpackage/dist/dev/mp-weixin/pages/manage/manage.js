@@ -96,10 +96,10 @@ var components
 try {
   components = {
     uniSection: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-section/components/uni-section/uni-section */ "uni_modules/uni-section/components/uni-section/uni-section").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-section/components/uni-section/uni-section.vue */ 57))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-section/components/uni-section/uni-section */ "uni_modules/uni-section/components/uni-section/uni-section").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-section/components/uni-section/uni-section.vue */ 59))
     },
     uniCountdown: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-countdown/components/uni-countdown/uni-countdown */ "uni_modules/uni-countdown/components/uni-countdown/uni-countdown").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-countdown/components/uni-countdown/uni-countdown.vue */ 64))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-countdown/components/uni-countdown/uni-countdown */ "uni_modules/uni-countdown/components/uni-countdown/uni-countdown").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-countdown/components/uni-countdown/uni-countdown.vue */ 66))
     }
   }
 } catch (e) {
