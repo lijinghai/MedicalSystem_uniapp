@@ -1,6 +1,6 @@
 <template>
 	<view>
-		用户
+		用户协议
 	</view>
 </template>
 
