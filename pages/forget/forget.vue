@@ -1,6 +1,6 @@
 <template>
 	<view>
-		忘记
+		忘记密码
 	</view>
 </template>
 
