@@ -234,7 +234,7 @@ var _default =
     register: function register() {
       console.log("点击");
       // 跳转到注册页面
-      uni.switchTab({
+      uni.navigateTo({
         url: '../register/register' });
 
     } } };exports.default = _default;
