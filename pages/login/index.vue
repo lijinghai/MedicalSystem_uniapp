@@ -3,11 +3,11 @@
 		<view class="tit">欢迎登录</view>
 		<view class="ul">
 			<view class="li">
-				<text class="title">账号</text>
+				<text class="title">+86</text>
 				<image class="xiala" src=""></image>
 				<view class="shu"></view>
 				<input v-model="user.account" maxlength="11" placeholder-style="color: #AFAFB8" class="pr" type="number"
-					placeholder="请输入账号" />
+					placeholder="请输入手机号" />
 			</view>
 			<view class="li">
 				<input v-model="user.password" maxlength="24" placeholder-style="color: #AFAFB8" class="pr" type="text"
