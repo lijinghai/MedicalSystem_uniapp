@@ -1,6 +1,6 @@
 <template>
 	<view>
-		隐私
+		用户隐私协议
 	</view>
 </template>
 
