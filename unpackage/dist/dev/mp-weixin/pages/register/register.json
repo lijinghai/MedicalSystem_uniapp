@@ -1,5 +1,10 @@
 {
   "navigationBarTitleText": "用户注册",
   "enablePullDownRefresh": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-row": "/uni_modules/uni-row/components/uni-row/uni-row",
+    "uni-col": "/uni_modules/uni-row/components/uni-col/uni-col",
+    "uni-number-box": "/uni_modules/uni-number-box/components/uni-number-box/uni-number-box",
+    "uni-combox": "/uni_modules/uni-combox/components/uni-combox/uni-combox"
+  }
 }
