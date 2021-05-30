@@ -1,5 +1,6 @@
 <template>
 	<view>
+		事件管理
 <!-- 		<uni-section title="一般用法" type="line"></uni-section>
 		<view class="example-body">
 			<uni-countdown :day="1" :hour="1" :minute="12" :second="40" />
@@ -20,10 +21,10 @@
 		</view> -->
 		
 		
-		<uni-section title="倒计时回调事件" type="line"></uni-section>
+	<!-- 	<uni-section title="倒计时回调事件" type="line"></uni-section>
 		<view class="example-body">
 			<uni-countdown :show-day="false" :second="5" @timeup="timeup" />
-		</view>
+		</view> -->
 		
 		 <!-- <button type="primary" @click="close">关闭</button> -->
 		
@@ -38,8 +39,8 @@
 </template>
 
 <script>
-	const innerAudioContext = uni.createInnerAudioContext();
-	innerAudioContext.autoplay = true;
+	// const innerAudioContext = uni.createInnerAudioContext();
+	// innerAudioContext.autoplay = true;
 	export default {
 		components: {},
 		data() {
@@ -64,19 +65,19 @@
 		},
 		methods: {
 
-			timeup() {
-				uni.showToast({
-					title: '上厕所时间到'
-				});
-				innerAudioContext.src = 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3';
-				innerAudioContext.onPlay(() => {
-				  console.log('开始播放');
-				});
-				innerAudioContext.onError((res) => {
-				  console.log(res.errMsg);
-				  console.log(res.errCode);
-				});
-			},
+			// timeup() {
+			// 	uni.showToast({
+			// 		title: '上厕所时间到'
+			// 	});
+			// 	innerAudioContext.src = 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3';
+			// 	innerAudioContext.onPlay(() => {
+			// 	  console.log('开始播放');
+			// 	});
+			// 	innerAudioContext.onError((res) => {
+			// 	  console.log(res.errMsg);
+			// 	  console.log(res.errCode);
+			// 	});
+			// },
 			// close(){
 			// 	console.log('停止播放');
 			// 	innerAudioContext.src = 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3';
@@ -92,9 +93,9 @@
 </script>
 
 <style lang="scss">
-	@import '@/common/uni-nvue.scss';
+	// @import '@/common/uni-nvue.scss';
 
-	.example-body {
-		padding: 10px;
-	}
+	// .example-body {
+	// 	padding: 10px;
+	// }
 </style>

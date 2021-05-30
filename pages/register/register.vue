@@ -2,49 +2,51 @@
 	<view class="box">
 		<view class="tit">欢迎您的加入</view>
 		<view class="ul">
-			<view class="li">
-				<input v-model="user.name" maxlength="11" placeholder-style="color: #AFAFB8" class="pr" type="number"
-					placeholder="请输入用户名" />
-			</view>
 
-			<view class="li">
-				<input v-model="user.account" maxlength="11" placeholder-style="color: #AFAFB8" class="pr" type="number"
-					placeholder="请输入手机号" />
-			</view>
-			<view class="li">
-				<input v-model="user.password" maxlength="24" placeholder-style="color: #AFAFB8" class="pr" type="text"
-					placeholder="请输入密码" :password="pwd_show" />
-				<image class="xs" src="" v-if="pwd_show" @click="pwd_show = !pwd_show">
-				</image>
-				<image class="yc" src="" v-else @click="pwd_show = !pwd_show"></image>
-			</view>
+			<!-- 方案一 -->
+			<!-- <uni-forms :rules="rules" ref="form" :value="user">
 
-			<view class="li">
-				<input v-model="user.email" maxlength="11" placeholder-style="color: #AFAFB8" class="pr" type="number"
-					placeholder="请输入邮箱" />
-			</view>
+				<uni-forms-item label="手机号" name="account">
+					<input class="input" type="text" v-model="user.account" placeholder="请输入手机号" />
+				</uni-forms-item>
+
+				<uni-forms-item label="密码" name="password">
+					<input class="input" type="password" v-model="user.password" placeholder="请输入密码" />
+				</uni-forms-item>
+			</uni-forms> -->
 
 
-			<view>
-				<uni-row class="demo-uni-row">
-					<uni-col :span="8">
-						<view class="demo-uni-col ">您的年龄：</view>
-					</uni-col>
-					<uni-col :span="8" :offset="0">
-						<view class="demo-uni-col dark">
-							<uni-number-box :min="1" :max="100" value="18"></uni-number-box>
-						</view>
-					</uni-col>
-				</uni-row>
-			</view>
+			<!-- 方案二 -->
+				<uni-forms :rules="rules" ref="form" :value="user">
+					<view class="li" :rules="rules" ref="form" :value="user">
+						<uni-forms-item name="account">
+							<input v-model="user.account" maxlength="11" placeholder-style="color: #AFAFB8" class="pr"
+								type="number" placeholder="请输入账号" />
+						</uni-forms-item>
+					</view>
+
+					<view class="li" :rules="rules" ref="form" :value="user">
+						<uni-forms-item name="password">
+							<input v-model="user.password" maxlength="24" placeholder-style="color: #AFAFB8" class="pr"
+								type="text" placeholder="请输入密码" :password="pwd_show" />
+							<image class="xs" src="" v-if="pwd_show" @click="pwd_show = !pwd_show">
+							</image>
+							<image class="yc" src="" v-else @click="pwd_show = !pwd_show"></image>
+						</uni-forms-item>
+
+					</view>
+
+				</uni-forms>
 
 
-			<view class="example-body">
-				<uni-combox label="您的性别" :candidates="candidates" placeholder="请选择您的性别" v-model="city"></uni-combox>
-			</view>
-
-		</view>
-		<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'" @click="postInfo">注册
+				<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'"
+					@click="postInfo">注册</view>
+				<view class="des">
+					注册表示您已阅读并同意
+					<text class="text2" @click="ageree">《用户协议》</text>
+					、
+					<text class="text2" @click="hideAgree">《用户隐私协议》</text>
+				</view>
 		</view>
 	</view>
 </template>
@@ -54,57 +56,84 @@
 		components: {},
 		data() {
 			return {
-				user: {
-					account: "",
-					age: 0,
-					createTime: "",
-					deleted: 0,
-					email: "",
-					id: 0,
-					name: "",
-					password: "",
-					roleType: 0,
-					sex: 0
-				},
 				pwd_show: true,
-				candidates: ['男', '女'],
-				city: ''
+				user: {
+					account: '',
+					password: ''
+				},
+				rules: {
+					// 对account字段进行校验
+					account: {
+						rules: [{
+								required: true,
+								errorMessage: '请填写账号',
+							},
+							{
+								minLength: 3,
+								maxLength: 11,
+								errorMessage: '账号长度在 {minLength} 到 {maxLength} 个字符',
+							}
+						]
+					},
+					// 对password字段进行必填验证
+					password: {
+						rules: [{
+								required: true,
+								errorMessage: '请输入密码',
+							},
+							{
+								minLength: 3,
+								maxLength: 11,
+								errorMessage: '密码长度在 {minLength} 到 {maxLength} 个字符',
+							}
+						]
+					}
+				}
 			};
 		},
 		methods: {
 
 			//注册事件
 			postInfo() {
-				const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
-				console.log("表单提交")
-				// 登录跳转
-				uni.request({
-					// 路径
-					url: 'http://localhost:8091/uniappuser/add',
-					// 请求方法
-					method: 'POST',
-					data: _this.user, // 发送的数据
-					success({ // 请求成功
-						data
-					}) {
-						if (data.code == 20000) { // 获取数据成功
-						console.log("成功")
-							uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
-							// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
-							uni.navigateTo({
-								url: '../login/index'
-							})
-						} else { // 获取数据失败
-							console.log("失败")
-							uni.showModal({
-								title: '请按要求填写注册信息！！'
-							})
+				this.$refs.form.submit().then(res => {
+					console.log('表单数据信息：', res);
+					const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
+					console.log("表单提交")
+					// 登录跳转
+					uni.request({
+						// 路径
+						url: 'http://localhost:8091/uniappuser/add',
+						// 请求方法
+						method: 'POST',
+						data: _this.user, // 发送的数据
+						success({ // 请求成功
+							data
+						}) {
+							if (data.code == 20000) { // 获取数据成功
+								console.log("成功")
+								uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
+								// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
+								uni.navigateTo({
+									url: '../login/index'
+								})
+								uni.showModal({
+									title: '欢迎加入我们，赶快去登录吧！！'
+								})
+							} else { // 获取数据失败
+								console.log("失败")
+								uni.showModal({
+									title: '请按要求填写注册信息！！'
+								})
+							}
+						},
+						fail: (res) => {
+							console.log("错误")
 						}
-					},
-					fail: (res) => {
-						console.log("错误")
-					}
+					})
+				}).catch(err => {
+					console.log('表单错误信息：', err);
 				})
+
 			},
 
 			//用户注册页面
@@ -115,13 +144,6 @@
 				})
 			},
 
-			//忘记密码页面
-			forget() {
-				// 跳转到忘记密码页面
-				uni.navigateTo({
-					url: '../forget/forget'
-				})
-			},
 
 			//用户协议
 			ageree() {
