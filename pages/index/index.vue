@@ -4,14 +4,16 @@
 		<!-- indicator-dots 图片下的点 -->
 		<!-- circular 循环 -->
 		<swiper indicator-dots circular>
-			<swiper-item >
+			<swiper-item>
 				<image src="../../static/unbo/yiyuan.jpg" mode=""></image>
 			</swiper-item>
-			<swiper-item >
+			<swiper-item>
 				<image src="../../static/unbo/yisheng.jpg" mode=""></image>
 			</swiper-item>
 		</swiper>
-
+		<!-- 通告栏 -->
+		<uni-notice-bar showClose="true" showIcon="true" color="#87CEFF" scrollable="true" single="true"
+			text="[通知] 欢迎使用我们的软件"></uni-notice-bar>
 		<!-- 导航区1 -->
 		<view class="nav">
 			<view class="nav_item" v-for="(item,index) in navs" :key="index" @click="navItemClick(item.path)">
@@ -20,7 +22,7 @@
 			</view>
 		</view>
 
-		
+
 
 	</view>
 </template>
@@ -55,7 +57,7 @@
 			}
 		},
 		onLoad() {
-			
+
 		},
 		methods: {
 			// 导航事件的处理
@@ -126,5 +128,4 @@
 			}
 		}
 	}
-
 </style>
