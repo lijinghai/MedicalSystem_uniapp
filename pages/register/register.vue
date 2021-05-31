@@ -21,7 +21,7 @@
 					<view class="li" :rules="rules" ref="form" :value="user">
 						<uni-forms-item name="account">
 							<input v-model="user.account" maxlength="11" placeholder-style="color: #AFAFB8" class="pr"
-								type="number" placeholder="请输入账号" />
+								type="number" placeholder="请输入手机号" />
 						</uni-forms-item>
 					</view>
 
@@ -66,12 +66,13 @@
 					account: {
 						rules: [{
 								required: true,
-								errorMessage: '请填写账号',
+								errorMessage: '请填写手机号',
 							},
 							{
-								minLength: 3,
+								minLength: 11,
 								maxLength: 11,
-								errorMessage: '账号长度在 {minLength} 到 {maxLength} 个字符',
+								// errorMessage: '手机号长度在 {minLength} 到 {maxLength} 个字符',
+								errorMessage: '手机号长度为 {maxLength} 个字符',
 							}
 						]
 					},
