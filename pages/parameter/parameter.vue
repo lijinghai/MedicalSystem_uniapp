@@ -12,28 +12,10 @@
 
 		<!-- 右侧信息页显示 -->
 		<scroll-view class="right" scroll-y>
-			<!-- 大试图 -->
-			<view @click="leftClickHandle(index,item.id)" :class="active===index?'active':''"
-				v-for="(item,index) in cates" :key="item.id">
-				<view v-if="item.id === 1">
-					1
-				</view>
-				<view v-if="item.id === 2">
-					2
-				</view>
+			<view class="item" v-for="(item,index) in cates" :key="item.id">
+				
 			</view>
-			
-			
-			
-			<!-- <view class="item" v-for="(item,index) in cates" :key="item.id"> -->
-				<!-- <view>
-					{{item.id}}
-				</view> -->
-				<!-- <view v-if="item.g_id === '2'">
-					{{item.g_id}}
-				</view> -->
-			<!-- </view> -->
-			<!-- <text v-if="secondData.length === 0">暂无数据</text> -->
+			<text v-if="secondData.length == 0">暂无数据</text>
 		</scroll-view>
 
 	</view>
@@ -72,7 +54,10 @@
 				console.log("id:" + g_id)
 				this.active = index
 				// 获取右侧的数据
-				
+				// const res = await this.$myRequest ({
+				// 	url: '/category?limit=9999&page=1&sort=&id='+g_id
+				// })
+		
 			}
 		},
 		onLoad() {

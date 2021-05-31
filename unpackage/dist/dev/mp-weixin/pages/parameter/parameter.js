@@ -153,24 +153,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
@@ -204,6 +186,9 @@ var _default =
                 console.log("id:" + g_id);
                 _this2.active = index;
                 // 获取右侧的数据
+                // const res = await this.$myRequest ({
+                // 	url: '/category?limit=9999&page=1&sort=&id='+g_id
+                // })
               case 2:case "end":return _context2.stop();}}}, _callee2);}))();
     } },
 
