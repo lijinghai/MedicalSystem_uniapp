@@ -51,13 +51,13 @@
             },
             "icons" : {
                 "android" : {
-                    "hdpi" : "D:/Dorian/图标/lost.png",
-                    "xhdpi" : "D:/Dorian/图标/lost.png",
-                    "xxhdpi" : "D:/Dorian/图标/lost.png",
-                    "xxxhdpi" : "D:/Dorian/图标/lost.png"
+                    "hdpi" : "",
+                    "xhdpi" : "",
+                    "xxhdpi" : "",
+                    "xxxhdpi" : ""
                 },
                 "ios" : {
-                    "appstore" : "D:/Dorian/图标/lost.png"
+                    "appstore" : ""
                 }
             }
         },
