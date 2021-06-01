@@ -9,15 +9,6 @@
 			</view>
 		</scroll-view>
 
-
-		<!-- 右侧信息页显示 -->
-		<scroll-view class="right" scroll-y>
-			<view class="item" v-for="(item,index) in cates" :key="item.id">
-				
-			</view>
-			<text v-if="secondData.length == 0">暂无数据</text>
-		</scroll-view>
-
 	</view>
 </template>
 
@@ -26,21 +17,21 @@
 		data() {
 			return {
 				cates: [{
-					id: 1,
-					ctitle: '膀胱动力学数据'
-				},
-				{
-					id: 2,
-					ctitle: '尿常规数据'
-				},
-				{
-					id: 3,
-					ctitle: '肾功能数据数据'
-				},
-				{
-					id: 4,
-					ctitle: '输尿管B超数据'
-				}
+						id: 1,
+						ctitle: '膀胱动力学数据'
+					},
+					{
+						id: 2,
+						ctitle: '尿常规数据'
+					},
+					{
+						id: 3,
+						ctitle: '肾功能数据'
+					},
+					{
+						id: 4,
+						ctitle: '输尿管B超数据'
+					}
 				],
 				active: 0,
 				secondData: []
@@ -48,16 +39,29 @@
 		},
 		methods: {
 			async getPicsCate() {
-				this.leftClickHandle(0, this.cates[0].id)
+				// this.leftClickHandle(0, this.cates[0].id)
 			},
 			async leftClickHandle(index, g_id) {
 				console.log("id:" + g_id)
 				this.active = index
-				// 获取右侧的数据
-				// const res = await this.$myRequest ({
-				// 	url: '/category?limit=9999&page=1&sort=&id='+g_id
-				// })
-		
+
+				if (g_id === 1) {
+					uni.navigateTo({
+						url: '../bladderData/index'
+					})
+				}
+				if (g_id === 2)
+					uni.navigateTo({
+						url: '../urineData/index'
+					})
+				if (g_id === 3)
+					uni.navigateTo({
+						url: '../renalData/index'
+					})
+				if (g_id === 4)
+					uni.navigateTo({
+						url: '../ureteralData/index'
+					})
 			}
 		},
 		onLoad() {
@@ -78,7 +82,7 @@
 		display: flex;
 
 		.left {
-			width: 220rpx;
+			width: 100%;
 			height: 100%;
 			border-right: 1px solid #eee;
 

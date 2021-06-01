@@ -85,7 +85,36 @@
 				"enablePullDownRefresh": true
 			}
 		
+		},
+		{
+			"path": "pages/bladderData/index",
+			"style": {
+				"navigationBarTitleText": "膀胱动力学数据",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/urineData/index",
+			"style": {
+				"navigationBarTitleText": "尿常规数据",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/renalData/index",
+			"style": {
+				"navigationBarTitleText": "肾功能数据",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/ureteralData/index",
+			"style": {
+				"navigationBarTitleText": "输尿管B超数据",
+				"enablePullDownRefresh": true
+			}
 		}
+		
 
 	],
 	// 头部导航栏设置
