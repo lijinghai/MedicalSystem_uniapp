@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "膀胱动力学数据",
+  "navigationBarTitleText": "膀胱动力学资料",
   "enablePullDownRefresh": true,
   "usingComponents": {
     "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav",

@@ -24,29 +24,24 @@
 		data() {
 			return {
 				findlist: [],
-				options: [{
-					icon: 'headphones',
-					text: '客服'
-				}, {
-					icon: 'shop',
-					text: '店铺',
-					info: 2,
-					infoBackgroundColor: '#007aff',
-					infoColor: "red"
-				}, {
-					icon: 'cart',
-					text: '购物车',
-					info: 2
-				}],
+				// options: [{
+				// 	icon: 'headphones',
+				// 	text: '客服'
+				// }, {
+				// 	icon: 'shop',
+				// 	text: '店铺',
+				// 	info: 2,
+				// 	infoBackgroundColor: '#007aff',
+				// 	infoColor: "red"
+				// }, {
+				// 	icon: 'cart',
+				// 	text: '购物车',
+				// 	info: 2
+				// }],
 				buttonGroup: [
-					// {
-					// 	text: '加入购物车',
-					// 	backgroundColor: '#ff0000',
-					// 	color: '#fff'
-					// },
 					{
-						text: '立即购买',
-						backgroundColor: '#ffa200',
+						text: '添加一条数据',
+						backgroundColor: '#0392ff',
 						color: '#fff'
 					}
 				]
@@ -60,15 +55,11 @@
 				console.log(res)
 				this.findlist = res.data.data.items
 			},
-			onClick(e) {
-				uni.showToast({
-					title: `点击${e.content.text}`,
-					icon: 'none'
+			buttonClick() {
+				console.log("添加")
+				uni.navigateTo({
+					url: '../bladderAdd/index'
 				})
-			},
-			buttonClick(e) {
-				console.log(e)
-				this.options[2].info++
 			}
 		},
 		// 注册组件

@@ -1,12 +1,12 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		// {
-		// 	"path": "pages/login/index",
-		// 	"style": {
-		// 		"navigationBarTitleText": "登录"
-		// 		// "enablePullDownRefresh": true
-		// 	}
-		// },
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录"
+				// "enablePullDownRefresh": true
+			}
+		},
 		{
 			"path": "pages/index/index",
 			"style": {
@@ -89,28 +89,35 @@
 		{
 			"path": "pages/bladderData/index",
 			"style": {
-				"navigationBarTitleText": "膀胱动力学数据",
+				"navigationBarTitleText": "膀胱动力学资料",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/bladderAdd/index",
+			"style": {
+				"navigationBarTitleText": "添加膀胱动力学资料",
 				"enablePullDownRefresh": true
 			}
 		},
 		{
 			"path": "pages/urineData/index",
 			"style": {
-				"navigationBarTitleText": "尿常规数据",
+				"navigationBarTitleText": "尿常规资料",
 				"enablePullDownRefresh": true
 			}
 		},
 		{
 			"path": "pages/renalData/index",
 			"style": {
-				"navigationBarTitleText": "肾功能数据",
+				"navigationBarTitleText": "肾功能资料",
 				"enablePullDownRefresh": true
 			}
 		},
 		{
 			"path": "pages/ureteralData/index",
 			"style": {
-				"navigationBarTitleText": "输尿管B超数据",
+				"navigationBarTitleText": "输尿管B超数据资料",
 				"enablePullDownRefresh": true
 			}
 		}

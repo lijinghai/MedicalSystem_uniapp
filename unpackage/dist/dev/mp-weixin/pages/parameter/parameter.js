@@ -155,19 +155,19 @@ var _default =
     return {
       cates: [{
         id: 1,
-        ctitle: '膀胱动力学数据' },
+        ctitle: '膀胱动力学资料' },
 
       {
         id: 2,
-        ctitle: '尿常规数据' },
+        ctitle: '尿常规资料' },
 
       {
         id: 3,
-        ctitle: '肾功能数据' },
+        ctitle: '肾功能资料' },
 
       {
         id: 4,
-        ctitle: '输尿管B超数据' }],
+        ctitle: '输尿管B超数据资料' }],
 
 
       active: 0,

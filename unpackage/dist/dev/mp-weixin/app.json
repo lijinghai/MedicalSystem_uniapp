@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/login/index",
     "pages/index/index",
     "pages/people/people",
     "pages/parameter/parameter",
@@ -11,6 +12,7 @@
     "pages/agree/agree",
     "pages/hideAgree/hideAgree",
     "pages/bladderData/index",
+    "pages/bladderAdd/index",
     "pages/urineData/index",
     "pages/renalData/index",
     "pages/ureteralData/index"
