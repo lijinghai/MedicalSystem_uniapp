@@ -1,12 +1,18 @@
-<!-- 膀胱动力学参数 -->
+<!-- 膀胱动力学参数
+@author: lijing
+@email: lijinghailjh@163.com
+@Date: 2021 6 1
+ -->
 <template>
 	<view>
-		<find-item @itemClick="goDetail" :list="findlist"></find-item>
+		<scroll-view>
+			<bladderItem  :list="findlist"></bladderItem>
+		</scroll-view>
 	</view>
 </template>
 
 <script>
-	import findItem from '../../components/find-item/find-item.vue'
+	import bladderItem from '../../components/bladderItem/index.vue'
 	export default {
 		data() {
 			return {
@@ -16,20 +22,14 @@
 		methods: {
 			async getFindList() {
 				const res = await this.$myRequest({
-					url: '/sfind?id=1&limit=1&page=1&sort=1'
+					url: '/bladderData?id=1&limit=1&page=1&sort=1'
 				})
 				console.log(res)
 				this.findlist = res.data.data.items
-			},
-			goDetail (fl_id) {
-				console.log(fl_id)
-				uni.navigateTo({
-					url: '/pages/finds-detail/finds-detail?id='+fl_id
-				})
 			}
 		},
 		// 注册组件
-		components: {"findItem":findItem},
+		components: {"bladderItem":bladderItem},
 		onLoad() {
 			this.getFindList()
 		}

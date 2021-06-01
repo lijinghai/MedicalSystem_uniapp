@@ -1,16 +1,24 @@
+<!-- 模板化资讯列表 
+@author: lijing
+@email: lijinghailjh@163.com
+@Date: 2021 6 1
+ -->
 <template>
-	<!-- 模板化资讯列表 -->
 	<view>
 		<view class="new_item" @click="navigator(item.fl_id)" v-for="item in list" :key="item.fl_id">
-			<image :src="item.fl_imgurl"></image>
+			<image src="../../static/img/bladder.png"></image>
 			<view class="right">
 				<view class="title">
-					{{item.fl_imgdesc}}
+					第:{{item.patientDataId}}条数据
+				</view>
+				<view class="title">
+					最大膀胱测压容量:{{item.bladderCapacity}}(ml)
 				</view>
 				<view class="info">
-					<!-- <text>发表时间:{{item.addTime | formatDate}}</text> -->
-					<text>发表时间:{{item.fl_createTime}}</text>
-					<text>浏览次数:{{item.f_click}}</text>
+					排尿期最大逼尿肌压:{{item.bladderDetrusorPressure}}(cmH2O)
+				</view>
+				<view class="title">
+					膀胱顺应性: {{item.bladderCompliance}}(ml/cmH2O)
 				</view>
 			</view>
 		</view>

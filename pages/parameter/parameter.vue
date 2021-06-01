@@ -1,3 +1,8 @@
+<!-- 病理参数
+@author: lijing
+@email: lijinghailjh@163.com
+@Date: 2021 6 1
+ -->
 <template>
 	<view class="pics">
 

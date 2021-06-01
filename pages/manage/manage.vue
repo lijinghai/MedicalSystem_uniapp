@@ -1,6 +1,11 @@
+<!-- 事件管理
+@author: lijing
+@email: lijinghailjh@163.com
+@Date: 2021 6 1
+ -->
 <template>
 	<view>
-		事件管理
+		
 <!-- 		<uni-section title="一般用法" type="line"></uni-section>
 		<view class="example-body">
 			<uni-countdown :day="1" :hour="1" :minute="12" :second="40" />

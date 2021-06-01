@@ -2,6 +2,6 @@
   "navigationBarTitleText": "膀胱动力学数据",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "find-item": "/components/find-item/find-item"
+    "bladder-item": "/components/bladderItem/index"
   }
 }
