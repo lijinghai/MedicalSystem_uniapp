@@ -156,18 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 37));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
 //
 //
 //
@@ -220,49 +209,57 @@ __webpack_require__.r(__webpack_exports__);
 var _default =
 {
   components: {},
-  data: function data() {
-    return {
+  data: function data() {var _ref;
+    return _ref = {
       pwd_show: true,
       info: {
+        id: '',
+        patientDataId: '',
         bladderCapacity: '',
         bladderDetrusorPressure: '',
-        bladderCompliance: '' },
+        bladderCompliance: '' } }, _defineProperty(_ref, "info",
 
-      rules: {
-        // 对bladderCapacity字段进行校验
-        bladderCapacity: {
-          rules: [{
-            required: true,
-            errorMessage: '请填写最大膀胱测压容量' },
-
-          {
-            minLength: 1,
-            // errorMessage: '手机号长度在 {minLength} 到 {maxLength} 个字符',
-            errorMessage: '最大膀胱测压容量长度必须为 {minLength} 个字符' }] },
+    {}), _defineProperty(_ref, "rules",
+    {
+      id: {
+        rules: [{
+          required: false }] },
 
 
+      // 对bladderCapacity字段进行校验
+      bladderCapacity: {
+        rules: [{
+          required: true,
+          errorMessage: '请填写最大膀胱测压容量' },
 
-        // 对bladderDetrusorPressure字段进行必填验证
-        bladderDetrusorPressure: {
-          rules: [{
-            required: true,
-            errorMessage: '请输入排尿期最大逼尿肌压' },
-
-          {
-            minLength: 1,
-            errorMessage: '排尿期最大逼尿肌压长度必须大于 {minLength} 个字符' }] },
+        {
+          minLength: 1,
+          // errorMessage: '手机号长度在 {minLength} 到 {maxLength} 个字符',
+          errorMessage: '最大膀胱测压容量长度必须为 {minLength} 个字符' }] },
 
 
 
-        // 对bladderCompliance字段进行必填验证
-        bladderCompliance: {
-          rules: [{
-            required: true,
-            errorMessage: '请输入膀胱顺应性值' },
+      // 对bladderDetrusorPressure字段进行必填验证
+      bladderDetrusorPressure: {
+        rules: [{
+          required: true,
+          errorMessage: '请输入排尿期最大逼尿肌压' },
 
-          {
-            minLength: 1,
-            errorMessage: '膀胱顺应性值长度必须大于 {minLength}  个字符' }] } } };
+        {
+          minLength: 1,
+          errorMessage: '排尿期最大逼尿肌压长度必须大于 {minLength} 个字符' }] },
+
+
+
+      // 对bladderCompliance字段进行必填验证
+      bladderCompliance: {
+        rules: [{
+          required: true,
+          errorMessage: '请输入膀胱顺应性值' },
+
+        {
+          minLength: 1,
+          errorMessage: '膀胱顺应性值长度必须大于 {minLength}  个字符' }] } }), _ref;
 
 
 
@@ -270,9 +267,9 @@ var _default =
 
   },
   methods: {
-
     //添加事件
     postInfo: function postInfo() {var _this2 = this;
+
       this.$refs.form.submit().then(function (res) {
         console.log('表单数据信息：', res);
         var _this = _this2; // 获取此时的this为一个常量，防止下面请求回调改变出错
@@ -283,10 +280,10 @@ var _default =
           url: 'http://localhost:8091/bladderData',
           // 请求方法
           method: 'PUT',
-          data: _this.user, // 发送的数据
-          success: function success(_ref)
+          data: _this.info, // 发送的数据
+          success: function success(_ref2)
 
-          {var data = _ref.data;
+          {var data = _ref2.data;
             if (data.code == 20000) {// 获取数据成功
               console.log("成功");
               uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
@@ -295,7 +292,7 @@ var _default =
                 url: '../bladderData/index' });
 
               uni.showModal({
-                title: '添加成功！！' });
+                title: '编辑成功！！' });
 
             } else {// 获取数据失败
               console.log("失败");
@@ -312,6 +309,23 @@ var _default =
         console.log('表单错误信息：', err);
       });
 
+    },
+    getInfo: function getInfo() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  _this3.$myRequest({
+                    url: '/bladderData/id?limit=19&page=1&sort=1&id=' + _this3.id }));case 2:res = _context.sent;
+
+                console.log("res==>" + _this3.id);
+                _this3.info = res.data.data.items[0];case 5:case "end":return _context.stop();}}}, _callee);}))();
+    },
+    onLoad: function onLoad(options) {
+      console.log(options);
+      this.id = options.id;
+      // options.id = info.id
+      console.log(options.id);
+      // info.id = this.id
+      // console.log("info.id:"+info.id)
+      // console.log("this.id"+ this.id)
+      this.getInfo();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

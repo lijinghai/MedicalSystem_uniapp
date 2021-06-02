@@ -216,7 +216,7 @@ __webpack_require__.r(__webpack_exports__);
                 _this2.findlist = res.data.data.items;case 5:case "end":return _context.stop();}}}, _callee);}))();
     },
     goDetail: function goDetail(id) {
-      console.log("id" + id);
+      console.log("id：" + id);
       uni.navigateTo({
         url: '/pages/bladderUpd/index?id=' + id });
 

@@ -5,7 +5,7 @@
  -->
 <template>
 	<view>
-		<view class="new_item" @click="navigator(item.id)" v-for="item in list" :key="item.fl_id">
+		<view class="new_item" @click="navigator(item.id)" v-for="item in list" :key="item.id">
 			<image src="../../static/img/bladder.png"></image>
 			<view class="right">
 				<view class="title">

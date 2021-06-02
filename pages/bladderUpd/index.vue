@@ -5,56 +5,45 @@
  -->
 <template>
 	<view class="box">
+
 		<view class="tit">请添加膀胱动力学参数</view>
 		<view class="ul">
 
 			<!-- 方案一 -->
-			<uni-forms :rules="rules" ref="form" :value="info">
-
+			<uni-forms :rules="rules" ref="form">
+				<uni-forms-item label="数据编号" name="id">
+					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+					<input class="input" disabled="true" type="text" v-model="info.id" />
+				</uni-forms-item>
+				<uni-forms-item label="病患编号" name="patientDataId">
+					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+					<input class="input"  type="text" v-model="info.patient_data_id" placeholder="请填写最大膀胱测压容量(ml)" />
+				</uni-forms-item>
 				<uni-forms-item label="数据一:" name="bladderCapacity">
+					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
 					<input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" />
 				</uni-forms-item>
 
 				<uni-forms-item label="数据二:" name="bladderDetrusorPressure">
-					<input class="input" type="text" v-model="info.bladderDetrusorPressure" placeholder="请填写排尿期最大逼尿肌压(cmH2O)" />
+					<!-- <input class="input" type="text" v-model="info.bladderDetrusorPressure" placeholder="请填写排尿期最大逼尿肌压(cmH2O)" /> -->
+					<input class="input" type="text" v-model="info.bladderDetrusorPressure"
+						placeholder="请填写排尿期最大逼尿肌压(cmH2O)" />
 				</uni-forms-item>
 				<uni-forms-item label="数据三:" name="bladderCompliance">
-					<input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" />
+					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+					<input class="input" type="text" v-model="info.bladderCompliance"
+						placeholder="请填写膀胱顺应性(ml/cmH2O)" />
 				</uni-forms-item>
 			</uni-forms>
 
-
-			<!-- 方案二 -->
-				<!-- <uni-forms :rules="rules" ref="form" :value="user">
-					<view class="li" :rules="rules" ref="form" :value="user">
-						<uni-forms-item name="account">
-							<input v-model="user.account" maxlength="11" placeholder-style="color: #AFAFB8" class="pr"
-								type="number" placeholder="请输入手机号" />
-						</uni-forms-item>
-					</view>
-
-					<view class="li" :rules="rules" ref="form" :value="user">
-						<uni-forms-item name="password">
-							<input v-model="user.password" maxlength="24" placeholder-style="color: #AFAFB8" class="pr"
-								type="text" placeholder="请输入密码" :password="pwd_show" />
-							<image class="xs" src="" v-if="pwd_show" @click="pwd_show = !pwd_show">
-							</image>
-							<image class="yc" src="" v-else @click="pwd_show = !pwd_show"></image>
-						</uni-forms-item>
-
-					</view>
-
-				</uni-forms> -->
-
-
-				<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'"
-					@click="postInfo">添加</view>
-				<view class="des">
-					请填写者如实准确的填写以上数据
-					<!-- <text class="text2" @click="ageree">《用户协议》</text>
+			<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'" @click="postInfo">
+				添加</view>
+			<!-- <view class="des"> -->
+			<!-- 请填写者如实准确的填写以上数据 -->
+			<!-- <text class="text2" @click="ageree">《用户协议》</text>
 					、
 					<text class="text2" @click="hideAgree">《用户隐私协议》</text> -->
-				</view>
+			<!-- </view> -->
 		</view>
 	</view>
 </template>
@@ -66,11 +55,19 @@
 			return {
 				pwd_show: true,
 				info: {
+					id: '',
+					patientDataId: '',
 					bladderCapacity: '',
 					bladderDetrusorPressure: '',
 					bladderCompliance: ''
 				},
+				info: {},
 				rules: {
+					id: {
+						rules: [{
+							required: false,
+						}]
+					},
 					// 对bladderCapacity字段进行校验
 					bladderCapacity: {
 						rules: [{
@@ -112,9 +109,9 @@
 			};
 		},
 		methods: {
-
 			//添加事件
 			postInfo() {
+
 				this.$refs.form.submit().then(res => {
 					console.log('表单数据信息：', res);
 					const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
@@ -125,7 +122,7 @@
 						url: 'http://localhost:8091/bladderData',
 						// 请求方法
 						method: 'PUT',
-						data: _this.user, // 发送的数据
+						data: _this.info, // 发送的数据
 						success({ // 请求成功
 							data
 						}) {
@@ -137,7 +134,7 @@
 									url: '../bladderData/index'
 								})
 								uni.showModal({
-									title: '添加成功！！'
+									title: '编辑成功！！'
 								})
 							} else { // 获取数据失败
 								console.log("失败")
@@ -155,6 +152,23 @@
 				})
 
 			},
+			async getInfo() {
+				const res = await this.$myRequest({
+					url: '/bladderData/id?limit=19&page=1&sort=1&id=' + this.id
+				})
+				console.log("res==>" + this.id)
+				this.info = res.data.data.items[0]
+			},
+			onLoad(options) {
+				console.log(options)
+				this.id = options.id
+				// options.id = info.id
+				console.log(options.id)
+				// info.id = this.id
+				// console.log("info.id:"+info.id)
+				// console.log("this.id"+ this.id)
+				this.getInfo()
+			}
 
 		}
 	};
@@ -353,4 +367,3 @@
 		}
 	}
 </style>
-

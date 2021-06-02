@@ -61,7 +61,7 @@
 				this.findlist = res.data.data.items
 			},
 			goDetail (id) {
-				console.log("id"+id)
+				console.log("id："+id)
 				uni.navigateTo({
 					url: '/pages/bladderUpd/index?id='+id
 				})
