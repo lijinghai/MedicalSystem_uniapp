@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uniGoodsNav: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 140))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 148))
     }
   }
 } catch (e) {
@@ -153,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 37));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var bladderItem = function bladderItem() {__webpack_require__.e(/*! require.ensure | components/bladderItem/index */ "components/bladderItem/index").then((function () {return resolve(__webpack_require__(/*! ../../components/bladderItem/index.vue */ 147));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 37));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var bladderItem = function bladderItem() {__webpack_require__.e(/*! require.ensure | components/bladderItem/index */ "components/bladderItem/index").then((function () {return resolve(__webpack_require__(/*! ../../components/bladderItem/index.vue */ 155));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -179,6 +179,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       findlist: [],
+      info: {
+        bladderCapacity: '500.0',
+        bladderDetrusorPressure: '1.0',
+        bladderCompliance: '1.0' },
+
       // options: [{
       // 	icon: 'headphones',
       // 	text: '客服'
@@ -195,7 +200,7 @@ __webpack_require__.r(__webpack_exports__);
       // }],
       buttonGroup: [
       {
-        text: '添加一条数据',
+        text: '添加一条默认数据',
         backgroundColor: '#0392ff',
         color: '#fff' }] };
 
@@ -203,17 +208,54 @@ __webpack_require__.r(__webpack_exports__);
 
   },
   methods: {
-    getFindList: function getFindList() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  _this.$myRequest({
-                    url: '/bladderData?id=1&limit=1&page=1&sort=1' }));case 2:res = _context.sent;
+    getFindList: function getFindList() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  _this2.$myRequest({
+                    url: '/bladderData?id=1&limit=99999&page=9999&sort=1' }));case 2:res = _context.sent;
 
                 console.log(res);
-                _this.findlist = res.data.data.items;case 5:case "end":return _context.stop();}}}, _callee);}))();
+                _this2.findlist = res.data.data.items;case 5:case "end":return _context.stop();}}}, _callee);}))();
+    },
+    goDetail: function goDetail(id) {
+      console.log("id" + id);
+      uni.navigateTo({
+        url: '/pages/bladderUpd/index?id=' + id });
+
     },
     buttonClick: function buttonClick() {
+      // 添加数据
       console.log("添加");
-      uni.navigateTo({
-        url: '../bladderAdd/index' });
+      var _this = this; // 获取此时的this为一个常量，防止下面请求回调改变出错
+      console.log("表单提交");
+      // 添加跳转
+      uni.request({
+        // 路径
+        url: 'http://localhost:8091/bladderData',
+        // 请求方法
+        method: 'POST',
+        data: _this.info, // 发送的数据
+        success: function success(_ref)
+
+        {var data = _ref.data;
+          if (data.code == 20000) {// 获取数据成功
+            console.log("成功");
+            uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
+            // uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
+            uni.navigateTo({
+              url: '../bladderData/index' });
+
+            uni.showModal({
+              title: '添加成功！！' });
+
+          } else {// 获取数据失败
+            console.log("失败");
+            uni.showModal({
+              title: '请按要求填写信息！！' });
+
+          }
+        },
+        fail: function fail(res) {
+          console.log("错误");
+        } });
 
     } },
 

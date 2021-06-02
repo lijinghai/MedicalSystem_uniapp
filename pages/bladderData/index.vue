@@ -7,7 +7,7 @@
 	<view>
 		<view>
 			<scroll-view>
-				<bladderItem :list="findlist"></bladderItem>
+				<bladderItem @itemClick="goDetail" :list="findlist"></bladderItem>
 			</scroll-view>
 		</view>
 
@@ -24,6 +24,11 @@
 		data() {
 			return {
 				findlist: [],
+				info: {
+					bladderCapacity: '500.0',
+					bladderDetrusorPressure: '1.0',
+					bladderCompliance: '1.0'
+				},
 				// options: [{
 				// 	icon: 'headphones',
 				// 	text: '客服'
@@ -40,7 +45,7 @@
 				// }],
 				buttonGroup: [
 					{
-						text: '添加一条数据',
+						text: '添加一条默认数据',
 						backgroundColor: '#0392ff',
 						color: '#fff'
 					}
@@ -50,17 +55,54 @@
 		methods: {
 			async getFindList() {
 				const res = await this.$myRequest({
-					url: '/bladderData?id=1&limit=1&page=1&sort=1'
+					url: '/bladderData?id=1&limit=99999&page=9999&sort=1'
 				})
 				console.log(res)
 				this.findlist = res.data.data.items
 			},
-			buttonClick() {
-				console.log("添加")
+			goDetail (id) {
+				console.log("id"+id)
 				uni.navigateTo({
-					url: '../bladderAdd/index'
+					url: '/pages/bladderUpd/index?id='+id
 				})
-			}
+			},
+			buttonClick() {
+				// 添加数据
+				console.log("添加")
+						const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
+						console.log("表单提交")
+						// 添加跳转
+						uni.request({
+							// 路径
+							url: 'http://localhost:8091/bladderData',
+							// 请求方法
+							method: 'POST',
+							data: _this.info, // 发送的数据
+							success({ // 请求成功
+								data
+							}) {
+								if (data.code == 20000) { // 获取数据成功
+									console.log("成功")
+									uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
+									// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
+									uni.navigateTo({
+										url: '../bladderData/index'
+									})
+									uni.showModal({
+										title: '添加成功！！'
+									})
+								} else { // 获取数据失败
+									console.log("失败")
+									uni.showModal({
+										title: '请按要求填写信息！！'
+									})
+								}
+							},
+							fail: (res) => {
+								console.log("错误")
+							}
+						})
+				},	
 		},
 		// 注册组件
 		components: {

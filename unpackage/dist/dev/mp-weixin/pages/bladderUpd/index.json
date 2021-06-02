@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "添加膀胱动力学资料",
+  "navigationBarTitleText": "修改膀胱动力学资料",
   "enablePullDownRefresh": true,
   "usingComponents": {
     "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms",

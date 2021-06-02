@@ -822,7 +822,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1870,7 +1870,7 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
-/***/ 130:
+/***/ 138:
 /*!*************************************************************************************************************************!*\
   !*** D:/Desktop/MedicalSystem/Code/uni-app/MedicalSystem_uniapp/uni_modules/uni-forms/components/uni-forms/validate.js ***!
   \*************************************************************************************************************************/
@@ -2527,7 +2527,20 @@ var myRequest = function myRequest(options) {
 
 /***/ }),
 
-/***/ 159:
+/***/ 16:
+/*!*******************************************************************************************!*\
+  !*** D:/Desktop/MedicalSystem/Code/uni-app/MedicalSystem_uniapp/static/font/iconfont.css ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ }),
+
+/***/ 167:
 /*!**********************************************************************************************************************!*\
   !*** D:/Desktop/MedicalSystem/Code/uni-app/MedicalSystem_uniapp/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \**********************************************************************************************************************/
@@ -2666,19 +2679,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   "cloud-download-filled": "\uE8E9",
   "headphones": "\uE8BF",
   "shop": "\uE609" };exports.default = _default;
-
-/***/ }),
-
-/***/ 16:
-/*!*******************************************************************************************!*\
-  !*** D:/Desktop/MedicalSystem/Code/uni-app/MedicalSystem_uniapp/static/font/iconfont.css ***!
-  \*******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-    if(false) { var cssReload; }
-  
 
 /***/ }),
 
@@ -8208,7 +8208,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8229,14 +8229,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8322,7 +8322,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -10584,7 +10584,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "医疗管理系统", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-notice-bar": "/uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar" } }, "pages/people/people": { "navigationBarTitleText": "个人中心", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/parameter/parameter": { "navigationBarTitleText": "病理参数", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/manage/manage": { "navigationBarTitleText": "事件管理", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/alarm/alarm": { "navigationBarTitleText": "闹钟设置", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/report/report": { "navigationBarTitleText": "事件报表", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/register/register": { "navigationBarTitleText": "用户注册", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/forget/forget": { "navigationBarTitleText": "忘记密码", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/agree/agree": { "navigationBarTitleText": "用户协议", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/hideAgree/hideAgree": { "navigationBarTitleText": "用户隐私协议", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/bladderData/index": { "navigationBarTitleText": "膀胱动力学资料", "enablePullDownRefresh": true, "usingComponents": { "bladder-item": "/components/bladderItem/index" }, "usingAutoImportComponents": { "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav" } }, "pages/urineData/index": { "navigationBarTitleText": "尿常规资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/renalData/index": { "navigationBarTitleText": "肾功能资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ureteralData/index": { "navigationBarTitleText": "输尿管B超数据资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/bladderAdd/index": { "navigationBarTitleText": "添加膀胱动力学资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/login/index": { "navigationBarTitleText": "登录" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "医疗管理系统", "navigationBarBackgroundColor": "#87CEFF", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "医疗管理系统", "enablePullDownRefresh": true }, "pages/people/people": { "navigationBarTitleText": "个人中心", "enablePullDownRefresh": true }, "pages/parameter/parameter": { "navigationBarTitleText": "病理参数", "enablePullDownRefresh": true }, "pages/manage/manage": { "navigationBarTitleText": "事件管理", "enablePullDownRefresh": true }, "pages/alarm/alarm": { "navigationBarTitleText": "闹钟设置", "enablePullDownRefresh": true }, "pages/report/report": { "navigationBarTitleText": "事件报表", "enablePullDownRefresh": true }, "pages/register/register": { "navigationBarTitleText": "用户注册", "enablePullDownRefresh": true }, "pages/forget/forget": { "navigationBarTitleText": "忘记密码", "enablePullDownRefresh": true }, "pages/agree/agree": { "navigationBarTitleText": "用户协议", "enablePullDownRefresh": true }, "pages/hideAgree/hideAgree": { "navigationBarTitleText": "用户隐私协议", "enablePullDownRefresh": true }, "pages/bladderData/index": { "navigationBarTitleText": "膀胱动力学资料", "enablePullDownRefresh": true }, "pages/bladderUpd/index": { "navigationBarTitleText": "修改膀胱动力学资料", "enablePullDownRefresh": true }, "pages/urineData/index": { "navigationBarTitleText": "尿常规资料", "enablePullDownRefresh": true }, "pages/renalData/index": { "navigationBarTitleText": "肾功能资料", "enablePullDownRefresh": true }, "pages/ureteralData/index": { "navigationBarTitleText": "输尿管B超数据资料", "enablePullDownRefresh": true } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "医疗管理系统", "navigationBarBackgroundColor": "#87CEFF", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ })
 

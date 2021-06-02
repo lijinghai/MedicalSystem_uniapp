@@ -5,11 +5,11 @@
  -->
 <template>
 	<view>
-		<view class="new_item" @click="navigator(item.fl_id)" v-for="item in list" :key="item.fl_id">
+		<view class="new_item" @click="navigator(item.id)" v-for="item in list" :key="item.fl_id">
 			<image src="../../static/img/bladder.png"></image>
 			<view class="right">
 				<view class="title">
-					第:{{item.patientDataId}}条数据
+					第:{{item.id}}条数据
 				</view>
 				<view class="title">
 					最大膀胱测压容量:{{item.bladderCapacity}}(ml)
@@ -44,9 +44,9 @@
 			}
 		},
 		methods:{
-			navigator (fl_id) {
+			navigator (id) {
 				// 调用父组件的方法
-				this.$emit('itemClick',fl_id)
+				this.$emit('itemClick',id)
 			}
 		}
 	}

@@ -1,7 +1,7 @@
-<!-- 添加膀胱动力学参数
+<!-- 膀胱动力学参数修改
 @author: lijing
 @email: lijinghailjh@163.com
-@Date: 2021 6 1
+@Date: 2021 6 2
  -->
 <template>
 	<view class="box">
@@ -122,9 +122,9 @@
 					// 登录跳转
 					uni.request({
 						// 路径
-						url: 'http://localhost:8091/uniappuser/add',
+						url: 'http://localhost:8091/bladderData',
 						// 请求方法
-						method: 'POST',
+						method: 'PUT',
 						data: _this.user, // 发送的数据
 						success({ // 请求成功
 							data
