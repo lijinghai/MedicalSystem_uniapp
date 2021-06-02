@@ -17,7 +17,7 @@
 				</uni-forms-item>
 				<uni-forms-item label="病患编号" name="patientDataId">
 					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-					<input class="input"  type="text" v-model="info.patient_data_id" placeholder="请填写最大膀胱测压容量(ml)" />
+					<input class="input"  type="text" v-model="info.patient_data_id"  />
 				</uni-forms-item>
 				<uni-forms-item label="数据一:" name="bladderCapacity">
 					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
@@ -63,11 +63,6 @@
 				},
 				info: {},
 				rules: {
-					id: {
-						rules: [{
-							required: false,
-						}]
-					},
 					// 对bladderCapacity字段进行校验
 					bladderCapacity: {
 						rules: [{
@@ -162,11 +157,7 @@
 			onLoad(options) {
 				console.log(options)
 				this.id = options.id
-				// options.id = info.id
 				console.log(options.id)
-				// info.id = this.id
-				// console.log("info.id:"+info.id)
-				// console.log("this.id"+ this.id)
 				this.getInfo()
 			}
 

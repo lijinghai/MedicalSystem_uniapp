@@ -221,11 +221,6 @@ var _default =
 
     {}), _defineProperty(_ref, "rules",
     {
-      id: {
-        rules: [{
-          required: false }] },
-
-
       // 对bladderCapacity字段进行校验
       bladderCapacity: {
         rules: [{
@@ -320,11 +315,7 @@ var _default =
     onLoad: function onLoad(options) {
       console.log(options);
       this.id = options.id;
-      // options.id = info.id
       console.log(options.id);
-      // info.id = this.id
-      // console.log("info.id:"+info.id)
-      // console.log("this.id"+ this.id)
       this.getInfo();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
