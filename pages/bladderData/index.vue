@@ -55,7 +55,7 @@
 		methods: {
 			async getFindList() {
 				const res = await this.$myRequest({
-					url: '/bladderData?id=1&limit=99999&page=9999&sort=1'
+					url: '/bladderData?id=1&limit=99999&page=9999&sort=-1'
 				})
 				console.log(res)
 				this.findlist = res.data.data.items
