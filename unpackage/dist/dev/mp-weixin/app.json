@@ -15,6 +15,7 @@
     "pages/urineData/index",
     "pages/urineUpd/index",
     "pages/renalData/index",
+    "pages/renalUpd/index",
     "pages/ureteralData/index"
   ],
   "subPackages": [],

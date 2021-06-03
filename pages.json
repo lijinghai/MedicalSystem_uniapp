@@ -122,6 +122,13 @@
 			}
 		},
 		{
+			"path": "pages/renalUpd/index",
+			"style": {
+				"navigationBarTitleText": "修改肾功能资料",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
 			"path": "pages/ureteralData/index",
 			"style": {
 				"navigationBarTitleText": "输尿管B超数据资料",
