@@ -5,16 +5,19 @@
  -->
 <template>
 	<view>
+		
 		<view>
 			<scroll-view>
 				<bladderItem @itemClick="goDetail" :list="findlist"></bladderItem>
 			</scroll-view>
+			
 		</view>
 
 		<view class="goods-carts">
 			<uni-goods-nav :options="options" :fill="true" :button-group="buttonGroup" @click="onClick"
 				@buttonClick="buttonClick" />
 		</view>
+		<text v-if="findlist.length === 0">暂无数据,请点击添加按钮添加数据</text>
 	</view>
 </template>
 
