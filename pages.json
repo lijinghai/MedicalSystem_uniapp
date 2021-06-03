@@ -134,8 +134,14 @@
 				"navigationBarTitleText": "输尿管B超数据资料",
 				"enablePullDownRefresh": true
 			}
+		},
+		{
+			"path": "pages/ureteralUpd/index",
+			"style": {
+				"navigationBarTitleText": "修改肾功能资料",
+				"enablePullDownRefresh": true
+			}
 		}
-		
 
 	],
 	// 头部导航栏设置

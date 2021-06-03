@@ -1,24 +1,24 @@
-<!-- 肾功能资料组件
+<!-- 输尿管B超数据组件
 @author: lijing
 @email: lijinghailjh@163.com
-@Date: 2021 6 1
+@Date: 2021 6 3
  -->
 <template>
 	<view>
 		<view class="new_item" @click="navigator(item.id)" v-for="item in list" :key="item.id">
-			<image src="../../static/img/renal.png"></image>
+			<image src="../../static/img/ureteral.png"></image>
 			<view class="right">
 				<view class="title">
 					第:{{item.id}}条数据
 				</view>
 				<view class="title">
-					尿素:{{item.param1}}
+					输尿管结石:{{item.param1}}
 				</view>
 				<view class="info">
-					肌酐:{{item.param2}}
+					输尿管外伤:{{item.param2}}
 				</view>
 				<view class="title">
-					葡萄糖: {{item.param3}}
+					输尿管肿瘤: {{item.param3}}
 				</view>
 			</view>
 		</view>
@@ -79,4 +79,5 @@
 		}
 	}
 </style>
+
 

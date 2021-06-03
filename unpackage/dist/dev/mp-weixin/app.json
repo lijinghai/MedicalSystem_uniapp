@@ -16,7 +16,8 @@
     "pages/urineUpd/index",
     "pages/renalData/index",
     "pages/renalUpd/index",
-    "pages/ureteralData/index"
+    "pages/ureteralData/index",
+    "pages/ureteralUpd/index"
   ],
   "subPackages": [],
   "window": {
