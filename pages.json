@@ -108,6 +108,13 @@
 			}
 		},
 		{
+			"path": "pages/urineUpd/index",
+			"style": {
+				"navigationBarTitleText": "修改尿常规资料",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
 			"path": "pages/renalData/index",
 			"style": {
 				"navigationBarTitleText": "肾功能资料",

@@ -1,24 +1,24 @@
-<!-- 膀胱动力学组件
+<!-- 尿常规组件
 @author: lijing
 @email: lijinghailjh@163.com
-@Date: 2021 6 1
+@Date: 2021 6 3
  -->
 <template>
 	<view>
 		<view class="new_item" @click="navigator(item.id)" v-for="item in list" :key="item.id">
-			<image src="../../static/img/bladder.png"></image>
+			<image src="../../static/img/urine.png"></image>
 			<view class="right">
 				<view class="title">
 					第:{{item.id}}条数据
 				</view>
 				<view class="title">
-					最大膀胱测压容量:{{item.bladderCapacity}}(ml)
+					尿白细胞:{{item.leu}}
 				</view>
 				<view class="info">
-					排尿期最大逼尿肌压:{{item.bladderDetrusorPressure}}(cmH2O)
+					亚硝酸盐:{{item.nit}}
 				</view>
 				<view class="title">
-					膀胱顺应性: {{item.bladderCompliance}}(ml/cmH2O)
+					尿蛋白: {{item.pro}}
 				</view>
 			</view>
 		</view>
@@ -79,3 +79,4 @@
 		}
 	}
 </style>
+

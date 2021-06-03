@@ -13,6 +13,7 @@
     "pages/bladderData/index",
     "pages/bladderUpd/index",
     "pages/urineData/index",
+    "pages/urineUpd/index",
     "pages/renalData/index",
     "pages/ureteralData/index"
   ],
@@ -44,6 +45,5 @@
   "uniStatistics": {
     "enable": true
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }
