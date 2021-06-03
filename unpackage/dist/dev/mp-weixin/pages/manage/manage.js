@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 37));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
 //
 //
 //
@@ -149,83 +149,55 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-// const innerAudioContext = uni.createInnerAudioContext();
-// innerAudioContext.autoplay = true;
-var _default = {
-  components: {},
+var _default =
+{
   data: function data() {
     return {
-      testHour: 0,
-      testMinute: 0,
-      testSecond: 0,
-      start: false };
+      cates: [{
+        id: 1,
+        ctitle: '餐饮事件' },
 
-  },
-  mounted: function mounted() {var _this = this;
-    // setTimeout(() => {
-    // 	console.log(时间已经设置);
-    // 	this.testHour = 1
-    // 	this.testMinute = 1
-    // 	this.testSecond = 0
-    // 	this.start = true
-    // }, 3000)
-    setTimeout(function () {
-      _this.start = false;
-    }, 10000);
+      {
+        id: 2,
+        ctitle: '导尿事件' },
+
+      {
+        id: 3,
+        ctitle: '特殊事件' }],
+
+
+      active: 0,
+      secondData: [] };
+
   },
   methods: {
+    getPicsCate: function getPicsCate() {
+      // this.leftClickHandle(0, this.cates[0].id)
+      return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:case "end":return _context.stop();}}}, _callee);}))();},
+    leftClickHandle: function leftClickHandle(index, g_id) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                console.log("id:" + g_id);
+                _this.active = index;
 
-    // timeup() {
-    // 	uni.showToast({
-    // 		title: '上厕所时间到'
-    // 	});
-    // 	innerAudioContext.src = 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3';
-    // 	innerAudioContext.onPlay(() => {
-    // 	  console.log('开始播放');
-    // 	});
-    // 	innerAudioContext.onError((res) => {
-    // 	  console.log(res.errMsg);
-    // 	  console.log(res.errCode);
-    // 	});
-    // },
-    // close(){
-    // 	console.log('停止播放');
-    // 	innerAudioContext.src = 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3';
-    // 	innerAudioContext.onStop(() => {
-    // 	  console.log('停止播放');
-    // 	});
-    // }
-  },
+                if (g_id === 1) {
+                  uni.navigateTo({
+                    url: '../foodData/index' });
+
+                }
+                if (g_id === 2)
+                uni.navigateTo({
+                  url: '../catheter/index' });
+
+                if (g_id === 3)
+                uni.navigateTo({
+                  url: '../special/index' });case 5:case "end":return _context2.stop();}}}, _callee2);}))();
+
+    } },
+
   onLoad: function onLoad() {
+    this.getPicsCate();
 
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

@@ -36,7 +36,38 @@
 				"navigationBarTitleText": "事件管理",
 				"enablePullDownRefresh": true
 			}
-
+		},
+		{
+			"path": "pages/foodData/index",
+			"style": {
+				"navigationBarTitleText": "餐饮事件",
+				"enablePullDownRefresh": true
+			}
+		
+		},
+		{
+			"path": "pages/foodUpd/index",
+			"style": {
+				"navigationBarTitleText": "记录餐饮事件",
+				"enablePullDownRefresh": true
+			}
+		
+		},
+		{
+			"path": "pages/catheter/index",
+			"style": {
+				"navigationBarTitleText": "导尿事件",
+				"enablePullDownRefresh": true
+			}
+		
+		},
+		{
+			"path": "pages/special/index",
+			"style": {
+				"navigationBarTitleText": "特殊事件",
+				"enablePullDownRefresh": true
+			}
+		
 		},
 		{
 			"path": "pages/alarm/alarm",

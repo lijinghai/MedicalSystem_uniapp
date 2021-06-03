@@ -24,4 +24,60 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+page {
+  height: 100%;
+}
+.pics {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.pics .left {
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #eee;
+}
+.pics .left view {
+  height: 60px;
+  line-height: 60px;
+  color: #333;
+  text-align: center;
+  font-size: 30rpx;
+  border-top: 1px solid #eee;
+}
+.pics .left .active {
+  background: #87CEFF;
+  color: #fff;
+}
+.pics .right {
+  height: 100%;
+  width: 520rpx;
+  margin: 10rpx auto;
+}
+.pics .right .item image {
+  width: 520rpx;
+  height: 520rpx;
+  border-radius: 5px;
+}
+.pics .right .item .lname {
+  font-size: 35rpx;
+  color: #87CEFF;
+  line-height: 80rpx;
+}
+.pics .right .item .lname text:nth-child(2) {
+  color: #ccc;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+.pics .right .item .box2 {
+  padding: 0 10px;
+  font-size: 32rpx;
+  line-height: 70rpx;
+}
+.pics .right .item .line {
+  height: 10rpx;
+  width: 750rpx;
+  background: #eee;
+}
 

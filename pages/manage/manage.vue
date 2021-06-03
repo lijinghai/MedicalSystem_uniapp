@@ -1,106 +1,144 @@
 <!-- 事件管理
 @author: lijing
 @email: lijinghailjh@163.com
-@Date: 2021 6 1
+@Date: 2021 6 4
  -->
 <template>
-	<view>
-		
-<!-- 		<uni-section title="一般用法" type="line"></uni-section>
-		<view class="example-body">
-			<uni-countdown :day="1" :hour="1" :minute="12" :second="40" />
-		</view>
-		<uni-section title="自由控制开始/暂停" type="line"></uni-section>
-		<view class="example-body">
-			<uni-countdown :start="start" :day="1" :hour="1" :minute="12" :second="40" />
-		</view>
+	<view class="pics">
 
-		<uni-section title="文字分隔符" type="line"></uni-section>
-		<view class="example-body">
-			<uni-countdown :minute="30" :second="0" :show-colon="false" />
-		</view>
-		<uni-section title="修改颜色" type="line"></uni-section>
-		<view class="example-body">
-			<uni-countdown :day="1" :hour="2" :minute="30" :second="0" color="#FFFFFF" background-color="#007AFF"
-				border-color="#007AFF" />
-		</view> -->
-		
-		
-	<!-- 	<uni-section title="倒计时回调事件" type="line"></uni-section>
-		<view class="example-body">
-			<uni-countdown :show-day="false" :second="5" @timeup="timeup" />
-		</view> -->
-		
-		 <!-- <button type="primary" @click="close">关闭</button> -->
-		
-		
-<!-- 		<uni-section title="动态赋值" type="line"></uni-section>
-		<view class="example-body">
-			<uni-countdown :show-day="false" :hour="testHour" :minute="testMinute" :second="testSecond" />
-		</view> -->
-
+		<!-- 可滚动区域 -->
+		<scroll-view class="left" scroll-y>
+			<view @click="leftClickHandle(index,item.id)" :class="active===index?'active':''"
+				v-for="(item,index) in cates" :key="item.id">
+				{{item.ctitle}}
+			</view>
+		</scroll-view>
 
 	</view>
 </template>
 
 <script>
-	// const innerAudioContext = uni.createInnerAudioContext();
-	// innerAudioContext.autoplay = true;
 	export default {
-		components: {},
 		data() {
 			return {
-				testHour: 0,
-				testMinute: 0,
-				testSecond: 0,
-				start: false
+				cates: [{
+						id: 1,
+						ctitle: '餐饮事件'
+					},
+					{
+						id: 2,
+						ctitle: '导尿事件'
+					},
+					{
+						id: 3,
+						ctitle: '特殊事件'
+					}
+				],
+				active: 0,
+				secondData: []
 			}
 		},
-		mounted() {
-			// setTimeout(() => {
-			// 	console.log(时间已经设置);
-			// 	this.testHour = 1
-			// 	this.testMinute = 1
-			// 	this.testSecond = 0
-			// 	this.start = true
-			// }, 3000)
-			setTimeout(() => {
-				this.start = false
-			}, 10000)
-		},
 		methods: {
+			async getPicsCate() {
+				// this.leftClickHandle(0, this.cates[0].id)
+			},
+			async leftClickHandle(index, g_id) {
+				console.log("id:" + g_id)
+				this.active = index
 
-			// timeup() {
-			// 	uni.showToast({
-			// 		title: '上厕所时间到'
-			// 	});
-			// 	innerAudioContext.src = 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3';
-			// 	innerAudioContext.onPlay(() => {
-			// 	  console.log('开始播放');
-			// 	});
-			// 	innerAudioContext.onError((res) => {
-			// 	  console.log(res.errMsg);
-			// 	  console.log(res.errCode);
-			// 	});
-			// },
-			// close(){
-			// 	console.log('停止播放');
-			// 	innerAudioContext.src = 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3';
-			// 	innerAudioContext.onStop(() => {
-			// 	  console.log('停止播放');
-			// 	});
-			// }
+				if (g_id === 1) {
+					uni.navigateTo({
+						url: '../foodData/index'
+					})
+				}
+				if (g_id === 2)
+					uni.navigateTo({
+						url: '../catheter/index'
+					})
+				if (g_id === 3)
+					uni.navigateTo({
+						url: '../special/index'
+					})
+			}
 		},
 		onLoad() {
-		
+			this.getPicsCate()
+
 		}
 	}
 </script>
 
 <style lang="scss">
-	// @import '@/common/uni-nvue.scss';
+	page {
+		height: 100%;
+	}
 
-	// .example-body {
-	// 	padding: 10px;
-	// }
+	.pics {
+		height: 100%;
+		// 一行显示
+		display: flex;
+
+		.left {
+			width: 100%;
+			height: 100%;
+			border-right: 1px solid #eee;
+
+			view {
+				height: 60px;
+				line-height: 60px;
+				color: #333;
+				text-align: center;
+				font-size: 30rpx;
+				border-top: 1px solid #eee;
+			}
+
+			// 选中颜色
+			.active {
+				background: $search-color;
+				color: #fff;
+			}
+		}
+
+		.right {
+			height: 100%;
+			width: 520rpx;
+			margin: 10rpx auto;
+
+			.item {
+				image {
+					width: 520rpx;
+					height: 520rpx;
+					border-radius: 5px;
+				}
+
+				.lname {
+					font-size: 35rpx;
+					color: $search-color;
+					line-height: 80rpx;
+
+					text:nth-child(2) {
+						color: #ccc;
+						font-size: 28rpx;
+						// text-decoration: line-through;
+						margin-left: 20rpx;
+					}
+				}
+
+				.box2 {
+					padding: 0 10px;
+					font-size: 32rpx;
+					line-height: 70rpx;
+				}
+
+				.line {
+					height: 10rpx;
+					width: 750rpx;
+					background: #eee;
+				}
+
+			}
+		}
+	}
 </style>
+
+		

@@ -4,6 +4,10 @@
     "pages/people/people",
     "pages/parameter/parameter",
     "pages/manage/manage",
+    "pages/foodData/index",
+    "pages/foodUpd/index",
+    "pages/catheter/index",
+    "pages/special/index",
     "pages/alarm/alarm",
     "pages/report/report",
     "pages/register/register",
@@ -47,5 +51,6 @@
   "uniStatistics": {
     "enable": true
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }
