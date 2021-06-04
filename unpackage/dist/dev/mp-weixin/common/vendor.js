@@ -8105,7 +8105,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 211:
+/***/ 203:
 /*!*************************************************************************************************************************!*\
   !*** D:/Desktop/MedicalSystem/Code/uni-app/MedicalSystem_uniapp/uni_modules/uni-forms/components/uni-forms/validate.js ***!
   \*************************************************************************************************************************/
@@ -8113,7 +8113,7 @@ internalMixin(Vue);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 45));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = _getPrototypeOf(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = _getPrototypeOf(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return _possibleConstructorReturn(this, result);};}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 37));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = _getPrototypeOf(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = _getPrototypeOf(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return _possibleConstructorReturn(this, result);};}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
 var pattern = {
   email: /^\S+?@\S+?\.\S+?$/,
   idcard: /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/,
@@ -8588,7 +8588,7 @@ SchemaValidator;exports.default = _default;
 
 /***/ }),
 
-/***/ 268:
+/***/ 267:
 /*!**********************************************************************************************************************!*\
   !*** D:/Desktop/MedicalSystem/Code/uni-app/MedicalSystem_uniapp/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \**********************************************************************************************************************/
@@ -8761,29 +8761,18 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 4:
-/*!*****************************************************************************!*\
-  !*** D:/Desktop/MedicalSystem/Code/uni-app/MedicalSystem_uniapp/pages.json ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 45:
+/***/ 37:
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 46);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 38);
 
 /***/ }),
 
-/***/ 46:
+/***/ 38:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -8814,7 +8803,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 47);
+module.exports = __webpack_require__(/*! ./runtime */ 39);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -8831,7 +8820,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 47:
+/***/ 39:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -9559,6 +9548,17 @@ if (hadRuntime) {
     return this || (typeof self === "object" && self);
   })() || Function("return this")()
 );
+
+
+/***/ }),
+
+/***/ 4:
+/*!*****************************************************************************!*\
+  !*** D:/Desktop/MedicalSystem/Code/uni-app/MedicalSystem_uniapp/pages.json ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
 
 
 /***/ }),
@@ -10584,7 +10584,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/login/index": { "navigationBarTitleText": "登录", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/index/index": { "navigationBarTitleText": "医疗管理系统", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-notice-bar": "/uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar" } }, "pages/people/people": { "navigationBarTitleText": "个人中心", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/parameter/parameter": { "navigationBarTitleText": "病理参数", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/manage/manage": { "navigationBarTitleText": "事件管理", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/foodData/index": { "navigationBarTitleText": "餐饮事件", "enablePullDownRefresh": true, "usingComponents": { "food-item": "/components/foodItem/index" }, "usingAutoImportComponents": {} }, "pages/foodUpd/index": { "navigationBarTitleText": "记录餐饮事件", "enablePullDownRefresh": true, "usingComponents": { "test-com": "/components/FL-pciker_view_ts/FL-pciker_view_ts" }, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/catheter/index": { "navigationBarTitleText": "导尿事件", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/special/index": { "navigationBarTitleText": "特殊事件", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/alarm/alarm": { "navigationBarTitleText": "闹钟设置", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/report/report": { "navigationBarTitleText": "事件报表", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/register/register": { "navigationBarTitleText": "用户注册", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/forget/forget": { "navigationBarTitleText": "忘记密码", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/agree/agree": { "navigationBarTitleText": "用户协议", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/hideAgree/hideAgree": { "navigationBarTitleText": "用户隐私协议", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/bladderData/index": { "navigationBarTitleText": "膀胱动力学资料", "enablePullDownRefresh": true, "usingComponents": { "bladder-item": "/components/bladderItem/index" }, "usingAutoImportComponents": { "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav" } }, "pages/bladderUpd/index": { "navigationBarTitleText": "修改膀胱动力学资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/urineData/index": { "navigationBarTitleText": "尿常规资料", "enablePullDownRefresh": true, "usingComponents": { "urine-item": "/components/urineItem/index" }, "usingAutoImportComponents": { "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav" } }, "pages/urineUpd/index": { "navigationBarTitleText": "修改尿常规资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/renalData/index": { "navigationBarTitleText": "肾功能资料", "enablePullDownRefresh": true, "usingComponents": { "renal-item": "/components/renalItem/index" }, "usingAutoImportComponents": { "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav" } }, "pages/renalUpd/index": { "navigationBarTitleText": "修改肾功能资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/ureteralData/index": { "navigationBarTitleText": "输尿管B超数据资料", "enablePullDownRefresh": true, "usingComponents": { "ureteral-item": "/components/ureteralItem/index" }, "usingAutoImportComponents": { "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav" } }, "pages/ureteralUpd/index": { "navigationBarTitleText": "修改肾功能资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "医疗管理系统", "navigationBarBackgroundColor": "#87CEFF", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "医疗管理系统", "enablePullDownRefresh": true }, "pages/people/people": { "navigationBarTitleText": "个人中心", "enablePullDownRefresh": true }, "pages/parameter/parameter": { "navigationBarTitleText": "病理参数", "enablePullDownRefresh": true }, "pages/manage/manage": { "navigationBarTitleText": "事件管理", "enablePullDownRefresh": true }, "pages/foodData/index": { "navigationBarTitleText": "餐饮事件", "enablePullDownRefresh": true }, "pages/foodUpd/index": { "navigationBarTitleText": "记录餐饮事件", "enablePullDownRefresh": true }, "pages/catheter/index": { "navigationBarTitleText": "导尿事件", "enablePullDownRefresh": true }, "pages/special/index": { "navigationBarTitleText": "特殊事件", "enablePullDownRefresh": true }, "pages/alarm/alarm": { "navigationBarTitleText": "闹钟设置", "enablePullDownRefresh": true }, "pages/report/report": { "navigationBarTitleText": "事件报表", "enablePullDownRefresh": true }, "pages/register/register": { "navigationBarTitleText": "用户注册", "enablePullDownRefresh": true }, "pages/forget/forget": { "navigationBarTitleText": "忘记密码", "enablePullDownRefresh": true }, "pages/agree/agree": { "navigationBarTitleText": "用户协议", "enablePullDownRefresh": true }, "pages/hideAgree/hideAgree": { "navigationBarTitleText": "用户隐私协议", "enablePullDownRefresh": true }, "pages/bladderData/index": { "navigationBarTitleText": "膀胱动力学资料", "enablePullDownRefresh": true }, "pages/bladderUpd/index": { "navigationBarTitleText": "修改膀胱动力学资料", "enablePullDownRefresh": true }, "pages/urineData/index": { "navigationBarTitleText": "尿常规资料", "enablePullDownRefresh": true }, "pages/urineUpd/index": { "navigationBarTitleText": "修改尿常规资料", "enablePullDownRefresh": true }, "pages/renalData/index": { "navigationBarTitleText": "肾功能资料", "enablePullDownRefresh": true }, "pages/renalUpd/index": { "navigationBarTitleText": "修改肾功能资料", "enablePullDownRefresh": true }, "pages/ureteralData/index": { "navigationBarTitleText": "输尿管B超数据资料", "enablePullDownRefresh": true }, "pages/ureteralUpd/index": { "navigationBarTitleText": "修改肾功能资料", "enablePullDownRefresh": true } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "医疗管理系统", "navigationBarBackgroundColor": "#87CEFF", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ })
 

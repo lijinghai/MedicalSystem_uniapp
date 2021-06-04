@@ -9,6 +9,7 @@
 		<view class="tit">请添加餐饮事件</view>
 		<view class="ul">
 			<scroll-view>
+
 				<!-- 方案一 -->
 				<!-- <uni-forms :rules="rules" ref="form"> -->
 				<uni-forms ref="form">
@@ -16,17 +17,24 @@
 						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
 						<input class="input" disabled="true" type="text" v-model="info.user_id" />
 					</uni-forms-item>
+
+
 					<uni-forms-item label="餐饮时间:" name="eventTime">
-						<input class="input" disabled="true" type="text" v-model="info.eventTime"/>
-						<test-com class="content" beginYear="2000" endYear="2030"  @confirm="onConfirm"/>
+						<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
+						<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
 					</uni-forms-item>
+
+					<uni-forms-item class="c" label="餐饮种类:" name="waterCode">
+						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+						<input disabled="true" type="text" />
+						<uni-combox class="content" labelWidth="100px" :candidates="candidates" placeholder="请选择所在种类" v-model="a">
+						</uni-combox>
+					</uni-forms-item>
+
 
 				</uni-forms>
 
-
-
-				<view class="btn_login" 
-					@click="postInfo">
+				<view class="btn_login" @click="postInfo">
 					添加
 				</view>
 			</scroll-view>
@@ -45,6 +53,8 @@
 		},
 		data() {
 			return {
+				candidates: ['normal_water', 'coffee', 'soda_water', 'beer','normal_water', 'coffee', 'soda_water', 'beer'],
+				a: '',
 				val: {
 					selectRes: ''
 				},
@@ -52,16 +62,21 @@
 				info: {
 					userId: '',
 					eventTime: '',
-					waterCode:''
+					waterCode: ''
 				},
-				info: {},
+				info1: {
+					eventTime: '',
+					waterCode: ''
+				},
+
 
 			};
 		},
 		methods: {
 			//添加事件
 			postInfo() {
-				
+				this.info.waterCode = this.a,
+					console.log("this.info.waterCode=====>" + this.info.waterCode)
 
 				this.$refs.form.submit().then(res => {
 					console.log('表单数据信息：', res);
@@ -118,16 +133,30 @@
 			},
 			onConfirm(val) {
 				console.log(val)
-				console.log("selectRes====>"+val.selectRes)
+				console.log("selectRes====>" + val.selectRes)
 				this.info.eventTime = val.selectRes,
-				console.log("info.eventTime======>"+this.info.eventTime)
+					console.log("info.eventTime======>" + this.info.eventTime)
+
 			}
 
 		}
 	};
 </script>
 
-<style lang="less">
+<style lang="scss">
+	@import '@/common/uni-nvue.scss';
+
+	.example-body {
+		padding: 0px 12px;
+		background-color: #FFFFFF;
+	}
+
+	.result-box {
+		text-align: center;
+		padding: 25px 0px;
+		font-size: 16px;
+	}
+
 	.content {
 		// display: flex;
 		// flex-direction: column;
@@ -135,10 +164,12 @@
 		// justify-content: center;
 	}
 
-	// .input{
+	// .input {
 	// 	position: absolute;
 	// 	left: 190rpx;
+	// 	height: 0px;
 	// }
+
 	.demo-uni-row {
 		margin-bottom: 10px;
 		/* QQ、字节小程序文档写有 :host，但实测不生效 */
@@ -326,4 +357,5 @@
 			}
 		}
 	}
+
 </style>
