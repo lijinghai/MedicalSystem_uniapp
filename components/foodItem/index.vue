@@ -8,13 +8,14 @@
 		<view class="new_item" @click="navigator(item.id)" v-for="item in list" :key="item.id">
 			<image src="../../static/img/food.png"></image>
 			<view class="right">
-				<view class="title">
+				<view>请点击填写餐饮事件</view>
+<!-- 				<view class="title">
 					第:{{item.id}}条数据
 				</view>
-				<view class="info">
+				<view class="info"> -->
 					<!-- <text>发表时间:{{item.addTime | formatDate}}</text> -->
-					<text>更新时间:{{item.eventTime}}</text>
-				</view>
+					<!-- <text>更新时间:{{item.eventTime}}</text>
+				</view> -->
 			</view>
 		</view>
 	</view>

@@ -9,45 +9,59 @@
 		<view class="tit">请添加餐饮事件</view>
 		<view class="ul">
 			<scroll-view>
-			<!-- 方案一 -->
-			<!-- <uni-forms :rules="rules" ref="form"> -->
-			<uni-forms  ref="form">
-				<uni-forms-item label="病患编号:" name="user_id">
-					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-					<input class="input" disabled="true" type="text" v-model="info.user_id" />
-				</uni-forms-item>
-				<!-- <uni-forms-item label="尿素:" name="param1"> -->
-			<!-- 		<input class="input" type="text" v-model="info.param1" placeholder="请填写尿素" />
-				</uni-forms-item> -->
-				
-				
-			</uni-forms>
+				<!-- 方案一 -->
+				<!-- <uni-forms :rules="rules" ref="form"> -->
+				<uni-forms ref="form">
+					<uni-forms-item label="病患编号:" name="user_id">
+						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+						<input class="input" disabled="true" type="text" v-model="info.user_id" />
+					</uni-forms-item>
+					<uni-forms-item label="餐饮时间:" name="eventTime">
+						<input class="input" disabled="true" type="text" v-model="info.eventTime"/>
+						<test-com class="content" beginYear="2000" endYear="2030"  @confirm="onConfirm"/>
+					</uni-forms-item>
 
-			<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'" @click="postInfo">
-				添加
-			</view>
+				</uni-forms>
+
+
+
+				<view class="btn_login" 
+					@click="postInfo">
+					添加
+				</view>
 			</scroll-view>
 		</view>
 	</view>
+
+
 </template>
 
 <script>
+	import testCom from '../../components/FL-pciker_view_ts/FL-pciker_view_ts.vue'
 	export default {
-		components: {},
+		// components: {},
+		components: {
+			testCom
+		},
 		data() {
 			return {
+				val: {
+					selectRes: ''
+				},
 				pwd_show: true,
 				info: {
 					userId: '',
-					
+					eventTime: '',
+					waterCode:''
 				},
 				info: {},
-				
+
 			};
 		},
 		methods: {
 			//添加事件
 			postInfo() {
+				
 
 				this.$refs.form.submit().then(res => {
 					console.log('表单数据信息：', res);
@@ -91,7 +105,7 @@
 			},
 			async getInfo() {
 				const res = await this.$myRequest({
-					url: '/events/id?limit=19&page=1&sort=1&id='+this.id
+					url: '/events/id?limit=19&page=1&sort=1&id=' + this.id
 				})
 				console.log("res==>" + this.id)
 				this.info = res.data.data.items[0]
@@ -101,6 +115,12 @@
 				this.id = options.id
 				console.log(options.id)
 				this.getInfo()
+			},
+			onConfirm(val) {
+				console.log(val)
+				console.log("selectRes====>"+val.selectRes)
+				this.info.eventTime = val.selectRes,
+				console.log("info.eventTime======>"+this.info.eventTime)
 			}
 
 		}
@@ -108,6 +128,13 @@
 </script>
 
 <style lang="less">
+	.content {
+		// display: flex;
+		// flex-direction: column;
+		// align-items: center;
+		// justify-content: center;
+	}
+
 	// .input{
 	// 	position: absolute;
 	// 	left: 190rpx;
@@ -251,7 +278,7 @@
 			margin-bottom: 32rpx;
 			width: 590rpx;
 			height: 120rpx;
-			background: #d7e9ff;
+			background: #3790ff;
 			border-radius: 60rpx;
 			font-size: 36rpx;
 			font-family: PingFangSC-Medium, PingFang SC;
@@ -300,5 +327,3 @@
 		}
 	}
 </style>
-
-

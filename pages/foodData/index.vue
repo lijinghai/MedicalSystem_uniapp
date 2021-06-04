@@ -13,11 +13,11 @@
 
 		</view>
 
-		<view class="goods-carts">
+		<!-- <view class="goods-carts">
 			<uni-goods-nav :options="options" :fill="true" :button-group="buttonGroup" @click="onClick"
 				@buttonClick="buttonClick" />
 		</view>
-		<text v-if="findlist.length === 0">暂无数据,请点击添加按钮添加数据</text>
+		<text v-if="findlist.length === 0">暂无数据,请点击添加按钮添加数据</text> -->
 	</view>
 </template>
 
@@ -29,15 +29,15 @@
 				findlist: [],
 				info: {
 					eventTime: '',
-					        eventType: 1,
-					        waterCode: "normal_water",
-					        totalCapacity: 0,
-					        urgentLevel: 1,
-					        isIncontinence: 0,
-					        incontinenceType: 1,
-					        isPain: 0,
-					        isLeak: 0,
-					        isDifficult: 0,
+					eventType: 1,
+					waterCode: "normal_water",
+					totalCapacity: 0,
+					urgentLevel: 1,
+					isIncontinence: 0,
+					incontinenceType: 1,
+					isPain: 0,
+					isLeak: 0,
+					isDifficult: 0,
 				},
 				// options: [{
 				// 	icon: 'headphones',
