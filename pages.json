@@ -75,7 +75,13 @@
 				"navigationBarTitleText": "特殊事件",
 				"enablePullDownRefresh": true
 			}
-		
+		},
+		{
+			"path": "pages/specialUpd/index",
+			"style": {
+				"navigationBarTitleText": "记录特殊事件",
+				"enablePullDownRefresh": true
+			}
 		},
 		{
 			"path": "pages/alarm/alarm",

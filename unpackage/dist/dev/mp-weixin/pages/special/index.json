@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "特殊事件",
   "enablePullDownRefresh": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "food-item": "/components/specialItem/index"
+  }
 }

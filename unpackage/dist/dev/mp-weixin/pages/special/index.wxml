@@ -1,1 +1,1 @@
-<view>特殊事件</view>
+<view><view><scroll-view><food-item vue-id="481f0d13-1" list="{{findlist}}" data-event-opts="{{[['^itemClick',[['goDetail']]]]}}" bind:itemClick="__e" bind:__l="__l"></food-item></scroll-view></view></view>

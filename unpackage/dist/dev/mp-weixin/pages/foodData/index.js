@@ -195,7 +195,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getFindList: function getFindList() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this2.$myRequest({
-                    url: '/events?id=1&limit=99999&page=9999&sort=-1' }));case 2:res = _context.sent;
+                    url: '/events/first?limit=1&page=1&sort=1' }));case 2:res = _context.sent;
 
                 console.log(res);
                 _this2.findlist = res.data.data.items;case 5:case "end":return _context.stop();}}}, _callee);}))();

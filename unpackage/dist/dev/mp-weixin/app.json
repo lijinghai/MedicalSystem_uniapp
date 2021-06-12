@@ -9,6 +9,7 @@
     "pages/catheter/index",
     "pages/catheterUpd/index",
     "pages/special/index",
+    "pages/specialUpd/index",
     "pages/alarm/alarm",
     "pages/report/report",
     "pages/register/register",

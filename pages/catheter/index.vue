@@ -63,7 +63,7 @@
 		methods: {
 			async getFindList() {
 				const res = await this.$myRequest({
-					url: '/events?id=1&limit=99999&page=9999&sort=-1'
+					url: '/events/Second?limit=1&page=1&sort=1'
 				})
 				console.log(res)
 				this.findlist = res.data.data.items
