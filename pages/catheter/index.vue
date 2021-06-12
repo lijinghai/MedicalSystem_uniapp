@@ -1,7 +1,7 @@
 <!-- 导尿事件
 @author: lijing
 @email: lijinghailjh@163.com
-@Date: 2021 6 4
+@Date: 2021 6 13
  -->
 <template>
 	<view>
@@ -94,7 +94,7 @@
 							uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
 							// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
 							uni.navigateTo({
-								url: '../catheter/index'
+								url: '../manage/manage'
 							})
 							uni.showModal({
 								title: '添加成功！！'

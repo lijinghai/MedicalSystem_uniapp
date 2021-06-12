@@ -226,7 +226,7 @@ __webpack_require__.r(__webpack_exports__);
             uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
             // uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
             uni.navigateTo({
-              url: '../foodData/index' });
+              url: '../manage/manage' });
 
             uni.showModal({
               title: '添加成功！！' });

@@ -46,13 +46,9 @@
 						placeholder="请填写先天性巨输尿管" />
 				</uni-forms-item>
 				
-				
-				
-				
-				
 			</uni-forms>
 
-			<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'" @click="postInfo">
+			<view class="btn_login"  @click="postInfo">
 				添加
 			</view>
 			</scroll-view>
@@ -76,45 +72,6 @@
 					param5: ''
 				},
 				info: {},
-				// rules: {
-				// 	// 对bladderCapacity字段进行校验
-				// 	bladderCapacity: {
-				// 		rules: [{
-				// 				required: true,
-				// 				errorMessage: '请填写最大膀胱测压容量',
-				// 			},
-				// 			{
-				// 				minLength: 1,
-				// 				// errorMessage: '手机号长度在 {minLength} 到 {maxLength} 个字符',
-				// 				errorMessage: '最大膀胱测压容量长度必须为 {minLength} 个字符',
-				// 			}
-				// 		]
-				// 	},
-				// 	// 对bladderDetrusorPressure字段进行必填验证
-				// 	bladderDetrusorPressure: {
-				// 		rules: [{
-				// 				required: true,
-				// 				errorMessage: '请输入排尿期最大逼尿肌压',
-				// 			},
-				// 			{
-				// 				minLength: 1,
-				// 				errorMessage: '排尿期最大逼尿肌压长度必须大于 {minLength} 个字符',
-				// 			}
-				// 		]
-				// 	},
-				// 	// 对bladderCompliance字段进行必填验证
-				// 	bladderCompliance: {
-				// 		rules: [{
-				// 				required: true,
-				// 				errorMessage: '请输入膀胱顺应性值',
-				// 			},
-				// 			{
-				// 				minLength: 1,
-				// 				errorMessage: '膀胱顺应性值长度必须大于 {minLength}  个字符',
-				// 			}
-				// 		]
-				// 	}
-				// }
 			};
 		},
 		methods: {
@@ -323,7 +280,7 @@
 			margin-bottom: 32rpx;
 			width: 590rpx;
 			height: 120rpx;
-			background: #d7e9ff;
+			background: #3790ff;
 			border-radius: 60rpx;
 			font-size: 36rpx;
 			font-family: PingFangSC-Medium, PingFang SC;
