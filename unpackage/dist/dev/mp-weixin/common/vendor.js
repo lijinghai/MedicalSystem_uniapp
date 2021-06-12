@@ -10,6 +10,56 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createComponent = createComponent;exports.createPage = createPage;exports.createPlugin = createPlugin;exports.createSubpackageApp = createSubpackageApp;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 
+function b64DecodeUnicode(str) {
+  return decodeURIComponent(atob(str).split('').map(function (c) {
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+}
+
+function getCurrentUserInfo() {
+  var token = wx.getStorageSync('uni_id_token') || '';
+  var tokenArr = token.split('.');
+  if (!token || tokenArr.length !== 3) {
+    return {
+      uid: null,
+      role: [],
+      permission: [],
+      tokenExpired: 0 };
+
+  }
+  var userInfo;
+  try {
+    userInfo = JSON.parse(b64DecodeUnicode(tokenArr[1]));
+  } catch (error) {
+    throw new Error('获取当前用户信息出错，详细错误信息为：' + error.message);
+  }
+  userInfo.tokenExpired = userInfo.exp * 1000;
+  delete userInfo.exp;
+  delete userInfo.iat;
+  return userInfo;
+}
+
+function uniIdMixin(Vue) {
+  Vue.prototype.uniIDHasRole = function (roleId) {var _getCurrentUserInfo =
+
+
+    getCurrentUserInfo(),role = _getCurrentUserInfo.role;
+    return role.indexOf(roleId) > -1;
+  };
+  Vue.prototype.uniIDHasPermission = function (permissionId) {var _getCurrentUserInfo2 =
+
+
+    getCurrentUserInfo(),permission = _getCurrentUserInfo2.permission;
+    return this.uniIDHasRole('admin') || permission.indexOf(permissionId) > -1;
+  };
+  Vue.prototype.uniIDTokenValid = function () {var _getCurrentUserInfo3 =
+
+
+    getCurrentUserInfo(),tokenExpired = _getCurrentUserInfo3.tokenExpired;
+    return tokenExpired > Date.now();
+  };
+}
+
 var _toString = Object.prototype.toString;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -822,7 +872,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1355,6 +1405,7 @@ function parseBaseApp(vm, _ref3)
   if (vm.$options.store) {
     _vue.default.prototype.$store = vm.$options.store;
   }
+  uniIdMixin(_vue.default);
 
   _vue.default.prototype.mpHost = "mp-weixin";
 
@@ -7583,7 +7634,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7604,14 +7655,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7697,7 +7748,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"MedicalSystem_uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -10560,7 +10611,7 @@ main();
 /*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, deprecated, description, devDependencies, files, gitHead, homepage, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_from\":\"@dcloudio/uni-stat@next\",\"_id\":\"@dcloudio/uni-stat@2.0.0-31920210514002\",\"_inBundle\":false,\"_integrity\":\"sha512-hHyvtmMQDGCdzfS6O3ShhRkMtCapknAiZphv/xfwhilxETXZFUO2jrEalR0e3CqkwW7T3phTMAOxo0wyY5NjsQ==\",\"_location\":\"/@dcloudio/uni-stat\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"tag\",\"registry\":true,\"raw\":\"@dcloudio/uni-stat@next\",\"name\":\"@dcloudio/uni-stat\",\"escapedName\":\"@dcloudio%2funi-stat\",\"scope\":\"@dcloudio\",\"rawSpec\":\"next\",\"saveSpec\":null,\"fetchSpec\":\"next\"},\"_requiredBy\":[\"#USER\",\"/\",\"/@dcloudio/vue-cli-plugin-uni\"],\"_resolved\":\"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-31920210514002.tgz\",\"_shasum\":\"761406e2c24784359f02e5f8b6e1a6bf3ee42cc3\",\"_spec\":\"@dcloudio/uni-stat@next\",\"_where\":\"/Users/guoshengqiang/Documents/dcloud-plugins-new/release/uniapp-cli\",\"author\":\"\",\"bugs\":{\"url\":\"https://github.com/dcloudio/uni-app/issues\"},\"bundleDependencies\":false,\"deprecated\":false,\"description\":\"\",\"devDependencies\":{\"@babel/core\":\"^7.5.5\",\"@babel/preset-env\":\"^7.5.5\",\"eslint\":\"^6.1.0\",\"rollup\":\"^1.19.3\",\"rollup-plugin-babel\":\"^4.3.3\",\"rollup-plugin-clear\":\"^2.0.7\",\"rollup-plugin-commonjs\":\"^10.0.2\",\"rollup-plugin-copy\":\"^3.1.0\",\"rollup-plugin-eslint\":\"^7.0.0\",\"rollup-plugin-json\":\"^4.0.0\",\"rollup-plugin-node-resolve\":\"^5.2.0\",\"rollup-plugin-replace\":\"^2.2.0\",\"rollup-plugin-uglify\":\"^6.0.2\"},\"files\":[\"dist\",\"package.json\",\"LICENSE\"],\"gitHead\":\"c437ad9a231afa04b5ac0f48bfe5a6aef2936c52\",\"homepage\":\"https://github.com/dcloudio/uni-app#readme\",\"license\":\"Apache-2.0\",\"main\":\"dist/index.js\",\"name\":\"@dcloudio/uni-stat\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/dcloudio/uni-app.git\",\"directory\":\"packages/uni-stat\"},\"scripts\":{\"build\":\"NODE_ENV=production rollup -c rollup.config.js\",\"dev\":\"NODE_ENV=development rollup -w -c rollup.config.js\"},\"version\":\"2.0.0-31920210514002\"}");
+module.exports = JSON.parse("{\"_from\":\"@dcloudio/uni-stat@next\",\"_id\":\"@dcloudio/uni-stat@2.0.0-31920210609001\",\"_inBundle\":false,\"_integrity\":\"sha512-C7xRbsS1pD075MeqOFHohS+5hTfiM6C3Kcl2dkzSUdrFXaQW7ajuXBxZQXpqxOgywe90kobWpnm2wxiO+rB7Sg==\",\"_location\":\"/@dcloudio/uni-stat\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"tag\",\"registry\":true,\"raw\":\"@dcloudio/uni-stat@next\",\"name\":\"@dcloudio/uni-stat\",\"escapedName\":\"@dcloudio%2funi-stat\",\"scope\":\"@dcloudio\",\"rawSpec\":\"next\",\"saveSpec\":null,\"fetchSpec\":\"next\"},\"_requiredBy\":[\"#USER\",\"/\",\"/@dcloudio/vue-cli-plugin-uni\"],\"_resolved\":\"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-31920210609001.tgz\",\"_shasum\":\"749eafc9120797fb1e2461510145abe9d7f1a700\",\"_spec\":\"@dcloudio/uni-stat@next\",\"_where\":\"/Users/guoshengqiang/Documents/dcloud-plugins-new/release/uniapp-cli\",\"author\":\"\",\"bugs\":{\"url\":\"https://github.com/dcloudio/uni-app/issues\"},\"bundleDependencies\":false,\"deprecated\":false,\"description\":\"\",\"devDependencies\":{\"@babel/core\":\"^7.5.5\",\"@babel/preset-env\":\"^7.5.5\",\"eslint\":\"^6.1.0\",\"rollup\":\"^1.19.3\",\"rollup-plugin-babel\":\"^4.3.3\",\"rollup-plugin-clear\":\"^2.0.7\",\"rollup-plugin-commonjs\":\"^10.0.2\",\"rollup-plugin-copy\":\"^3.1.0\",\"rollup-plugin-eslint\":\"^7.0.0\",\"rollup-plugin-json\":\"^4.0.0\",\"rollup-plugin-node-resolve\":\"^5.2.0\",\"rollup-plugin-replace\":\"^2.2.0\",\"rollup-plugin-uglify\":\"^6.0.2\"},\"files\":[\"dist\",\"package.json\",\"LICENSE\"],\"gitHead\":\"1d8743e2c318b2a30d3bbd34f6657254a60d615f\",\"homepage\":\"https://github.com/dcloudio/uni-app#readme\",\"license\":\"Apache-2.0\",\"main\":\"dist/index.js\",\"name\":\"@dcloudio/uni-stat\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/dcloudio/uni-app.git\",\"directory\":\"packages/uni-stat\"},\"scripts\":{\"build\":\"NODE_ENV=production rollup -c rollup.config.js\",\"dev\":\"NODE_ENV=development rollup -w -c rollup.config.js\"},\"version\":\"2.0.0-31920210609001\"}");
 
 /***/ }),
 
@@ -10584,7 +10635,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "医疗管理系统", "enablePullDownRefresh": true }, "pages/people/people": { "navigationBarTitleText": "个人中心", "enablePullDownRefresh": true }, "pages/parameter/parameter": { "navigationBarTitleText": "病理参数", "enablePullDownRefresh": true }, "pages/manage/manage": { "navigationBarTitleText": "事件管理", "enablePullDownRefresh": true }, "pages/foodData/index": { "navigationBarTitleText": "餐饮事件", "enablePullDownRefresh": true }, "pages/foodUpd/index": { "navigationBarTitleText": "记录餐饮事件", "enablePullDownRefresh": true }, "pages/catheter/index": { "navigationBarTitleText": "导尿事件", "enablePullDownRefresh": true }, "pages/special/index": { "navigationBarTitleText": "特殊事件", "enablePullDownRefresh": true }, "pages/alarm/alarm": { "navigationBarTitleText": "闹钟设置", "enablePullDownRefresh": true }, "pages/report/report": { "navigationBarTitleText": "事件报表", "enablePullDownRefresh": true }, "pages/register/register": { "navigationBarTitleText": "用户注册", "enablePullDownRefresh": true }, "pages/forget/forget": { "navigationBarTitleText": "忘记密码", "enablePullDownRefresh": true }, "pages/agree/agree": { "navigationBarTitleText": "用户协议", "enablePullDownRefresh": true }, "pages/hideAgree/hideAgree": { "navigationBarTitleText": "用户隐私协议", "enablePullDownRefresh": true }, "pages/bladderData/index": { "navigationBarTitleText": "膀胱动力学资料", "enablePullDownRefresh": true }, "pages/bladderUpd/index": { "navigationBarTitleText": "修改膀胱动力学资料", "enablePullDownRefresh": true }, "pages/urineData/index": { "navigationBarTitleText": "尿常规资料", "enablePullDownRefresh": true }, "pages/urineUpd/index": { "navigationBarTitleText": "修改尿常规资料", "enablePullDownRefresh": true }, "pages/renalData/index": { "navigationBarTitleText": "肾功能资料", "enablePullDownRefresh": true }, "pages/renalUpd/index": { "navigationBarTitleText": "修改肾功能资料", "enablePullDownRefresh": true }, "pages/ureteralData/index": { "navigationBarTitleText": "输尿管B超数据资料", "enablePullDownRefresh": true }, "pages/ureteralUpd/index": { "navigationBarTitleText": "修改肾功能资料", "enablePullDownRefresh": true } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "医疗管理系统", "navigationBarBackgroundColor": "#87CEFF", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "医疗管理系统", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-notice-bar": "/uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar" } }, "pages/people/people": { "navigationBarTitleText": "个人中心", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/parameter/parameter": { "navigationBarTitleText": "病理参数", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/manage/manage": { "navigationBarTitleText": "事件管理", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/foodData/index": { "navigationBarTitleText": "餐饮事件", "enablePullDownRefresh": true, "usingComponents": { "food-item": "/components/foodItem/index" }, "usingAutoImportComponents": {} }, "pages/foodUpd/index": { "navigationBarTitleText": "记录餐饮事件", "enablePullDownRefresh": true, "usingComponents": { "test-com": "/components/FL-pciker_view_ts/FL-pciker_view_ts" }, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item", "uni-combox": "/uni_modules/uni-combox/components/uni-combox/uni-combox" } }, "pages/catheter/index": { "navigationBarTitleText": "导尿事件", "enablePullDownRefresh": true, "usingComponents": { "food-item": "/components/foodItem/index" }, "usingAutoImportComponents": {} }, "pages/special/index": { "navigationBarTitleText": "特殊事件", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/alarm/alarm": { "navigationBarTitleText": "闹钟设置", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/report/report": { "navigationBarTitleText": "事件报表", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/register/register": { "navigationBarTitleText": "用户注册", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/forget/forget": { "navigationBarTitleText": "忘记密码", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/agree/agree": { "navigationBarTitleText": "用户协议", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/hideAgree/hideAgree": { "navigationBarTitleText": "用户隐私协议", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/bladderData/index": { "navigationBarTitleText": "膀胱动力学资料", "enablePullDownRefresh": true, "usingComponents": { "bladder-item": "/components/bladderItem/index" }, "usingAutoImportComponents": { "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav" } }, "pages/bladderUpd/index": { "navigationBarTitleText": "修改膀胱动力学资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/urineData/index": { "navigationBarTitleText": "尿常规资料", "enablePullDownRefresh": true, "usingComponents": { "urine-item": "/components/urineItem/index" }, "usingAutoImportComponents": { "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav" } }, "pages/urineUpd/index": { "navigationBarTitleText": "修改尿常规资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/renalData/index": { "navigationBarTitleText": "肾功能资料", "enablePullDownRefresh": true, "usingComponents": { "renal-item": "/components/renalItem/index" }, "usingAutoImportComponents": { "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav" } }, "pages/renalUpd/index": { "navigationBarTitleText": "修改肾功能资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/ureteralData/index": { "navigationBarTitleText": "输尿管B超数据资料", "enablePullDownRefresh": true, "usingComponents": { "ureteral-item": "/components/ureteralItem/index" }, "usingAutoImportComponents": { "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav" } }, "pages/ureteralUpd/index": { "navigationBarTitleText": "修改肾功能资料", "enablePullDownRefresh": true, "usingComponents": {}, "usingAutoImportComponents": { "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms", "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item" } }, "pages/catheterUpd/index": { "navigationBarTitleText": "记录导尿事件", "enablePullDownRefresh": true } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "医疗管理系统", "navigationBarBackgroundColor": "#87CEFF", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ })
 

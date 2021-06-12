@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "导尿事件",
   "enablePullDownRefresh": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "food-item": "/components/catheterItem/index"
+  }
 }

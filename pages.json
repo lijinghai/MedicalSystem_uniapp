@@ -62,6 +62,14 @@
 		
 		},
 		{
+			"path": "pages/catheterUpd/index",
+			"style": {
+				"navigationBarTitleText": "记录导尿事件",
+				"enablePullDownRefresh": true
+			}
+		
+		},
+		{
 			"path": "pages/special/index",
 			"style": {
 				"navigationBarTitleText": "特殊事件",

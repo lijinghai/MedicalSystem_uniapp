@@ -7,6 +7,7 @@
     "pages/foodData/index",
     "pages/foodUpd/index",
     "pages/catheter/index",
+    "pages/catheterUpd/index",
     "pages/special/index",
     "pages/alarm/alarm",
     "pages/report/report",
@@ -51,6 +52,5 @@
   "uniStatistics": {
     "enable": true
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }
