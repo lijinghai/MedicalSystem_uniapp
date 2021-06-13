@@ -6,7 +6,7 @@
 <template>
 	<view>
 		<view class="new_item" @click="navigator(item.id)" v-for="item in list" :key="item.id">
-			<image src="../../static/img/food.png"></image>
+			<image src="../../static/img/special.png"></image>
 			<view class="right">
 				<view>请点击填写特殊事件</view>
 <!-- 				<view class="title">
