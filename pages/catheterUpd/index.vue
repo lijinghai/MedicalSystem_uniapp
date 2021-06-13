@@ -19,25 +19,52 @@
 					</uni-forms-item>
 
 
-					<uni-forms-item label="餐饮时间:" name="eventTime">
+					<uni-forms-item label="导尿时间:" name="eventTime">
 						<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
 						<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
 					</uni-forms-item>
 
-					<uni-forms-item class="c" label="餐饮种类:" name="waterCode">
-						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-						<input disabled="true" type="text" />
-						<uni-combox class="content" labelWidth="100px" :candidates="candidates" placeholder="请选择所在种类" v-model="a">
-						</uni-combox>
+					<uni-forms-item name="urgentLevel">
+						<!-- <uni-group title="基础用法"> -->
+						<!-- <view class="text">尿急迫程度：{{formData.value}}</view> -->
+						<view class="text">尿急迫程度:</view>
+						<!-- <input class="input" disabled="true" type="text" v-model="info1.urgentLevel" /> -->
+						<uni-data-checkbox v-model="formData.value" :localdata="urgent_level"></uni-data-checkbox>
+						<!-- </uni-group> -->
 					</uni-forms-item>
 
+					<uni-forms-item name="isIncontinence">
+						<view class="text">导尿前后是否尿失禁:</view>
+						<uni-data-checkbox v-model="formData1.value" :localdata="is_incontinence"></uni-data-checkbox>
+					</uni-forms-item>
+
+					<uni-forms-item name="incontinenceType">
+						<view class="text">尿失禁类别:</view>
+						<uni-data-checkbox v-model="formData2.value" :localdata="incontinence_type"></uni-data-checkbox>
+					</uni-forms-item>
+
+					<uni-forms-item name="isPain">
+						<view class="text">排尿前尿急迫或疼痛:</view>
+						<uni-data-checkbox v-model="formData3.value" :localdata="is_pain"></uni-data-checkbox>
+					</uni-forms-item>
+
+					<uni-forms-item name="isLeak">
+						<view class="text">是否漏尿:</view>
+						<uni-data-checkbox v-model="formData4.value" :localdata="is_leak"></uni-data-checkbox>
+					</uni-forms-item>
+
+					<uni-forms-item name="isDifficult">
+						<view class="text">是否插管困难:</view>
+						<uni-data-checkbox v-model="formData5.value" :localdata="is_difficult"></uni-data-checkbox>
+					</uni-forms-item>
 
 				</uni-forms>
 
-				<view class="btn_login" @click="postInfo">
-					添加
-				</view>
 			</scroll-view>
+
+			<view class="btn_login" @click="postInfo">
+				添加
+			</view>
 		</view>
 	</view>
 
@@ -53,8 +80,97 @@
 		},
 		data() {
 			return {
-				candidates: ['normal_water', 'coffee', 'soda_water', 'beer','normal_water', 'coffee', 'soda_water', 'beer'],
-				a: '',
+				// 尿急迫程度 1，2，3，4
+				formData: {
+					value: 1,
+					hobby: [1]
+				},
+				urgent_level: [{
+					text: '1',
+					value: 1
+				}, {
+					text: '2',
+					value: 2
+				}, {
+					text: '3',
+					value: 3
+				}, {
+					text: '4',
+					value: 4
+				}],
+
+				// 导尿前后是否尿失禁 是：1；否：0
+				formData1: {
+					value: 0,
+					hobby: [1]
+				},
+				is_incontinence: [{
+					text: '否',
+					value: 0
+				}, {
+					text: '是',
+					value: 1
+				}],
+
+				// 尿失禁类别 压力性 1 /急迫性 2  /充溢性 3  /混合性 4
+				formData2: {
+					value: 1,
+					hobby: [1]
+				},
+				incontinence_type: [{
+					text: '压力性',
+					value: 1
+				}, {
+					text: '急迫性',
+					value: 2
+				}, {
+					text: '充溢性',
+					value: 3
+				}, {
+					text: '混合性 ',
+					value: 4
+				}, ],
+
+				// 排尿前尿急迫或疼痛 是：1；否：0
+				formData3: {
+					value: 0,
+					hobby: [1]
+				},
+				is_pain: [{
+					text: '否',
+					value: 0
+				}, {
+					text: '是',
+					value: 1
+				}],
+
+				// 是否漏尿 是：1；否：0
+				formData4: {
+					value: 0,
+					hobby: [1]
+				},
+				is_leak: [{
+					text: '否',
+					value: 0
+				}, {
+					text: '是',
+					value: 1
+				}],
+
+				// 是否插管困难 是：1；否：0
+				formData5: {
+					value: 0,
+					hobby: [1]
+				},
+				is_difficult: [{
+					text: '否',
+					value: 0
+				}, {
+					text: '是',
+					value: 1
+				}],
+
+
 				val: {
 					selectRes: ''
 				},
@@ -62,11 +178,21 @@
 				info: {
 					userId: '',
 					eventTime: '',
-					waterCode: ''
+					urgentLevel: '',
+					isIncontinence: '',
+					incontinenceType: '',
+					isPain: '',
+					isLeak: '',
+					isDifficult: ''
 				},
 				info1: {
 					eventTime: '',
-					waterCode: ''
+					urgentLevel: '',
+					isIncontinence: '',
+					incontinenceType: '',
+					isPain: '',
+					isLeak: '',
+					isDifficult: ''
 				},
 
 
@@ -75,8 +201,30 @@
 		methods: {
 			//添加事件
 			postInfo() {
-				this.info.waterCode = this.a,
-					console.log("this.info.waterCode=====>" + this.info.waterCode)
+				// 尿急迫程度
+				this.info.urgentLevel = this.formData.value,
+					console.log("this.info.urgentLevel =====>" + this.info.urgentLevel)
+
+				// 导尿前后是否尿失禁
+				this.info.isIncontinence = this.formData1.value,
+					console.log("this.info.isIncontinence =====>" + this.info.isIncontinence)
+
+				// 尿失禁类别 压力性 1/急迫性 2/充溢性 3/混合性 
+				this.info.incontinenceType = this.formData2.value,
+					console.log("this.info.incontinenceType =====>" + this.info.incontinenceType)
+
+				// 排尿前尿急迫或疼痛 是：1；否：0
+				this.info.isPain = this.formData3.value,
+					console.log("this.info.isPain =====>" + this.info.isPain)
+
+				// 是否漏尿 是：1；否：0
+				this.info.isLeak = this.formData4.value,
+					console.log("this.info.isLeak =====>" + this.info.isLeak)
+
+				// 是否插管困难 是：1；否：0
+				this.info.isDifficult = this.formData5.value,
+					console.log("this.info.isDifficult =====>" + this.info.isDifficult)
+
 
 				this.$refs.form.submit().then(res => {
 					console.log('表单数据信息：', res);
@@ -145,6 +293,12 @@
 
 <style lang="scss">
 	@import '@/common/uni-nvue.scss';
+
+	.text {
+		font-size: 14px;
+		color: #333;
+		margin-bottom: 10px;
+	}
 
 	.example-body {
 		padding: 0px 12px;
@@ -357,5 +511,4 @@
 			}
 		}
 	}
-
 </style>

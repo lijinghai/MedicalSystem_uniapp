@@ -101,8 +101,8 @@ try {
     uniFormsItem: function() {
       return Promise.all(/*! import() | uni_modules/uni-forms/components/uni-forms-item/uni-forms-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-forms/components/uni-forms-item/uni-forms-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item.vue */ 226))
     },
-    uniCombox: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-combox/components/uni-combox/uni-combox */ "uni_modules/uni-combox/components/uni-combox/uni-combox").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-combox/components/uni-combox/uni-combox.vue */ 233))
+    uniDataCheckbox: function() {
+      return Promise.all(/*! import() | uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox.vue */ 340))
     }
   }
 } catch (e) {
@@ -207,6 +207,33 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   // components: {},
   components: {
@@ -214,8 +241,97 @@ __webpack_require__.r(__webpack_exports__);
 
   data: function data() {
     return {
-      candidates: ['normal_water', 'coffee', 'soda_water', 'beer', 'normal_water', 'coffee', 'soda_water', 'beer'],
-      a: '',
+      // 尿急迫程度 1，2，3，4
+      formData: {
+        value: 1,
+        hobby: [1] },
+
+      urgent_level: [{
+        text: '1',
+        value: 1 },
+      {
+        text: '2',
+        value: 2 },
+      {
+        text: '3',
+        value: 3 },
+      {
+        text: '4',
+        value: 4 }],
+
+
+      // 导尿前后是否尿失禁 是：1；否：0
+      formData1: {
+        value: 0,
+        hobby: [1] },
+
+      is_incontinence: [{
+        text: '否',
+        value: 0 },
+      {
+        text: '是',
+        value: 1 }],
+
+
+      // 尿失禁类别 压力性 1 /急迫性 2  /充溢性 3  /混合性 4
+      formData2: {
+        value: 1,
+        hobby: [1] },
+
+      incontinence_type: [{
+        text: '压力性',
+        value: 1 },
+      {
+        text: '急迫性',
+        value: 2 },
+      {
+        text: '充溢性',
+        value: 3 },
+      {
+        text: '混合性 ',
+        value: 4 }],
+
+
+      // 排尿前尿急迫或疼痛 是：1；否：0
+      formData3: {
+        value: 0,
+        hobby: [1] },
+
+      is_pain: [{
+        text: '否',
+        value: 0 },
+      {
+        text: '是',
+        value: 1 }],
+
+
+      // 是否漏尿 是：1；否：0
+      formData4: {
+        value: 0,
+        hobby: [1] },
+
+      is_leak: [{
+        text: '否',
+        value: 0 },
+      {
+        text: '是',
+        value: 1 }],
+
+
+      // 是否插管困难 是：1；否：0
+      formData5: {
+        value: 0,
+        hobby: [1] },
+
+      is_difficult: [{
+        text: '否',
+        value: 0 },
+      {
+        text: '是',
+        value: 1 }],
+
+
+
       val: {
         selectRes: '' },
 
@@ -223,11 +339,21 @@ __webpack_require__.r(__webpack_exports__);
       info: {
         userId: '',
         eventTime: '',
-        waterCode: '' },
+        urgentLevel: '',
+        isIncontinence: '',
+        incontinenceType: '',
+        isPain: '',
+        isLeak: '',
+        isDifficult: '' },
 
       info1: {
         eventTime: '',
-        waterCode: '' } };
+        urgentLevel: '',
+        isIncontinence: '',
+        incontinenceType: '',
+        isPain: '',
+        isLeak: '',
+        isDifficult: '' } };
 
 
 
@@ -236,8 +362,30 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     //添加事件
     postInfo: function postInfo() {var _this2 = this;
-      this.info.waterCode = this.a,
-      console.log("this.info.waterCode=====>" + this.info.waterCode);
+      // 尿急迫程度
+      this.info.urgentLevel = this.formData.value,
+      console.log("this.info.urgentLevel =====>" + this.info.urgentLevel);
+
+      // 导尿前后是否尿失禁
+      this.info.isIncontinence = this.formData1.value,
+      console.log("this.info.isIncontinence =====>" + this.info.isIncontinence);
+
+      // 尿失禁类别 压力性 1/急迫性 2/充溢性 3/混合性 
+      this.info.incontinenceType = this.formData2.value,
+      console.log("this.info.incontinenceType =====>" + this.info.incontinenceType);
+
+      // 排尿前尿急迫或疼痛 是：1；否：0
+      this.info.isPain = this.formData3.value,
+      console.log("this.info.isPain =====>" + this.info.isPain);
+
+      // 是否漏尿 是：1；否：0
+      this.info.isLeak = this.formData4.value,
+      console.log("this.info.isLeak =====>" + this.info.isLeak);
+
+      // 是否插管困难 是：1；否：0
+      this.info.isDifficult = this.formData5.value,
+      console.log("this.info.isDifficult =====>" + this.info.isDifficult);
+
 
       this.$refs.form.submit().then(function (res) {
         console.log('表单数据信息：', res);

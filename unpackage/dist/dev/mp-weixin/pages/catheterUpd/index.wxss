@@ -123,6 +123,11 @@ view {
 .word-btn--hover {
   background-color: #4ca2ff;
 }
+.text {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+}
 .example-body {
   padding: 0px 12px;
   background-color: #FFFFFF;

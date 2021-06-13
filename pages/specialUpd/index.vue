@@ -19,18 +19,20 @@
 					</uni-forms-item>
 
 
-					<uni-forms-item label="餐饮时间:" name="eventTime">
+					<uni-forms-item label="用户漏尿的时间:" name="eventTime">
 						<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
 						<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
 					</uni-forms-item>
 
-					<uni-forms-item class="c" label="餐饮种类:" name="waterCode">
-						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-						<input disabled="true" type="text" />
-						<uni-combox class="content" labelWidth="100px" :candidates="candidates" placeholder="请选择所在种类" v-model="a">
-						</uni-combox>
+					<uni-forms-item name="incontinenceType">
+						<view class="text">尿失禁类别:</view>
+						<uni-data-checkbox v-model="formData2.value" :localdata="incontinence_type"></uni-data-checkbox>
 					</uni-forms-item>
 
+					<uni-forms-item name="isPain">
+						<view class="text">排尿前尿急迫或疼痛:</view>
+						<uni-data-checkbox v-model="formData3.value" :localdata="is_pain"></uni-data-checkbox>
+					</uni-forms-item>
 
 				</uni-forms>
 
@@ -53,8 +55,37 @@
 		},
 		data() {
 			return {
-				candidates: ['normal_water', 'coffee', 'soda_water', 'beer','normal_water', 'coffee', 'soda_water', 'beer'],
-				a: '',
+				// 尿失禁类别 压力性 1 /急迫性 2  /充溢性 3  /混合性 4
+				formData2: {
+					value: 1,
+					hobby: [1]
+				},
+				incontinence_type: [{
+					text: '压力性',
+					value: 1
+				}, {
+					text: '急迫性',
+					value: 2
+				}, {
+					text: '充溢性',
+					value: 3
+				}, {
+					text: '混合性 ',
+					value: 4
+				}, ],
+
+				// 排尿前尿急迫或疼痛 是：1；否：0
+				formData3: {
+					value: 0,
+					hobby: [1]
+				},
+				is_pain: [{
+					text: '否',
+					value: 0
+				}, {
+					text: '是',
+					value: 1
+				}],
 				val: {
 					selectRes: ''
 				},
@@ -62,11 +93,13 @@
 				info: {
 					userId: '',
 					eventTime: '',
-					waterCode: ''
+					incontinenceType: '',
+					isPain: ''
 				},
 				info1: {
 					eventTime: '',
-					waterCode: ''
+					incontinenceType: '',
+					isPain: ''
 				},
 
 
@@ -75,8 +108,13 @@
 		methods: {
 			//添加事件
 			postInfo() {
-				this.info.waterCode = this.a,
-					console.log("this.info.waterCode=====>" + this.info.waterCode)
+				// 尿失禁类别 压力性 1/急迫性 2/充溢性 3/混合性 
+				this.info.incontinenceType = this.formData2.value,
+					console.log("this.info.incontinenceType =====>" + this.info.incontinenceType)
+
+				// 排尿前尿急迫或疼痛 是：1；否：0
+				this.info.isPain = this.formData3.value,
+					console.log("this.info.isPain =====>" + this.info.isPain)
 
 				this.$refs.form.submit().then(res => {
 					console.log('表单数据信息：', res);
@@ -357,5 +395,4 @@
 			}
 		}
 	}
-
 </style>

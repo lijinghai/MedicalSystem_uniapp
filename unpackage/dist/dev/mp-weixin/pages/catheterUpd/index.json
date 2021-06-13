@@ -4,7 +4,7 @@
   "usingComponents": {
     "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms",
     "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item",
-    "uni-combox": "/uni_modules/uni-combox/components/uni-combox/uni-combox",
+    "uni-data-checkbox": "/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox",
     "test-com": "/components/FL-pciker_view_ts/FL-pciker_view_ts"
   }
 }
