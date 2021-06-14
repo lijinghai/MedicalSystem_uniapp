@@ -237,7 +237,7 @@ __webpack_require__.r(__webpack_exports__);
       // 添加跳转
       uni.request({
         // 路径
-        url: 'http://localhost:8091/events',
+        url: 'http://localhost:8091/events/first',
         // 请求方法
         method: 'POST',
         data: _this.info, // 发送的数据

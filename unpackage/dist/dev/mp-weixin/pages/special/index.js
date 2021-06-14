@@ -93,6 +93,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    uniGoodsNav: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 272))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -195,7 +218,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getFindList: function getFindList() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this2.$myRequest({
-                    url: '/events/Third?limit=1&page=1&sort=1' }));case 2:res = _context.sent;
+                    url: '/events/third?limit=999999&page=1&sort=-1' }));case 2:res = _context.sent;
 
                 console.log(res);
                 _this2.findlist = res.data.data.items;case 5:case "end":return _context.stop();}}}, _callee);}))();
@@ -214,7 +237,7 @@ __webpack_require__.r(__webpack_exports__);
       // 添加跳转
       uni.request({
         // 路径
-        url: 'http://localhost:8091/events',
+        url: 'http://localhost:8091/events/third',
         // 请求方法
         method: 'POST',
         data: _this.info, // 发送的数据
@@ -226,7 +249,7 @@ __webpack_require__.r(__webpack_exports__);
             uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
             // uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
             uni.navigateTo({
-              url: '../manage/manage' });
+              url: '../special/index' });
 
             uni.showModal({
               title: '添加成功！！' });
