@@ -13,11 +13,11 @@
 
 		</view>
 
-		<!-- <view class="goods-carts">
+		<view class="goods-carts">
 			<uni-goods-nav :options="options" :fill="true" :button-group="buttonGroup" @click="onClick"
 				@buttonClick="buttonClick" />
 		</view>
-		<text v-if="findlist.length === 0">暂无数据,请点击添加按钮添加数据</text> -->
+		<text v-if="findlist.length === 0">暂无数据,请点击添加按钮添加数据</text>
 	</view>
 </template>
 
@@ -63,7 +63,7 @@
 		methods: {
 			async getFindList() {
 				const res = await this.$myRequest({
-					url: '/events/first?limit=1&page=1&sort=1'
+					url: '/events/first?limit=999999&page=1&sort=-1'
 				})
 				console.log(res)
 				this.findlist = res.data.data.items
@@ -94,7 +94,7 @@
 							uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
 							// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
 							uni.navigateTo({
-								url: '../manage/manage'
+								url: '../foodData/index'
 							})
 							uni.showModal({
 								title: '添加成功！！'

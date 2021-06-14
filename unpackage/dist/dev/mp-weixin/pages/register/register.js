@@ -225,12 +225,12 @@ var _default =
     return {
       pwd_show: true,
       user: {
-        account: '',
+        mobile: '',
         password: '' },
 
       rules: {
-        // 对account字段进行校验
-        account: {
+        // 对mobile字段进行校验
+        mobile: {
           rules: [{
             required: true,
             errorMessage: '请填写手机号' },
