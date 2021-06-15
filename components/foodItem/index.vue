@@ -9,13 +9,10 @@
 			<image src="../../static/img/food.png"></image>
 			<view class="right">
 				<view>请点击填写餐饮事件</view>
-<!-- 				<view class="title">
-					第:{{item.id}}条数据
+
+				<view class="info">
+					<text>填写的时间:{{item.event_time | formatDate}}</text>
 				</view>
-				<view class="info"> -->
-					<!-- <text>发表时间:{{item.addTime | formatDate}}</text> -->
-					<!-- <text>更新时间:{{item.eventTime}}</text>
-				</view> -->
 			</view>
 		</view>
 	</view>
@@ -30,13 +27,19 @@
 		// 增加时间过滤器
 		filters: {
 			formatDate (date) {
-				console.log(date)
-				const nDate = new Date(date)
-				console.log(nDate)
-				const year = nDate.getFullYear().toString().padStart(2,0)
-				const month = nDate.getMonth().toString().padStart(2,0)
-				const day = nDate.getDay().toString().padStart(2,0)
-				return year +'-' + month +'-'+ day
+				if(date != null ){
+					console.log(date)
+					const nDate = new Date(date)
+					console.log(nDate)
+					const year = nDate.getFullYear().toString().padStart(2,0)
+					const month = nDate.getMonth().toString().padStart(2,0)
+					const day = nDate.getDay().toString().padStart(2,0)
+					const hours = nDate.getHours().toString().padStart(2,0)
+					const minutes = nDate.getMinutes().toString().padStart(2,0)
+					return year +'-' + month +'-'+ day+' '+hours+':'+minutes
+				}else{
+					return '（请点击填写数据）'
+				}
 			}
 		},
 		methods:{
