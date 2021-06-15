@@ -23,6 +23,10 @@
 						<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
 						<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
 					</uni-forms-item>
+					
+					<uni-forms-item label="导尿量:" name="totalCapacity">
+						<input class="input" type="text" v-model="info.totalCapacity" placeholder="请填写导尿量(ml)" />
+					</uni-forms-item>
 
 					<uni-forms-item name="urgentLevel">
 						<!-- <uni-group title="基础用法"> -->
@@ -74,7 +78,6 @@
 <script>
 	import testCom from '../../components/FL-pciker_view_ts/FL-pciker_view_ts.vue'
 	export default {
-		// components: {},
 		components: {
 			testCom
 		},
@@ -183,7 +186,8 @@
 					incontinenceType: '',
 					isPain: '',
 					isLeak: '',
-					isDifficult: ''
+					isDifficult: '',
+					totalCapacity: ''
 				},
 				info1: {
 					eventTime: '',

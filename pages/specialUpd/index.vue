@@ -23,6 +23,10 @@
 						<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
 						<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
 					</uni-forms-item>
+					
+					<uni-forms-item label="自排/漏尿量:" name="totalCapacity">
+						<input class="input" type="text" v-model="info.totalCapacity" placeholder="请填写自排/漏尿量(ml)" />
+					</uni-forms-item>
 
 					<uni-forms-item name="incontinenceType">
 						<view class="text">尿失禁类别:</view>
@@ -94,7 +98,8 @@
 					userId: '',
 					eventTime: '',
 					incontinenceType: '',
-					isPain: ''
+					isPain: '',
+					totalCapacity: ''
 				},
 				info1: {
 					eventTime: '',

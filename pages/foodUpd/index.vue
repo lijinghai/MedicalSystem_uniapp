@@ -25,10 +25,13 @@
 					</uni-forms-item>
 
 					<uni-forms-item class="c" label="餐饮种类:" name="waterCode">
-						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-						<input disabled="true" type="text" />
-						<uni-combox class="content" labelWidth="100px" :candidates="candidates" placeholder="请选择所在种类" v-model="a">
+						<!-- <input disabled="true" type="text" /> -->
+						<uni-combox class="input" labelWidth="100px" :candidates="candidates" placeholder="请选择所在种类" v-model="a">
 						</uni-combox>
+					</uni-forms-item>
+					
+					<uni-forms-item label="液体摄入量:" name="totalCapacity">
+						<input class="input" type="text" v-model="info.totalCapacity" placeholder="请填写液体摄入量(喝水,ml)" />
 					</uni-forms-item>
 
 
@@ -47,13 +50,12 @@
 <script>
 	import testCom from '../../components/FL-pciker_view_ts/FL-pciker_view_ts.vue'
 	export default {
-		// components: {},
 		components: {
 			testCom
 		},
 		data() {
 			return {
-				candidates: ['normal_water', 'coffee', 'soda_water', 'beer','normal_water', 'coffee', 'soda_water', 'beer'],
+				candidates: ['normal_water', 'coffee', 'soda_water', 'beer'],
 				a: '',
 				val: {
 					selectRes: ''
@@ -62,14 +64,13 @@
 				info: {
 					userId: '',
 					eventTime: '',
-					waterCode: ''
+					waterCode: '',
+					totalCapacity: ''
 				},
 				info1: {
 					eventTime: '',
 					waterCode: ''
 				},
-
-
 			};
 		},
 		methods: {
