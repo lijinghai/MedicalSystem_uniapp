@@ -81,6 +81,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.__map(_vm.list, function(item, __i0__) {
+    var $orig = _vm.__get_orig(item)
+
+    var f0 = _vm._f("formatDate")(item.event_time)
+
+    return {
+      $orig: $orig,
+      f0: f0
+    }
+  })
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -135,10 +154,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
-//
-//
 var _default =
 {
   // 接收外界传来的数据
@@ -146,13 +161,19 @@ var _default =
   // 增加时间过滤器
   filters: {
     formatDate: function formatDate(date) {
-      console.log(date);
-      var nDate = new Date(date);
-      console.log(nDate);
-      var year = nDate.getFullYear().toString().padStart(2, 0);
-      var month = nDate.getMonth().toString().padStart(2, 0);
-      var day = nDate.getDay().toString().padStart(2, 0);
-      return year + '-' + month + '-' + day;
+      if (date != null) {
+        console.log(date);
+        var nDate = new Date(date);
+        console.log(nDate);
+        var year = nDate.getFullYear().toString().padStart(2, 0);
+        var month = nDate.getMonth().toString().padStart(2, 0);
+        var day = nDate.getDay().toString().padStart(2, 0);
+        var hours = nDate.getHours().toString().padStart(2, 0);
+        var minutes = nDate.getMinutes().toString().padStart(2, 0);
+        return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes;
+      } else {
+        return '（请点击填写数据）';
+      }
     } },
 
   methods: {
