@@ -100,6 +100,9 @@ try {
     },
     uniDatetimePicker: function() {
       return __webpack_require__.e(/*! import() | uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker */ "uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue */ 296))
+    },
+    uniGoodsNav: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 221))
     }
   }
 } catch (e) {
@@ -183,6 +186,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -191,7 +219,12 @@ var _default =
     });
     return {
       datetimerange: ['2000-03-20 20:10:10', currentDate],
-      findlist: [] };
+      findlist: [],
+      buttonGroup: [{
+        text: '查询',
+        backgroundColor: '#0392ff',
+        color: '#fff' }] };
+
 
   },
 
@@ -208,13 +241,13 @@ var _default =
       uni.request({
         // const res = await this.$myRequest({
         // 路径
-        url: 'http://localhost:8091/events/time?limit=19&page=1&sort=1&time1=' + this.datetimerange[0] + '&time2=' + this.datetimerange[1],
+        url: 'http://localhost:8091/events/time?limit=19&page=1&sort=1&time1=' + this.datetimerange[
+        0] + '&time2=' + this.datetimerange[1],
         // }),
         // 请求方法
         method: 'GET',
         data: _this.findlist, // 发送的数据
         success: function success(_ref)
-
 
         {var data = _ref.data;
           if (data.code == 20000) {// 获取数据成功

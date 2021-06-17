@@ -12,16 +12,41 @@
 		<view class="example-body">
 			<uni-datetime-picker v-model="datetimerange" type="datetimerange" start="2000-3-20 12:00:00"
 				end="2024-3-20 12:00:00" rangeSeparator="至" />
-				
-				
-				<view v-for="item in findlist" :key="item.id">
-					<text>{{item.id}}</text>
-				</view>
 		</view>
-		
-		
 
-		<button @click="getFindList">查询</button>
+
+		<view>
+			<scroll-view>
+				<view v-for="item in findlist" :key="item.id">
+					<view v-if="item.note === '餐饮事件'">
+						<text>液体摄入量:{{item.total_capacity}}==>{{item.id}}===>{{item.event_time}}</text>
+						<text>摄入液体类型:{{item.water_code}}(ml)==>{{item.id}}===>{{item.event_time}}</text>
+					</view>
+					<view v-if="item.note === '导尿事件'">
+						<text>导尿量:{{item.total_capacity}}(ml)==>{{item.id}}===>{{item.event_time}}</text>
+						<text>排尿前是否急迫或疼痛:{{item.is_pain}}==>{{item.id}}===>{{item.event_time}}</text>
+						<text>漏尿状况:{{item.is_leak}}==>{{item.id}}===>{{item.event_time}}</text>
+						<text>是否插管困难:{{item.is_difficult}}==>{{item.id}}===>{{item.event_time}}</text>
+					</view>
+					<view v-if="item.note === '特殊事件'">
+						<text>自排/漏尿量:{{item.total_capacity}}(ml)==>{{item.id}}===>{{item.event_time}}</text>
+					</view>
+				</view>
+			</scroll-view>
+
+
+		</view>
+
+		<!-- 	<view class="goods-carts">
+			<button @click="getFindList">查询</button>
+		</view> -->
+
+		<view class="goods-carts">
+			<uni-goods-nav :options="options" :fill="true" :button-group="buttonGroup" @click="getFindList"
+				@buttonClick="getFindList" />
+		</view>
+
+
 	</view>
 </template>
 
@@ -33,7 +58,12 @@
 			})
 			return {
 				datetimerange: ['2000-03-20 20:10:10', currentDate],
-				findlist: []
+				findlist: [],
+				buttonGroup: [{
+					text: '查询',
+					backgroundColor: '#0392ff',
+					color: '#fff'
+				}]
 			}
 		},
 
@@ -50,15 +80,15 @@
 				uni.request({
 					// const res = await this.$myRequest({
 					// 路径
-					url: 'http://localhost:8091/events/time?limit=19&page=1&sort=1&time1=' + this.datetimerange[0] + '&time2=' + this.datetimerange[1],
+					url: 'http://localhost:8091/events/time?limit=19&page=1&sort=1&time1=' + this.datetimerange[
+						0] + '&time2=' + this.datetimerange[1],
 					// }),
 					// 请求方法
 					method: 'GET',
 					data: _this.findlist, // 发送的数据
 					success({ // 请求成功
 						data
-					}) 
-					{
+					}) {
 						if (data.code == 20000) { // 获取数据成功
 							console.log("成功")
 							console.log(data)
@@ -69,7 +99,7 @@
 							// 	url: '../manage/manage'
 							// })
 							_this.findlist = data.data.items
-							
+
 							uni.showModal({
 								title: '查询成功！！'
 							})
@@ -83,7 +113,7 @@
 					fail: (res) => {
 						console.log("错误")
 					}
-					
+
 				})
 			},
 
@@ -120,4 +150,19 @@
 
 <style lang="scss">
 	@import '@/common/uni-nvue.scss';
+
+	.goods-carts {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		flex-direction: column;
+		position: fixed;
+		left: 0;
+		right: 0;
+		/* #ifdef H5 */
+		left: var(--window-left);
+		right: var(--window-right);
+		/* #endif */
+		bottom: 0;
+	}
 </style>
