@@ -55,7 +55,7 @@
 		},
 		data() {
 			return {
-				candidates: ['normal_water', 'coffee', 'soda_water', 'beer'],
+				candidates: ['如下：',  'normal_water', 'coffee', 'soda_water', 'beer'],
 				a: '',
 				val: {
 					selectRes: ''
