@@ -50,32 +50,63 @@
 				const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
 				console.log("表单提交")
 				// 登录跳转
-				uni.request({
-					// 路径
-					url: 'http://localhost:8091/uniappuser/login',
-					// 请求方法
+				
+				this.$myRequest({
+					url: '/uniappuser/login',
 					method: 'POST',
 					data: _this.user, // 发送的数据
-					success({ // 请求成功
-						data
-					}) {
-						if (data.code == 20000) { // 获取数据成功
-							uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
-							// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
-							uni.switchTab({ // 跳转到首页
-								url: '../index/index'
-							})
-						} else { // 获取数据失败
-							console.log("失败")
-							uni.showModal({
-								title: '账号或密码错误，请重新输入！！'
-							})
-						}
-					},
-					fail: (res) => {
-						console.log("错误")
+				
+				}).then(res => {
+					console.log(res)
+					// success({ // 请求成功
+					// 	data
+					// })
+					if (res.data.code == 20000) { // 获取数据成功
+						console.log("成功")
+						uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
+						uni.switchTab({
+							url: '../index/index'
+						})
+						uni.showModal({
+							title: '登录成功！！'
+						})
+					} else { // 获取数据失败
+						console.log("失败")
+						uni.showModal({
+							title: '账号或密码错误，请重新输入！！'
+						})
 					}
 				})
+				
+				
+				
+				
+			// 	uni.request({
+			// 		// 路径
+			// 		url: 'http://localhost:8091/uniappuser/login',
+			// 		// 请求方法
+			// 		method: 'POST',
+			// 		data: _this.user, // 发送的数据
+			// 		success({ // 请求成功
+			// 			data
+			// 		}) {
+			// 			if (data.code == 20000) { // 获取数据成功
+			// 				uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
+			// 				// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
+			// 				uni.switchTab({ // 跳转到首页
+			// 					url: '../index/index'
+			// 				})
+			// 			} else { // 获取数据失败
+			// 				console.log("失败")
+			// 				uni.showModal({
+			// 					title: '账号或密码错误，请重新输入！！'
+			// 				})
+			// 			}
+			// 		},
+			// 		fail: (res) => {
+			// 			console.log("错误")
+			// 		}
+				// })
 			},
 			
 			//用户注册页面

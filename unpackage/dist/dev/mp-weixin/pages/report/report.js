@@ -238,44 +238,71 @@ var _default =
   methods: {
     getFindList: function getFindList() {
       var _this = this;
-      uni.request({
-        // const res = await this.$myRequest({
-        // 路径
-        url: 'http://localhost:8091/events/time?limit=19&page=1&sort=1&time1=' + this.datetimerange[
-        0] + '&time2=' + this.datetimerange[1],
-        // }),
-        // 请求方法
+
+      this.$myRequest({
+        url: '/events/time?limit=19&page=1&sort=1&time1=' + this.datetimerange[0] + '&time2=' + this.datetimerange[1],
         method: 'GET',
-        data: _this.findlist, // 发送的数据
-        success: function success(_ref)
+        data: _this.findlist // 发送的数据
+      }).
+      then(function (res) {
+        console.log(res);
+        // success({ // 请求成功
+        // 	data
+        // })
+        if (data.code == 20000) {// 获取数据成功
+          console.log("成功");
+          console.log(data);
+          console.log(data.code);
+          console.log(data.data);
+          console.log(data.data.items);
+          _this.findlist = data.data.items;
 
-        {var data = _ref.data;
-          if (data.code == 20000) {// 获取数据成功
-            console.log("成功");
-            console.log(data);
-            console.log(data.code);
-            console.log(data.data);
-            console.log(data.data.items);
-            // uni.navigateTo({
-            // 	url: '../manage/manage'
-            // })
-            _this.findlist = data.data.items;
+          uni.showModal({
+            title: '查询成功！！' });
 
-            uni.showModal({
-              title: '查询成功！！' });
+        } else {// 获取数据失败
+          console.log("失败");
+          uni.showModal({
+            title: '请按要求选择时间！！' });
 
-          } else {// 获取数据失败
-            console.log("失败");
-            uni.showModal({
-              title: '请按要求选择时间！！' });
-
-          }
-        },
-        fail: function fail(res) {
-          console.log("错误");
-        } });
+        }
 
 
+        // uni.request({
+        // 	// const res = await this.$myRequest({
+        // 	// 路径
+        // 	url: 'http://localhost:8091/events/time?limit=19&page=1&sort=1&time1=' + this.datetimerange[
+        // 		0] + '&time2=' + this.datetimerange[1],
+        // 	// }),
+        // 	// 请求方法
+        // 	method: 'GET',
+        // 	data: _this.findlist, // 发送的数据
+        // 	success({ // 请求成功
+        // 		data
+        // 	}) {
+        // 		if (data.code == 20000) { // 获取数据成功
+        // 			console.log("成功")
+        // 			console.log(data)
+        // 			console.log(data.code)
+        // 			console.log(data.data)
+        // 			console.log(data.data.items)
+        // 			_this.findlist = data.data.items
+
+        // 			uni.showModal({
+        // 				title: '查询成功！！'
+        // 			})
+        // 		} else { // 获取数据失败
+        // 			console.log("失败")
+        // 			uni.showModal({
+        // 				title: '请按要求选择时间！！'
+        // 			})
+        // 		}
+        // 	},
+        // 	fail: (res) => {
+        // 		console.log("错误")
+        // 	}
+
+      });
     },
 
     // 获取当前时间

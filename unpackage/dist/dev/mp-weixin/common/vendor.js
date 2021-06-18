@@ -2059,7 +2059,8 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.myRequest = void 0; // 异步请求接口封装
-var BASE_URL = 'http://localhost:8091';
+var BASE_URL = 'http://192.168.184.1:8091';
+// const BASE_URL = 'http://192.168.43.38:8091'
 var myRequest = function myRequest(options) {
   return new Promise(function (resolve, reject) {
     uni.request({
