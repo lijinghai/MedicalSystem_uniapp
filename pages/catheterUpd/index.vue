@@ -23,7 +23,7 @@
 						<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
 						<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
 					</uni-forms-item>
-					
+
 					<uni-forms-item label="导尿量:" name="totalCapacity">
 						<input class="input" type="text" v-model="info.totalCapacity" placeholder="请填写导尿量(ml)" />
 					</uni-forms-item>
@@ -235,41 +235,76 @@
 					const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
 					console.log("表单提交")
 					// 登录跳转
-					uni.request({
-						// 路径
-						url: 'http://localhost:8091/events',
-						// 请求方法
+
+					this.$myRequest({
+						url: '/events',
 						method: 'PUT',
-						data: _this.info, // 发送的数据
-						success({ // 请求成功
-							data
-						}) {
-							if (data.code == 20000) { // 获取数据成功
-								console.log("成功")
-								uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
-								// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
-								uni.navigateTo({
-									url: '../manage/manage'
-								})
-								uni.showModal({
-									title: '编辑成功！！'
-								})
-							} else { // 获取数据失败
-								console.log("失败")
-								uni.showModal({
-									title: '请按要求填写信息！！'
-								})
-							}
-						},
-						fail: (res) => {
-							console.log("错误")
+						data: _this.info,
+
+					}).then(res => {
+						console.log(res)
+						// success({ // 请求成功
+						// 	data
+						// })
+						if (res.data.code == 20000) { // 获取数据成功
+							console.log("成功")
+							uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
+							uni.navigateTo({
+								url: '../manage/manage'
+							})
+							uni.showModal({
+								title: '编辑成功！！'
+							})
+						} else { // 获取数据失败
+							console.log("失败")
+							uni.showModal({
+								title: '请按要求填写信息！！'
+							})
 						}
 					})
 				}).catch(err => {
 					console.log('表单错误信息：', err);
 				})
-
 			},
+
+
+			// 		uni.request({
+			// 			// 路径
+			// 			url: 'http://localhost:8091/events',
+			// 			// 请求方法
+			// 			method: 'PUT',
+			// 			data: _this.info, // 发送的数据
+			// 			success({ // 请求成功
+			// 				data
+			// 			}) {
+			// 				if (data.code == 20000) { // 获取数据成功
+			// 					console.log("成功")
+			// 					uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
+			// 					// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
+			// 					uni.navigateTo({
+			// 						url: '../manage/manage'
+			// 					})
+			// 					uni.showModal({
+			// 						title: '编辑成功！！'
+			// 					})
+			// 				} else { // 获取数据失败
+			// 					console.log("失败")
+			// 					uni.showModal({
+			// 						title: '请按要求填写信息！！'
+			// 					})
+			// 				}
+			// 			},
+			// 			fail: (res) => {
+			// 				console.log("错误")
+			// 			}
+			// 		})
+			// 	}).catch(err => {
+			// 		console.log('表单错误信息：', err);
+			// 	})
+			// },
+
+
+
 			async getInfo() {
 				const res = await this.$myRequest({
 					url: '/events/id?limit=19&page=1&sort=1&id=' + this.id

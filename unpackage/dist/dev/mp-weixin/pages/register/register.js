@@ -268,41 +268,73 @@ var _default =
         var _this = _this2; // 获取此时的this为一个常量，防止下面请求回调改变出错
         console.log("表单提交");
         // 登录跳转
-        uni.request({
-          // 路径
-          url: 'http://localhost:8091/uniappuser/add',
-          // 请求方法
+
+        _this2.$myRequest({
+          url: '/uniappuser/add',
           method: 'POST',
-          data: _this.user, // 发送的数据
-          success: function success(_ref)
+          data: _this.user }).
 
-          {var data = _ref.data;
-            if (data.code == 20000) {// 获取数据成功
-              console.log("成功");
-              uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
-              // uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
-              uni.navigateTo({
-                url: '../login/index' });
+        then(function (res) {
+          console.log(res);
+          // success({ // 请求成功
+          // 	data
+          // })
+          if (res.data.code == 20000) {// 获取数据成功
+            console.log("成功");
+            uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
+            uni.navigateTo({
+              url: '../login/index' });
 
-              uni.showModal({
-                title: '欢迎加入我们，赶快去登录吧！！' });
+            uni.showModal({
+              title: '欢迎加入我们，赶快去登录吧！！' });
 
-            } else {// 获取数据失败
-              console.log("失败");
-              uni.showModal({
-                title: '请按要求填写注册信息！！' });
+          } else {// 获取数据失败
+            console.log("失败");
+            uni.showModal({
+              title: '请按要求填写注册信息！！' });
 
-            }
-          },
-          fail: function fail(res) {
-            console.log("错误");
-          } });
-
+          }
+        });
       }).catch(function (err) {
         console.log('表单错误信息：', err);
       });
-
     },
+
+
+    // 		uni.request({
+    // 			// 路径
+    // 			url: 'http://localhost:8091/uniappuser/add',
+    // 			// 请求方法
+    // 			method: 'POST',
+    // 			data: _this.user, // 发送的数据
+    // 			success({ // 请求成功
+    // 				data
+    // 			}) {
+    // 				if (data.code == 20000) { // 获取数据成功
+    // 					console.log("成功")
+    // 					uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
+    // 					// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
+    // 					uni.navigateTo({
+    // 						url: '../login/index'
+    // 					})
+    // 					uni.showModal({
+    // 						title: '欢迎加入我们，赶快去登录吧！！'
+    // 					})
+    // 				} else { // 获取数据失败
+    // 					console.log("失败")
+    // 					uni.showModal({
+    // 						title: '请按要求填写注册信息！！'
+    // 					})
+    // 				}
+    // 			},
+    // 			fail: (res) => {
+    // 				console.log("错误")
+    // 			}
+    // 		})
+    // 	}).catch(err => {
+    // 		console.log('表单错误信息：', err);
+    // 	})
+    // },
 
     //用户注册页面
     register: function register() {

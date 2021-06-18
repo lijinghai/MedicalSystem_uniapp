@@ -2058,13 +2058,13 @@ function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.myRequest = void 0; // 异步请求接口封装
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.myRequest = void 0; // 异步请求接口封装
 var BASE_URL = 'http://localhost:8091';
 var myRequest = function myRequest(options) {
   return new Promise(function (resolve, reject) {
     uni.request({
       url: BASE_URL + options.url,
-      method: options.method || 'GET' || 'POST',
+      method: options.method || 'GET' || 'POST' || 'PUT',
       data: options.data || {},
       success: function success(res) {
         if (res.data.code !== 20000) {
@@ -2082,15 +2082,19 @@ var myRequest = function myRequest(options) {
       } });
 
   });
-};
+};exports.myRequest = myRequest;var _default =
+{
+  BASE_URL: BASE_URL,
+  myRequest: myRequest };
+
 
 /* myRequest({
-   	url: '/unbo',
-   	method: 'POST',
-   	data:{
-   		
-   	}
-   }) */exports.myRequest = myRequest;
+                          	url: '/unbo',
+                          	method: 'POST',
+                          	data:{
+                          		
+                          	}
+                          }) */exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

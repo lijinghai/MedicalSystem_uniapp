@@ -9,48 +9,44 @@
 		<view class="tit">请添加输尿管B超数据</view>
 		<view class="ul">
 			<scroll-view>
-			<!-- 方案一 -->
-			<!-- <uni-forms :rules="rules" ref="form"> -->
-			<uni-forms  ref="form">
-				<uni-forms-item label="病患编号:" name="patientDataId">
-					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-					<input class="input" disabled="true" type="text" v-model="info.patient_data_id" />
-				</uni-forms-item>
-				<uni-forms-item label="数据编号:" name="id">
-					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-					<input class="input" disabled="true" type="text" v-model="info.id" />
-				</uni-forms-item>
-				<uni-forms-item label="输尿管结石:" name="param1">
-					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-					<input class="input" type="text" v-model="info.param1" placeholder="请填写输尿管结石" />
-				</uni-forms-item>
-				
-				<uni-forms-item label="输尿管外伤:" name="param2">
-					<!-- <input class="input" type="text" v-model="info.bladderDetrusorPressure" placeholder="请填写排尿期最大逼尿肌压(cmH2O)" /> -->
-					<input class="input" type="text" v-model="info.param2"
-						placeholder="请填写输尿管外伤:" />
-				</uni-forms-item>
-				<uni-forms-item label="输尿管肿瘤:" name="param2">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
-					<input class="input" type="text" v-model="info.param3"
-						placeholder="请填写输尿管肿瘤" />
-				</uni-forms-item>
-				<uni-forms-item label="泌尿系先天性发育异常:" name="param4">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
-					<input class="input" type="text" v-model="info.param4"
-						placeholder="请填写泌尿系先天性发育异常" />
-				</uni-forms-item>
-				<uni-forms-item label="先天性巨输尿管:" name="param5">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
-					<input class="input" type="text" v-model="info.param5"
-						placeholder="请填写先天性巨输尿管" />
-				</uni-forms-item>
-				
-			</uni-forms>
+				<!-- 方案一 -->
+				<!-- <uni-forms :rules="rules" ref="form"> -->
+				<uni-forms ref="form">
+					<uni-forms-item label="病患编号:" name="patientDataId">
+						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+						<input class="input" disabled="true" type="text" v-model="info.patient_data_id" />
+					</uni-forms-item>
+					<uni-forms-item label="数据编号:" name="id">
+						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+						<input class="input" disabled="true" type="text" v-model="info.id" />
+					</uni-forms-item>
+					<uni-forms-item label="输尿管结石:" name="param1">
+						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+						<input class="input" type="text" v-model="info.param1" placeholder="请填写输尿管结石" />
+					</uni-forms-item>
 
-			<view class="btn_login"  @click="postInfo">
-				添加
-			</view>
+					<uni-forms-item label="输尿管外伤:" name="param2">
+						<!-- <input class="input" type="text" v-model="info.bladderDetrusorPressure" placeholder="请填写排尿期最大逼尿肌压(cmH2O)" /> -->
+						<input class="input" type="text" v-model="info.param2" placeholder="请填写输尿管外伤:" />
+					</uni-forms-item>
+					<uni-forms-item label="输尿管肿瘤:" name="param2">
+						<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+						<input class="input" type="text" v-model="info.param3" placeholder="请填写输尿管肿瘤" />
+					</uni-forms-item>
+					<uni-forms-item label="泌尿系先天性发育异常:" name="param4">
+						<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+						<input class="input" type="text" v-model="info.param4" placeholder="请填写泌尿系先天性发育异常" />
+					</uni-forms-item>
+					<uni-forms-item label="先天性巨输尿管:" name="param5">
+						<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+						<input class="input" type="text" v-model="info.param5" placeholder="请填写先天性巨输尿管" />
+					</uni-forms-item>
+
+				</uni-forms>
+
+				<view class="btn_login" @click="postInfo">
+					添加
+				</view>
 			</scroll-view>
 		</view>
 	</view>
@@ -83,41 +79,75 @@
 					const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
 					console.log("表单提交")
 					// 登录跳转
-					uni.request({
-						// 路径
-						url: 'http://localhost:8091/ureteralData',
-						// 请求方法
+
+					this.$myRequest({
+						url: '/ureteralData',
 						method: 'PUT',
-						data: _this.info, // 发送的数据
-						success({ // 请求成功
-							data
-						}) {
-							if (data.code == 20000) { // 获取数据成功
-								console.log("成功")
-								uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
-								// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
-								uni.navigateTo({
-									url: '../ureteralData/index'
-								})
-								uni.showModal({
-									title: '编辑成功！！'
-								})
-							} else { // 获取数据失败
-								console.log("失败")
-								uni.showModal({
-									title: '请按要求填写信息！！'
-								})
-							}
-						},
-						fail: (res) => {
-							console.log("错误")
+						data: _this.info,
+
+					}).then(res => {
+						console.log(res)
+						// success({ // 请求成功
+						// 	data
+						// })
+						if (res.data.code == 20000) { // 获取数据成功
+							console.log("成功")
+							uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
+							uni.navigateTo({
+								url: '../ureteralData/index'
+							})
+							uni.showModal({
+								title: '编辑成功！！'
+							})
+						} else { // 获取数据失败
+							console.log("失败")
+							uni.showModal({
+								title: '请按要求填写信息！！'
+							})
 						}
 					})
 				}).catch(err => {
 					console.log('表单错误信息：', err);
 				})
-
 			},
+
+
+
+			// 		uni.request({
+			// 			// 路径
+			// 			url: 'http://localhost:8091/ureteralData',
+			// 			// 请求方法
+			// 			method: 'PUT',
+			// 			data: _this.info, // 发送的数据
+			// 			success({ // 请求成功
+			// 				data
+			// 			}) {
+			// 				if (data.code == 20000) { // 获取数据成功
+			// 					console.log("成功")
+			// 					uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
+			// 					// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
+			// 					uni.navigateTo({
+			// 						url: '../ureteralData/index'
+			// 					})
+			// 					uni.showModal({
+			// 						title: '编辑成功！！'
+			// 					})
+			// 				} else { // 获取数据失败
+			// 					console.log("失败")
+			// 					uni.showModal({
+			// 						title: '请按要求填写信息！！'
+			// 					})
+			// 				}
+			// 			},
+			// 			fail: (res) => {
+			// 				console.log("错误")
+			// 			}
+			// 		})
+			// 	}).catch(err => {
+			// 		console.log('表单错误信息：', err);
+			// 	})
+
+			// },
 			async getInfo() {
 				const res = await this.$myRequest({
 					url: '/ureteralData/id?limit=19&page=1&sort=1&id=' + this.id
@@ -329,5 +359,3 @@
 		}
 	}
 </style>
-
-

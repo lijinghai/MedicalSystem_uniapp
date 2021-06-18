@@ -4,7 +4,7 @@ export const  myRequest = (options)=>{
 	return new Promise((resolve,reject)=>{
 		uni.request({
 			url: BASE_URL+options.url,
-			method: options.method || 'GET' || 'POST',
+			method: options.method || 'GET' || 'POST' || 'PUT',
 			data: options.data || {},
 			success: (res) => {
 				if(res.data.code !==20000) {
@@ -22,6 +22,10 @@ export const  myRequest = (options)=>{
 		},
 		})
 	})
+};
+export default {
+	BASE_URL,
+	myRequest			
 }
 
 /* myRequest({
