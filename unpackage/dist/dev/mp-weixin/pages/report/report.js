@@ -101,6 +101,18 @@ try {
     uniDatetimePicker: function() {
       return __webpack_require__.e(/*! import() | uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker */ "uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue */ 296))
     },
+    uniTable: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-table/components/uni-table/uni-table */ "uni_modules/uni-table/components/uni-table/uni-table").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-table/components/uni-table/uni-table.vue */ 303))
+    },
+    uniTr: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-table/components/uni-tr/uni-tr */ "uni_modules/uni-table/components/uni-tr/uni-tr").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-table/components/uni-tr/uni-tr.vue */ 310))
+    },
+    uniTh: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-table/components/uni-th/uni-th */ "uni_modules/uni-table/components/uni-th/uni-th").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-table/components/uni-th/uni-th.vue */ 317))
+    },
+    uniTd: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-table/components/uni-td/uni-td */ "uni_modules/uni-table/components/uni-td/uni-td").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-table/components/uni-td/uni-td.vue */ 324))
+    },
     uniGoodsNav: function() {
       return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 221))
     }
@@ -211,6 +223,166 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -240,7 +412,8 @@ var _default =
       var _this = this;
 
       this.$myRequest({
-        url: '/events/time?limit=19&page=1&sort=1&time1=' + this.datetimerange[0] + '&time2=' + this.datetimerange[1],
+        url: '/events/time?limit=19&page=1&sort=1&time1=' + this.datetimerange[0] + '&time2=' + this.
+        datetimerange[1],
         method: 'GET',
         data: _this.findlist // 发送的数据
       }).
@@ -249,14 +422,14 @@ var _default =
         // success({ // 请求成功
         // 	data
         // })
-        if (data.code == 20000) {// 获取数据成功
-          console.log("成功");
-          console.log(data);
-          console.log(data.code);
-          console.log(data.data);
-          console.log(data.data.items);
-          _this.findlist = data.data.items;
 
+        if (res.data.code === 20000) {// 获取数据成功
+          console.log("成功");
+          console.log(res);
+          console.log(res.data.code);
+          console.log(res.data);
+          console.log(res.data.data.items);
+          _this.findlist = res.data.data.items;
           uni.showModal({
             title: '查询成功！！' });
 
@@ -266,44 +439,46 @@ var _default =
             title: '请按要求选择时间！！' });
 
         }
-
-
-        // uni.request({
-        // 	// const res = await this.$myRequest({
-        // 	// 路径
-        // 	url: 'http://localhost:8091/events/time?limit=19&page=1&sort=1&time1=' + this.datetimerange[
-        // 		0] + '&time2=' + this.datetimerange[1],
-        // 	// }),
-        // 	// 请求方法
-        // 	method: 'GET',
-        // 	data: _this.findlist, // 发送的数据
-        // 	success({ // 请求成功
-        // 		data
-        // 	}) {
-        // 		if (data.code == 20000) { // 获取数据成功
-        // 			console.log("成功")
-        // 			console.log(data)
-        // 			console.log(data.code)
-        // 			console.log(data.data)
-        // 			console.log(data.data.items)
-        // 			_this.findlist = data.data.items
-
-        // 			uni.showModal({
-        // 				title: '查询成功！！'
-        // 			})
-        // 		} else { // 获取数据失败
-        // 			console.log("失败")
-        // 			uni.showModal({
-        // 				title: '请按要求选择时间！！'
-        // 			})
-        // 		}
-        // 	},
-        // 	fail: (res) => {
-        // 		console.log("错误")
-        // 	}
-
       });
     },
+
+    // uni.request({
+    // 	// const res = await this.$myRequest({
+    // 	// 路径
+    // 	url: 'http://localhost:8091/events/time?limit=19&page=1&sort=1&time1=' + this.datetimerange[
+    // 		0] + '&time2=' + this.datetimerange[1],
+    // 	// }),
+    // 	// 请求方法
+    // 	method: 'GET',
+    // 	data: _this.findlist, // 发送的数据
+    // 	success({ // 请求成功
+    // 		data
+    // 	}) {
+    // 		if (data.code == 20000) { // 获取数据成功
+    // 			console.log("成功")
+    // 			console.log(data)
+    // 			console.log(data.code)
+    // 			console.log(data.data)
+    // 			console.log(data.data.items)
+    // 			_this.findlist = data.data.items
+
+    // 			uni.showModal({
+    // 				title: '查询成功！！'
+    // 			})
+    // 		} else { // 获取数据失败
+    // 			console.log("失败")
+    // 			uni.showModal({
+    // 				title: '请按要求选择时间！！'
+    // 			})
+    // 		}
+    // 	},
+    // 	fail: (res) => {
+    // 		console.log("错误")
+    // 	}
+
+    // 	})
+
+    // },
 
     // 获取当前时间
     getDate: function getDate(type) {
