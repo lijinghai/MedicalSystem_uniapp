@@ -217,7 +217,8 @@ __webpack_require__.r(__webpack_exports__);
 
   data: function data() {
     return {
-      candidates: ['如下：', 'normal_water', 'coffee', 'soda_water', 'beer'],
+      // candidates: ['如下：', 'normal_water', 'coffee', 'soda_water', 'beer'],
+      candidates: ['normal_water', 'coffee', 'soda_water', 'beer'],
       a: '',
       val: {
         selectRes: '' },

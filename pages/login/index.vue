@@ -1,3 +1,8 @@
+<!-- 登录
+@author: lijing
+@email: lijinghailjh@163.com
+@Date: 2021 6 1
+ -->
 <template>
 	<view class="box">
 		<view class="tit">欢迎登录</view>

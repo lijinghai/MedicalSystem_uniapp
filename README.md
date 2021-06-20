@@ -165,17 +165,78 @@ web管理端code地址:
 
 #### 1.微信小程序页面(MedicalSystem_uniapp)
 
-- #### 首页部分页面展示
+- #### 注册页面
+
+  ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/注册.jpg)
+
+- #### 登录页面
+
+![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/登录.jpg)
+
+- #### 首页页面
 
 
+  ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/首页.jpg)
 
-- #### 部分页面展示
+- #### 病理参数页面
+
+![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/病理参数.jpg)
+
+- #### 膀胱动力学页面
+
+  ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/注册.jpg)
+
+  - #### 添加参数页面
+
+    ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/膀胱添加.jpg)
+
+- #### 尿常规页面
+
+  ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/尿常规.jpg)
+
+  - #### 添加
+
+  ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/尿常规添加.jpg)
+
+- #### 事件管理
+
+  ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/事件管理.jpg)
+
+  - #### 餐饮事件
+
+    ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/餐饮事件.jpg)
+
+    
+
+    - #### 添加
+
+    ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/餐饮事件0.jpg)
+
+    ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/餐饮事件1.jpg)
+
+    ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/餐饮事件1.jpg)
+
+    ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/餐饮添加2.jpg)
+
+  - #### 导尿事件
+
+    ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/导尿事件.jpg)
+    
+    - #### 添加
+    
+    ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/导尿添加.jpg)
+
+- #### 事件报表
+
+  ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/事件报表.jpg)
+  
+  
+  
+  ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/事件报表0.jpg)
+
+![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/事件报表1.jpg)
 
 
-
-#### 2.后台管理系统(MedicalSystem_web)
-
-- #### 部分页面展示
 
 
 
@@ -191,7 +252,6 @@ web管理端code地址:
 ### 如果你能看到这里说明你肯定对我的项目感兴趣，那么请访问我的博客吧，里面会更新更详细的关于我这个项目的信息 [博客](https://dorian1015.github.io/)
 
 ### 或者你也可以通过我的[Github](https://github.com/Dorian1015) 首页的邮箱来联系我 lijinghailjh@163.com
-
 
 
 
