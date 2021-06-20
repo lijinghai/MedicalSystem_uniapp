@@ -27,7 +27,7 @@
 
 👉基于Springboot+vue+uni-app的医疗管理系统. 含平台主体微信小程序和web后台数据管理平台.
 
-* 
+
 
 ### 项目技术栈 :star:
 
@@ -53,7 +53,7 @@ web管理端code地址:
 
 主要还是因为穷，买不起服务器
 
-演示视频：[在线演示视频]()
+演示视频：[在线演示视频](https://www.bilibili.com/video/BV14K4y1u7An/)
 
 ## 前言：
 
