@@ -184,7 +184,7 @@ web管理端code地址:
 
 - #### 膀胱动力学页面
 
-  ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/注册.jpg)
+  ![img](https://cdn.jsdelivr.net/gh/Dorian1015/cdn/img/MedicalSystem/膀胱动力学.jpg)
 
   - #### 添加参数页面
 
