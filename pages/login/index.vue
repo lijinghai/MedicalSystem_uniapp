@@ -72,9 +72,9 @@
 						uni.switchTab({
 							url: '../index/index'
 						})
-						uni.showModal({
-							title: '登录成功！！'
-						})
+						// uni.showModal({
+						// 	title: '登录成功！！'
+						// })
 					} else { // 获取数据失败
 						console.log("失败")
 						uni.showModal({

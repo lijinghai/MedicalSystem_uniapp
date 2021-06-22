@@ -13,75 +13,60 @@
 			<!-- <uni-forms :rules="rules" ref="form"> -->
 			<uni-forms  ref="form">
 				<uni-forms-item label="病患编号:" name="patientDataId">
-					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
 					<input class="input" disabled="true" type="text" v-model="info.patient_data_id" />
 				</uni-forms-item>
 				<uni-forms-item label="数据编号:" name="id">
-					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
 					<input class="input" disabled="true" type="text" v-model="info.id" />
 				</uni-forms-item>
 				<uni-forms-item label="尿素:" name="param1">
-					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
 					<input class="input" type="text" v-model="info.param1" placeholder="请填写尿素" />
 				</uni-forms-item>
 				
 				<uni-forms-item label="肌酐:" name="param2">
-					<!-- <input class="input" type="text" v-model="info.bladderDetrusorPressure" placeholder="请填写排尿期最大逼尿肌压(cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param2"
 						placeholder="请填写肌酐:" />
 				</uni-forms-item>
 				<uni-forms-item label="葡萄糖:" name="param2">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param3"
 						placeholder="请填写葡萄糖" />
 				</uni-forms-item>
 				<uni-forms-item label="钾:" name="param4">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param4"
 						placeholder="请填写钾" />
 				</uni-forms-item>
 				<uni-forms-item label="钠:" name="param5">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param5"
 						placeholder="请填写钠" />
 				</uni-forms-item>
 				<uni-forms-item label="氯:" name="param6">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param6"
 						placeholder="请填写氯" />
 				</uni-forms-item>
 				<uni-forms-item label="钙:" name="param7">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param7"
 						placeholder="请填写钙" />
 				</uni-forms-item>
 				<uni-forms-item label="二氧化碳:" name="param8">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param8"
 						placeholder="请填写二氧化碳" />
 				</uni-forms-item>
 				<uni-forms-item label="尿酸:" name="param9">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param9"
 						placeholder="请填写尿酸" />
 				</uni-forms-item>
 				<uni-forms-item label="磷:" name="param10">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param10"
 						placeholder="请填写磷" />
 				</uni-forms-item>
 				<uni-forms-item label="镁:" name="param11">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param11"
 						placeholder="请填写镁" />
 				</uni-forms-item>
 				<uni-forms-item label="淀粉酶:" name="param12">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param12"
 						placeholder="请填写淀粉酶" />
 				</uni-forms-item>
 				<uni-forms-item label="脂肪酶测定:" name="param13">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 					<input class="input" type="text" v-model="info.param13"
 						placeholder="请填写脂肪酶测定" />
 				</uni-forms-item>
@@ -91,7 +76,7 @@
 				
 			</uni-forms>
 
-			<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'" @click="postInfo">
+			<view class="btn_login" @click="postInfo">
 				添加
 			</view>
 			</scroll-view>
@@ -403,7 +388,7 @@
 			margin-bottom: 32rpx;
 			width: 590rpx;
 			height: 120rpx;
-			background: #d7e9ff;
+			background: #3790ff;
 			border-radius: 60rpx;
 			font-size: 36rpx;
 			font-family: PingFangSC-Medium, PingFang SC;
@@ -450,6 +435,20 @@
 				color: #3790ff !important;
 			}
 		}
+	}
+	.btn_login {
+		margin-top: 88rpx;
+		margin-bottom: 32rpx;
+		width: 590rpx;
+		height: 120rpx;
+		background: #3790ff;
+		border-radius: 60rpx;
+		font-size: 36rpx;
+		font-family: PingFangSC-Medium, PingFang SC;
+		font-weight: 500;
+		color: #ffffff;
+		text-align: center;
+		line-height: 120rpx;
 	}
 </style>
 

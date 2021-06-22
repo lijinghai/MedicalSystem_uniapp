@@ -182,6 +182,21 @@
 <style lang="scss">
 	@import '@/common/uni-nvue.scss';
 
+	.btn_login {
+		margin-top: 88rpx;
+		margin-bottom: 32rpx;
+		width: 590rpx;
+		height: 120rpx;
+		background: #3790ff;
+		border-radius: 60rpx;
+		font-size: 36rpx;
+		font-family: PingFangSC-Medium, PingFang SC;
+		font-weight: 500;
+		color: #ffffff;
+		text-align: center;
+		line-height: 120rpx;
+	}
+
 	.example-body {
 		padding: 0px 12px;
 		background-color: #FFFFFF;

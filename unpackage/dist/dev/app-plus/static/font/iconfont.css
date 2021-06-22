@@ -1,8 +1,16 @@
-@font-face {
-  font-family: "iconfont"; /* Project id 2551533 */
-  src: url('iconfont.woff2?t=1621171067822') format('woff2'),
+/* @font-face {
+  font-family: "iconfont"; 
+ src: url('iconfont.woff2?t=1621171067822') format('woff2'),
        url('iconfont.woff?t=1621171067822') format('woff'),
        url('iconfont.ttf?t=1621171067822') format('truetype');
+	   } */
+	   
+	   
+@font-face {
+  font-family: 'iconfont';  
+  src: url('//at.alicdn.com/t/font_2551533_tbsesi8k70d.woff2?t=1624344303064') format('woff2'),
+       url('//at.alicdn.com/t/font_2551533_tbsesi8k70d.woff?t=1624344303064') format('woff'),
+       url('//at.alicdn.com/t/font_2551533_tbsesi8k70d.ttf?t=1624344303064') format('truetype');
 }
 
 .iconfont {

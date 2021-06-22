@@ -111,8 +111,7 @@
 
 				</uni-forms>
 
-				<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'"
-					@click="postInfo">
+				<view class="btn_login" @click="postInfo">
 					添加
 				</view>
 			</scroll-view>
@@ -435,7 +434,7 @@
 			margin-bottom: 32rpx;
 			width: 590rpx;
 			height: 120rpx;
-			background: #d7e9ff;
+			background: #3790ff;
 			border-radius: 60rpx;
 			font-size: 36rpx;
 			font-family: PingFangSC-Medium, PingFang SC;
@@ -482,5 +481,19 @@
 				color: #3790ff !important;
 			}
 		}
+	}
+	.btn_login {
+		margin-top: 88rpx;
+		margin-bottom: 32rpx;
+		width: 590rpx;
+		height: 120rpx;
+		background: #3790ff;
+		border-radius: 60rpx;
+		font-size: 36rpx;
+		font-family: PingFangSC-Medium, PingFang SC;
+		font-weight: 500;
+		color: #ffffff;
+		text-align: center;
+		line-height: 120rpx;
 	}
 </style>

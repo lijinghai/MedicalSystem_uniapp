@@ -52,20 +52,7 @@
 					urbc: ""
 
 				},
-				// options: [{
-				// 	icon: 'headphones',
-				// 	text: '客服'
-				// }, {
-				// 	icon: 'shop',
-				// 	text: '店铺',
-				// 	info: 2,
-				// 	infoBackgroundColor: '#007aff',
-				// 	infoColor: "red"
-				// }, {
-				// 	icon: 'cart',
-				// 	text: '购物车',
-				// 	info: 2
-				// }],
+			options: [],
 				buttonGroup: [{
 					text: '添加一条默认数据',
 					backgroundColor: '#0392ff',

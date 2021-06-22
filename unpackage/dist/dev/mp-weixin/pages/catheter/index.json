@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "导尿事件",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav",
-    "food-item": "/components/catheterItem/index"
-  }
-}

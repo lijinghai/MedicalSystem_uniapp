@@ -13,32 +13,25 @@
 				<!-- <uni-forms :rules="rules" ref="form"> -->
 				<uni-forms ref="form">
 					<uni-forms-item label="病患编号:" name="patientDataId">
-						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
 						<input class="input" disabled="true" type="text" v-model="info.patient_data_id" />
 					</uni-forms-item>
 					<uni-forms-item label="数据编号:" name="id">
-						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
 						<input class="input" disabled="true" type="text" v-model="info.id" />
 					</uni-forms-item>
 					<uni-forms-item label="输尿管结石:" name="param1">
-						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
 						<input class="input" type="text" v-model="info.param1" placeholder="请填写输尿管结石" />
 					</uni-forms-item>
 
 					<uni-forms-item label="输尿管外伤:" name="param2">
-						<!-- <input class="input" type="text" v-model="info.bladderDetrusorPressure" placeholder="请填写排尿期最大逼尿肌压(cmH2O)" /> -->
 						<input class="input" type="text" v-model="info.param2" placeholder="请填写输尿管外伤:" />
 					</uni-forms-item>
 					<uni-forms-item label="输尿管肿瘤:" name="param2">
-						<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 						<input class="input" type="text" v-model="info.param3" placeholder="请填写输尿管肿瘤" />
 					</uni-forms-item>
 					<uni-forms-item label="泌尿系先天性发育异常:" name="param4">
-						<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 						<input class="input" type="text" v-model="info.param4" placeholder="请填写泌尿系先天性发育异常" />
 					</uni-forms-item>
 					<uni-forms-item label="先天性巨输尿管:" name="param5">
-						<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
 						<input class="input" type="text" v-model="info.param5" placeholder="请填写先天性巨输尿管" />
 					</uni-forms-item>
 

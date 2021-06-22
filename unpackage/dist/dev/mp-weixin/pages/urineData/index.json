@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "尿常规资料",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav",
-    "urine-item": "/components/urineItem/index"
-  }
-}

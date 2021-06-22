@@ -9,41 +9,35 @@
 		<view class="tit">请添加膀胱动力学参数</view>
 		<view class="ul">
 
-			<!-- 方案一 -->
-			<uni-forms :rules="rules" ref="form">
-				<uni-forms-item label="病患编号:" name="patientDataId">
-					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-					<input class="input" disabled="true" type="text" v-model="info.patient_data_id" />
-				</uni-forms-item>
-				<uni-forms-item label="数据编号:" name="id">
-					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-					<input class="input" disabled="true" type="text" v-model="info.id" />
-				</uni-forms-item>
-				<uni-forms-item label="数据一:" name="bladderCapacity">
-					<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-					<input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" />
-				</uni-forms-item>
+			<scroll-view>
+				<!-- 方案一 -->
+				<uni-forms ref="form">
+					<uni-forms-item label="病患编号:" name="patientDataId">
+						<input class="input" disabled="true" type="text" v-model="info.patient_data_id" />
+					</uni-forms-item>
 
-				<uni-forms-item label="数据二:" name="bladderDetrusorPressure">
-					<!-- <input class="input" type="text" v-model="info.bladderDetrusorPressure" placeholder="请填写排尿期最大逼尿肌压(cmH2O)" /> -->
-					<input class="input" type="text" v-model="info.bladderDetrusorPressure"
-						placeholder="请填写排尿期最大逼尿肌压(cmH2O)" />
-				</uni-forms-item>
-				<uni-forms-item label="数据三:" name="bladderCompliance">
-					<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
-					<input class="input" type="text" v-model="info.bladderCompliance"
-						placeholder="请填写膀胱顺应性(ml/cmH2O)" />
-				</uni-forms-item>
-			</uni-forms>
+					<uni-forms-item label="数据编号:" name="id">
+						<input class="input" disabled="true" type="text" v-model="info.id" />
+					</uni-forms-item>
 
-			<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'" @click="postInfo">
-				添加</view>
-			<!-- <view class="des"> -->
-			<!-- 请填写者如实准确的填写以上数据 -->
-			<!-- <text class="text2" @click="ageree">《用户协议》</text>
-					、
-					<text class="text2" @click="hideAgree">《用户隐私协议》</text> -->
-			<!-- </view> -->
+					<uni-forms-item label="数据一:" name="bladderCapacity">
+						<input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" />
+					</uni-forms-item>
+
+					<uni-forms-item label="数据二:" name="bladderDetrusorPressure">
+						<input class="input" type="text" v-model="info.bladderDetrusorPressure"
+							placeholder="请填写排尿期最大逼尿肌压(cmH2O)" />
+					</uni-forms-item>
+					<uni-forms-item label="数据三:" name="bladderCompliance">
+						<input class="input" type="text" v-model="info.bladderCompliance"
+							placeholder="请填写膀胱顺应性(ml/cmH2O)" />
+					</uni-forms-item>
+				</uni-forms>
+
+				<view class="btn_login" @click="postInfo">
+					添加
+				</view>
+			</scroll-view>
 		</view>
 	</view>
 </template>
@@ -62,45 +56,7 @@
 					bladderCompliance: ''
 				},
 				info: {},
-				rules: {
-					// 对bladderCapacity字段进行校验
-					bladderCapacity: {
-						rules: [{
-								required: true,
-								errorMessage: '请填写最大膀胱测压容量',
-							},
-							{
-								minLength: 1,
-								// errorMessage: '手机号长度在 {minLength} 到 {maxLength} 个字符',
-								errorMessage: '最大膀胱测压容量长度必须为 {minLength} 个字符',
-							}
-						]
-					},
-					// 对bladderDetrusorPressure字段进行必填验证
-					bladderDetrusorPressure: {
-						rules: [{
-								required: true,
-								errorMessage: '请输入排尿期最大逼尿肌压',
-							},
-							{
-								minLength: 1,
-								errorMessage: '排尿期最大逼尿肌压长度必须大于 {minLength} 个字符',
-							}
-						]
-					},
-					// 对bladderCompliance字段进行必填验证
-					bladderCompliance: {
-						rules: [{
-								required: true,
-								errorMessage: '请输入膀胱顺应性值',
-							},
-							{
-								minLength: 1,
-								errorMessage: '膀胱顺应性值长度必须大于 {minLength}  个字符',
-							}
-						]
-					}
-				}
+				
 			};
 		},
 		methods: {
@@ -117,7 +73,7 @@
 						url: '/bladderData',
 						method: 'PUT',
 						data: _this.info,
-					
+
 					}).then(res => {
 						console.log(res)
 						// success({ // 请求成功
@@ -197,6 +153,20 @@
 
 	.dark {
 		background-color: #d3dce6;
+	}
+	.btn_login {
+		margin-top: 88rpx;
+		margin-bottom: 32rpx;
+		width: 590rpx;
+		height: 120rpx;
+		background: #3790ff;
+		border-radius: 60rpx;
+		font-size: 36rpx;
+		font-family: PingFangSC-Medium, PingFang SC;
+		font-weight: 500;
+		color: #ffffff;
+		text-align: center;
+		line-height: 120rpx;
 	}
 
 	.light {
@@ -307,7 +277,7 @@
 			margin-bottom: 32rpx;
 			width: 590rpx;
 			height: 120rpx;
-			background: #d7e9ff;
+			background: #3790ff;
 			border-radius: 60rpx;
 			font-size: 36rpx;
 			font-family: PingFangSC-Medium, PingFang SC;

@@ -39,20 +39,7 @@
 					isLeak: 0,
 					isDifficult: 0,
 				},
-				// options: [{
-				// 	icon: 'headphones',
-				// 	text: '客服'
-				// }, {
-				// 	icon: 'shop',
-				// 	text: '店铺',
-				// 	info: 2,
-				// 	infoBackgroundColor: '#007aff',
-				// 	infoColor: "red"
-				// }, {
-				// 	icon: 'cart',
-				// 	text: '购物车',
-				// 	info: 2
-				// }],
+				options: [],
 				buttonGroup: [{
 					text: '添加一条默认数据',
 					backgroundColor: '#0392ff',
@@ -80,13 +67,13 @@
 				const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
 				console.log("表单提交")
 				// 添加跳转
-				
-				
+
+
 				this.$myRequest({
 					url: '/events/third',
 					method: 'POST',
 					data: _this.info,
-				
+
 				}).then(res => {
 					console.log(res)
 					// success({ // 请求成功
@@ -108,8 +95,8 @@
 						})
 					}
 				})
-				
-				
+
+
 				// uni.request({
 				// 	// 路径
 				// 	url: 'http://localhost:8091/events/third',

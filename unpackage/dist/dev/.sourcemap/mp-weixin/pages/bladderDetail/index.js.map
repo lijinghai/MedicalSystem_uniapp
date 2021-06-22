@@ -1,1 +1,0 @@
-{"version":3,"sources":["uni-app:///main.js"],"names":["createPage","Page"],"mappings":";;;;;;;;;;kDAAA,wCAAmB;AACnB;AACA,qG;AACAA,UAAU,CAACC,cAAD,CAAV,C","file":"pages/bladderDetail/index.js","sourcesContent":["import 'uni-pages';import '@dcloudio/uni-stat';\nimport Vue from 'vue'\nimport Page from './pages/bladderDetail/index.vue'\ncreatePage(Page)"],"sourceRoot":""}
