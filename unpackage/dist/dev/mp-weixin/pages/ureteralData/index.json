@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "输尿管B超数据资料",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav",
+    "ureteral-item": "/components/ureteralItem/index"
+  }
+}

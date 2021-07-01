@@ -11,8 +11,8 @@
 				<text class="title">+86</text>
 				<image class="xiala" src=""></image>
 				<view class="shu"></view>
-				<input v-model="user.mobile" maxlength="11" placeholder-style="color: #AFAFB8" class="pr" type="number"
-					placeholder="请输入手机号" />
+				<input v-model="user.account" maxlength="11" placeholder-style="color: #AFAFB8" class="pr" type="number"
+					placeholder="请输入账号" />
 			</view>
 			<view class="li">
 				<input v-model="user.password" maxlength="24" placeholder-style="color: #AFAFB8" class="pr" type="text"
@@ -22,7 +22,7 @@
 				<image class="yc" src="" v-else @click="pwd_show = !pwd_show"></image>
 			</view>
 		</view>
-		<view class="btn_login" :class="user.mobile.length == 11 && password ? 'btn2' : 'btn2'" @click="login">登录
+		<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'" @click="login">登录
 		</view>
 		<view class="select_login">
 			<view @click="register">用户注册</view>
@@ -42,7 +42,7 @@
 		data() {
 			return {
 				user: {
-					mobile: '',
+					account: '',
 					password: ''
 				},
 				pwd_show: true

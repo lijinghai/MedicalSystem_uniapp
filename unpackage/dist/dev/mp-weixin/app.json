@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/index/index",
+    "pages/people/people",
+    "pages/parameter/parameter",
+    "pages/manage/manage",
+    "pages/foodData/index",
+    "pages/foodUpd/index",
+    "pages/catheter/index",
+    "pages/catheterUpd/index",
+    "pages/special/index",
+    "pages/specialUpd/index",
+    "pages/alarm/alarm",
+    "pages/report/report",
+    "pages/register/register",
+    "pages/forget/forget",
+    "pages/agree/agree",
+    "pages/hideAgree/hideAgree",
+    "pages/bladderData/index",
+    "pages/bladderUpd/index",
+    "pages/urineData/index",
+    "pages/urineUpd/index",
+    "pages/renalData/index",
+    "pages/renalUpd/index",
+    "pages/ureteralData/index",
+    "pages/ureteralUpd/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "医疗管理系统",
+    "navigationBarBackgroundColor": "#87CEFF",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "selectedColor": "#87CEFF",
+    "color": "#C0C0C0",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/img/home.png",
+        "selectedIconPath": "static/img/active_home.png"
+      },
+      {
+        "text": "个人中心",
+        "pagePath": "pages/people/people",
+        "iconPath": "static/img/people.png",
+        "selectedIconPath": "static/img/active_people.png"
+      }
+    ]
+  },
+  "uniStatistics": {
+    "enable": true
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

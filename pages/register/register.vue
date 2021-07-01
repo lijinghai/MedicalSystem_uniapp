@@ -24,9 +24,9 @@
 			<!-- 方案二 -->
 				<uni-forms :rules="rules" ref="form" :value="user">
 					<view class="li" :rules="rules" ref="form" :value="user">
-						<uni-forms-item name="mobile">
-							<input v-model="user.mobile" maxlength="11" placeholder-style="color: #AFAFB8" class="pr"
-								type="number" placeholder="请输入手机号" />
+						<uni-forms-item name="account">
+							<input v-model="user.account" maxlength="11" placeholder-style="color: #AFAFB8" class="pr"
+								type="number" placeholder="请输入账号" />
 						</uni-forms-item>
 					</view>
 
@@ -44,7 +44,7 @@
 				</uni-forms>
 
 
-				<view class="btn_login" :class="user.mobile.length == 11 && password ? 'btn2' : 'btn2'"
+				<view class="btn_login" :class="user.account.length == 11 && password ? 'btn2' : 'btn2'"
 					@click="postInfo">注册</view>
 				<view class="des">
 					注册表示您已阅读并同意
@@ -63,21 +63,21 @@
 			return {
 				pwd_show: true,
 				user: {
-					mobile: '',
+					account: '',
 					password: ''
 				},
 				rules: {
 					// 对mobile字段进行校验
-					mobile: {
+					account: {
 						rules: [{
 								required: true,
-								errorMessage: '请填写手机号',
+								errorMessage: '请填写账号',
 							},
 							{
 								minLength: 11,
 								maxLength: 11,
 								// errorMessage: '手机号长度在 {minLength} 到 {maxLength} 个字符',
-								errorMessage: '手机号长度为 {maxLength} 个字符',
+								errorMessage: '账号长度为 {maxLength} 个字符',
 							}
 						]
 					},
