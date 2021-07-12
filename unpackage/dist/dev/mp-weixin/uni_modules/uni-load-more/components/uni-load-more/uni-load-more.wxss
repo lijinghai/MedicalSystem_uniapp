@@ -213,7 +213,8 @@
 }
 .uni-load-more__img--android-MP > view.data-v-90d4256a {
   position: absolute;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: 100%;
   border-radius: 50%;

@@ -28,7 +28,8 @@
   display: table-row;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .checkbox {
   padding: 0 8px;

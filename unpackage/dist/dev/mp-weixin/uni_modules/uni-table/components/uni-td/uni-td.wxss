@@ -32,7 +32,8 @@
   font-weight: 400;
   color: #606266;
   line-height: 23px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .table--border {
   border-right: 1px #EBEEF5 solid;

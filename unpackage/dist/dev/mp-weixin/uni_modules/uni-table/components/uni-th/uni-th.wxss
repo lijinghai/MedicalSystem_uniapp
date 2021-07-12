@@ -27,7 +27,8 @@
 .uni-table-th {
   padding: 12px 10px;
   display: table-cell;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 14px;
   font-weight: bold;
   color: #909399;

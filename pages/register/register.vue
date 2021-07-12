@@ -126,7 +126,13 @@
 									uni.showModal({
 										title: '欢迎加入我们，赶快去登录吧！！'
 									})
-								} else { // 获取数据失败
+								}else if(res.data.code === 500){
+									console.log("用户名存在")
+									uni.showModal({
+										title: '用户名已经存在，请重新输入！！'
+									})
+								}
+								else { // 获取数据失败
 									console.log("失败")
 									uni.showModal({
 										title: '请按要求填写注册信息！！'

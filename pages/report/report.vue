@@ -261,7 +261,9 @@
 
 	.goods-carts {
 		/* #ifndef APP-NVUE */
-		display: flex;
+		// display: flex;
+		left: var(--window-left);
+		right: var(--window-right);
 		/* #endif */
 		flex-direction: column;
 		position: fixed;

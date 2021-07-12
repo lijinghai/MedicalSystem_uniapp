@@ -16,7 +16,8 @@
 	font-size: 14px;
 }
 .uni-date-x--border {
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	border-radius: 4px;
 	border: 1px solid #dcdfe6;
 }
@@ -28,7 +29,8 @@
 	top: 5px;
 	right: 0;
 	display: inline-block;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	border: 6px solid transparent;
 	margin-right: 6px;
 }
@@ -75,7 +77,8 @@
 	z-index: 999;
 	/* width: 375px; */
 	border: 1px solid #e4e7ed;
-	box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+	-webkit-box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+	        box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
 	border-radius: 4px;
 }
 .uni-date-range--x {
@@ -87,7 +90,8 @@
 	z-index: 999;
 	/* width: 733px; */
 	border: 1px solid #e4e7ed;
-	box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+	-webkit-box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+	        box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
 	border-radius: 4px;
 }
 .uni-date-editor--x__disabled {

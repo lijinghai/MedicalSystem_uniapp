@@ -121,7 +121,8 @@
 .uni-data-checklist .checklist-group .checklist-box .checkbox__inner {
   -webkit-flex-shrink: 0;
           flex-shrink: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   position: relative;
   width: 16px;
   height: 16px;
@@ -151,7 +152,8 @@
   display: flex;
   -webkit-flex-shrink: 0;
           flex-shrink: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;

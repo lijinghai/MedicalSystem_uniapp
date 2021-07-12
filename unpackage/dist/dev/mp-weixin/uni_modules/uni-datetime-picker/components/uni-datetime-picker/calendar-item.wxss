@@ -95,7 +95,8 @@
 }
 .uni-calendar-item--checked.data-v-39ec3f8e {
   background-color: #007aff;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: 6px solid #f2f6fc;
   color: #fff;
   opacity: 0.8;
@@ -110,13 +111,15 @@
 .uni-calendar-item--multiple .uni-calendar-item--before-checked.data-v-39ec3f8e {
   background-color: #409eff;
   color: #fff;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: 6px solid #f2f6fc;
 }
 .uni-calendar-item--multiple .uni-calendar-item--after-checked.data-v-39ec3f8e {
   background-color: #409eff;
   color: #fff;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: 6px solid #f2f6fc;
 }
 .uni-calendar-item--before-checked-x.data-v-39ec3f8e {

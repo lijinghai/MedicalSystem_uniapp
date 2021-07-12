@@ -58,7 +58,8 @@
   display: flex;
   -webkit-flex-shrink: 0;
           flex-shrink: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -77,7 +78,8 @@
 }
 .uni-forms-item__content.data-v-61dfc0d0 {
   width: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   min-height: 36px;
   -webkit-box-flex: 1;
   -webkit-flex: 1;

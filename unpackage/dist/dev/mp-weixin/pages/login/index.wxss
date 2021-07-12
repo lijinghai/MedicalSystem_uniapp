@@ -11,7 +11,8 @@
   -webkit-flex-direction: column;
           flex-direction: column;
   padding: 0 80rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .box .tit {
   width: 100%;
