@@ -1,9 +1,12 @@
 {
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/login/index",
+			"path": "pages/login/login_v2",
 			"style": {
-				"navigationBarTitleText": "登录"
+				// "navigationBarTitleText": "登录"
 				// "enablePullDownRefresh": true
 			}
 		},
@@ -191,10 +194,15 @@
 	],
 	// 头部导航栏设置
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "医疗管理系统",
-		"navigationBarBackgroundColor": "#87CEFF",
-		"backgroundColor": "#F8F8F8"
+		"mp-alipay": {
+			/* 支付宝小程序特有相关 */
+			"transparentTitle": "always",
+			"allowsBounceVertical": "NO"
+		},
+		"navigationBarBackgroundColor": "#0081ff",
+		"navigationBarTitleText": "lijinghai",
+		"navigationStyle": "custom",
+		"navigationBarTextStyle": "white"
 	},
 	"tabBar": {
 		"selectedColor": "#87CEFF",

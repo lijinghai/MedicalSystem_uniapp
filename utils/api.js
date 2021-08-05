@@ -1,32 +1,37 @@
 // 异步请求接口封装
-const BASE_URL = 'http://localhost:8091'
-// const BASE_URL = 'http://192.168.0.5:8091'
-export const  myRequest = (options)=>{
-	return new Promise((resolve,reject)=>{
+// const BASE_URL = 'http://localhost:8091'
+const BASE_URL = 'http://42.192.231.74:8091'
+export const myRequest = (options) => {
+	return new Promise((resolve, reject) => {
 		uni.request({
-			url: BASE_URL+options.url,
+			url: BASE_URL + options.url,
 			method: options.method || 'GET' || 'POST' || 'PUT',
 			data: options.data || {},
+			header: {Authorization:uni.getStorageSync('token')},
 			success: (res) => {
-				if(res.data.code !==20000) {
+				if (res.data.code !== 20000) {
+					// console.log(res)
+					resolve(res)
+					// return this.$tip.alert(res.data.message)
 					return uni.showToast({
-						title: '获取数据失败'
+						title: res.data.message
 					})
-				}
+				} 
 				resolve(res)
 			},
 			fail: (err) => {
 				uni.showToast({
 					title: '请求接口失败'
-		})
-		reject(err)
-		},
+				})
+				reject(err)
+			},
 		})
 	})
 };
+
 export default {
 	BASE_URL,
-	myRequest			
+	myRequest
 }
 
 /* myRequest({
@@ -36,5 +41,3 @@ export default {
 		
 	}
 }) */
-
-
