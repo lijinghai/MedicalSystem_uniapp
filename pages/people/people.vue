@@ -130,7 +130,7 @@
 				</view>
 
 				<!-- 用章安全测试 -->
-				<view class="cu-item " @click="mentalTest" :style="[{animation: 'show ' + 0.6+ 's 1'}]">
+				<!-- <view class="cu-item " @click="mentalTest" :style="[{animation: 'show ' + 0.6+ 's 1'}]">
 					<button class='content cu-btn'>
 						<image src='../../static/me/icon/bianqian.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>用章安全测试</text>
@@ -140,7 +140,7 @@
 						<view class="cu-tag round bg-olive light">安全</view>
 						<view class="cu-tag round bg-blue light">保密性</view>
 					</view>
-				</view>
+				</view> -->
 
 				<!-- 休闲小游戏 -->
 			<!-- 	<view class="cu-item " bindtap="" :style="[{animation: 'show ' + 0.6+ 's 1'}]">
@@ -184,12 +184,12 @@
 				class="cu-list menu card-menu margin-top-lg margin-bottom-lg shadow-shop bg-white text-black my-radius sm-border">
 
 				<!-- 账号认证 -->
-				<view class="cu-item " :style="[{animation: 'show ' + 0.6+ 's 1'}]">
+				<!-- <view class="cu-item " :style="[{animation: 'show ' + 0.6+ 's 1'}]">
 					<button class='content cu-btn' @click="goSalary">
 						<image src='../../static/me/icon/jisuanqi.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>账号认证</text>
 					</button>
-				</view>
+				</view> -->
 				
 				<!-- 加入企业 -->
 				<!-- <view class="cu-item " @click="goCourse" :style="[{animation: 'show ' + 0.6+ 's 1'}]">
@@ -348,7 +348,7 @@
 			async getInfo() {
 				const res = await this.$myRequest({
 					// url: '/goodsdetail?limit=1&page=1&sort=1&id=' + this.id
-					url: '/pcuser/info?token=' + uni.getStorageSync('token')
+					url: '/uniappuser/info?token=' + uni.getStorageSync('token')
 				})
 				console.log("用户信息")
 				console.log(res)
@@ -367,11 +367,11 @@
 			},
 
 			// 答题测试
-			// mentalTest() {
-			// 	uni.navigateTo({
-			// 		url: '../me/mentalTest/list'
-			// 	})
-			// },
+			mentalTest() {
+				uni.navigateTo({
+					url: '../me/mentalTest/list'
+				})
+			},
 			//拨打固定电话
 			callPhoneNumber() {
 				uni.makePhoneCall({

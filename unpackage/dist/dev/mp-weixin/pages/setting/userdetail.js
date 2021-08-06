@@ -99,16 +99,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   var f0 = _vm._f("formatSex")(_vm.info.sex)
 
-  var m0 = _vm.getSubStringText(
-    _vm.personalMsg.realname + "@" + _vm.personalMsg.orgCode,
-    11
-  )
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        f0: f0,
-        m0: m0
+        f0: f0
       }
     }
   )
@@ -285,16 +280,25 @@ var _default = {
   methods: {
 
     // 获取用户姓名和头像的数据
-    getInfo: function getInfo() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+    getInfo: function getInfo() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res, result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this.$myRequest({
                     // url: '/goodsdetail?limit=1&page=1&sort=1&id=' + this.id
-                    url: '/pcuser/info?token=' + uni.getStorageSync('token') }));case 2:res = _context.sent;
+                    url: '/uniappuser/info?token=' + uni.getStorageSync('token') }));case 2:res = _context.sent;
 
                 console.log("用户信息");
                 console.log(res);
                 // this.info = res.data.data.items[0]
                 _this.info = res.data.data;
-                console.log(res.data.data);case 7:case "end":return _context.stop();}}}, _callee);}))();
+                console.log(res.data.data);
+                if (res.data.data != null) {
+                  result = res.data.data;
+                  _this.info.name = result.name == null ? '无' : result.name;
+                  // this.info.sex = result.sex === 1 ? '男' : '女'
+                  _this.info.birthday = result.birthday == null ? '无' : result.birthday;
+                  _this.info.account = result.account == null ? '无' : result.account;
+                  _this.info.mobile = result.mobile == null ? '无' : result.mobile;
+                  _this.info.email = result.email == null ? '无' : result.email;
+                }case 8:case "end":return _context.stop();}}}, _callee);}))();
     },
 
     getSubStringText: function getSubStringText(text, len) {
@@ -325,14 +329,14 @@ var _default = {
       then(function (res) {
         console.log("用户", res);
         if (res.data.success) {
-          var result = res.data.result;
+          var result = res.data.data;
           if (result.avatar && result.avatar.length > 0)
           _this2.personalMsg.avatar = api.getFileAccessHttpUrl(result.avatar);
           _this2.personalMsg.realname = result.realname;
-          _this2.personalMsg.username = result.username;
+          _this2.info.name = result.name;
           _this2.personalMsg.post = result.post;
-          _this2.personalMsg.sex = result.sex === 1 ? '男' : '女';
-          _this2.personalMsg.birthday = result.birthday == null ? '无' : result.birthday;
+          _this2.info.sex = result.sex === 1 ? '男' : '女';
+          _this2.info.birthday = result.birthday == null ? '无' : result.birthday;
           _this2.personalMsg.departIds = result.departIds;
           _this2.personalMsg.workNo = result.workNo;
           _this2.personalMsg.phone = result.phone;

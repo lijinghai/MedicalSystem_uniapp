@@ -509,7 +509,7 @@ var _default =
     getInfo: function getInfo() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this.$myRequest({
                     // url: '/goodsdetail?limit=1&page=1&sort=1&id=' + this.id
-                    url: '/pcuser/info?token=' + uni.getStorageSync('token') }));case 2:res = _context.sent;
+                    url: '/uniappuser/info?token=' + uni.getStorageSync('token') }));case 2:res = _context.sent;
 
                 console.log("用户信息");
                 console.log(res);
@@ -528,11 +528,11 @@ var _default =
     },
 
     // 答题测试
-    // mentalTest() {
-    // 	uni.navigateTo({
-    // 		url: '../me/mentalTest/list'
-    // 	})
-    // },
+    mentalTest: function mentalTest() {
+      uni.navigateTo({
+        url: '../me/mentalTest/list' });
+
+    },
     //拨打固定电话
     callPhoneNumber: function callPhoneNumber() {
       uni.makePhoneCall({

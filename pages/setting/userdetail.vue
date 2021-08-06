@@ -31,7 +31,7 @@
 						<text class="text-grey">姓名</text>
 					</view>
 					<view class="action">
-						<text class="text-grey">{{info.username}}</text>
+						<text class="text-grey">{{info.name}}</text>
 					</view>
 				</view>
 
@@ -51,10 +51,10 @@
 				<!-- 生日 -->
 				<view class="cu-item animation-slide-bottom" :style="[{animation: 'show ' + 0.4+ 's 1'}]">
 					<view class="content">
-						<text class="text-grey">生日</text>
+						<text class="text-grey">账号</text>
 					</view>
 					<view class="action">
-						<text class="text-grey">{{personalMsg.birthday}}</text>
+						<text class="text-grey">{{info.account}}</text>
 					</view>
 				</view>
 			</view>
@@ -63,11 +63,11 @@
 			<view class="cu-list menu">
 				<view class="cu-item animation-slide-bottom" :style="[{animation: 'show ' + 0.4+ 's 1'}]">
 					<view class="content">
-						<text class="text-grey">对外信息展示</text>
+						<text class="text-grey">用户名</text>
 					</view>
 					<view class="action">
 						<text
-							class="text-grey">{{getSubStringText(personalMsg.realname+'@'+personalMsg.orgCode,11)}}</text>
+							class="text-grey">{{info.name}}</text>
 					</view>
 				</view>
 			</view>
@@ -79,10 +79,10 @@
 				<!-- 手机 -->
 				<view class="cu-item animation-slide-bottom" :style="[{animation: 'show ' + 0.4+ 's 1'}]">
 					<view class="content">
-						<text class="text-grey">手机</text>
+						<text class="text-grey">注册的手机</text>
 					</view>
 					<view class="action">
-						<text class="text-grey">{{personalMsg.phone}}</text>
+						<text class="text-grey">{{info.mobile}}</text>
 					</view>
 				</view>
 
@@ -92,7 +92,7 @@
 						<text class="text-grey">邮箱</text>
 					</view>
 					<view class="action">
-						<text class="text-grey">{{personalMsg.email}}</text>
+						<text class="text-grey">{{info.email}}</text>
 					</view>
 				</view>
 			</view>
@@ -141,13 +141,22 @@
 			async getInfo() {
 				const res = await this.$myRequest({
 					// url: '/goodsdetail?limit=1&page=1&sort=1&id=' + this.id
-					url: '/pcuser/info?token=' + uni.getStorageSync('token')
+					url: '/uniappuser/info?token=' + uni.getStorageSync('token')
 				})
 				console.log("用户信息")
 				console.log(res)
 				// this.info = res.data.data.items[0]
 				this.info = res.data.data
 				console.log(res.data.data)
+				if (res.data.data !=null) {
+					let result = res.data.data
+					this.info.name = result.name == null ? '无' : result.name
+					// this.info.sex = result.sex === 1 ? '男' : '女'
+					this.info.birthday = result.birthday == null ? '无' : result.birthday
+					this.info.account = result.account == null ? '无' : result.account
+					this.info.mobile = result.mobile == null ? '无' : result.mobile
+					this.info.email = result.email == null ? '无' : result.email
+				}
 			},
 
 			getSubStringText(text, len) {
@@ -178,14 +187,14 @@
 				}).then(res => {
 					console.log("用户", res)
 					if (res.data.success) {
-						let result = res.data.result
+						let result = res.data.data
 						if (result.avatar && result.avatar.length > 0)
 							this.personalMsg.avatar = api.getFileAccessHttpUrl(result.avatar)
 						this.personalMsg.realname = result.realname
-						this.personalMsg.username = result.username
+						this.info.name = result.name
 						this.personalMsg.post = result.post
-						this.personalMsg.sex = result.sex === 1 ? '男' : '女'
-						this.personalMsg.birthday = result.birthday == null ? '无' : result.birthday
+						this.info.sex = result.sex === 1 ? '男' : '女'
+						this.info.birthday = result.birthday == null ? '无' : result.birthday
 						this.personalMsg.departIds = result.departIds
 						this.personalMsg.workNo = result.workNo
 						this.personalMsg.phone = result.phone
