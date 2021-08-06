@@ -223,7 +223,7 @@ var _default =
 
   },
   onLoad: function onLoad(option) {
-    this.getInfoid();
+    this.getInfo();
     // console.log("this.$Route.query",this.$Route.query);
     // let query=this.$Route.query
     // if(query){
@@ -354,12 +354,7 @@ var _default =
                   _this3.info.name = result.name == null ? '用户' : result.name;
                 }case 6:case "end":return _context.stop();}}}, _callee);}))();
     },
-    onLoad: function onLoad(options) {
-      // console.log(options)
-      // this.id = options.id
-      // console.log(options.id)
-      this.getInfo();
-    },
+
 
 
 

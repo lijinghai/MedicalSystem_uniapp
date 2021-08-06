@@ -304,7 +304,8 @@ var _default = {
     // 	}
     // },
 
-    //获取用户id
+    //获取用户信息
+    // 获取用户id====>根据id获取信息
     getinfoid: function getinfoid() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res, res1, result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this.$myRequest({
                     // url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
@@ -326,7 +327,7 @@ var _default = {
                 console.log(res1.data.data.items[0]);
                 if (res1.data.data.items[0] != null) {
                   result = res1.data.data.items[0];
-                  _this.info.name = result.name == null ? '无' : result.name;
+                  _this.info.name = result.name == null ? '用户' : result.name;
                   // this.info.sex = result.sex === 1 ? '男' : '女'
                   _this.info.birthday = result.birthday == null ? '无' : result.birthday;
                   _this.info.account = result.account == null ? '无' : result.account;

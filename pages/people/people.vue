@@ -268,6 +268,10 @@
 				
 				// 获取用户名称和头像
 				info: [],
+				// 获取用户id
+				infoid: {
+					id: ''
+				},
 				// Custom: this.Custom,
 				// CustomBar: this.CustomBar,
 				spaceShow: true,
@@ -346,7 +350,25 @@
 		methods: {
 			
 			//获取用户信息
-			async getInfo(){
+			// async getInfo(){
+			// 	const res = await this.$myRequest({
+			// 		// url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
+			// 		url: '/uniappuser/info?token=' + uni.getStorageSync('token')
+			// 	})
+			// 	console.log("用户信息")
+			// 	console.log(res)
+			// 	// this.info = res.data.data.items[0]
+			// 	this.info = res.data.data
+			// 	console.log(res.data.data)
+			// 	if (res.data.data != null) {
+			// 		let result = res.data.data
+			// 		this.info.name = result.name == null ? '用户' : result.name
+			// 	}
+			// },
+			
+			//获取用户信息
+			// 获取用户id====>根据id获取信息
+			async getinfoid(){
 				const res = await this.$myRequest({
 					// url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
 					url: '/uniappuser/info?token=' + uni.getStorageSync('token')
@@ -354,11 +376,26 @@
 				console.log("用户信息")
 				console.log(res)
 				// this.info = res.data.data.items[0]
-				this.info = res.data.data
-				console.log(res.data.data)
-				if (res.data.data != null) {
-					let result = res.data.data
-					this.info.name = result.name == null ? '用户' : result.name
+				this.infoid = res.data.data
+				console.log("用户id==>"+this.infoid.id)
+				if(this.infoid.id != null) {
+					console.log("进来了")
+					const res1 = await this.$myRequest({
+						url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
+					})
+					console.log("用户详情信息")
+					console.log(res1)
+					this.info = res1.data.data.items[0]
+					console.log(res1.data.data.items[0])
+					if (res1.data.data.items[0] != null) {
+						let result = res1.data.data.items[0]
+						this.info.name = result.name == null ? '用户' : result.name
+						// this.info.sex = result.sex === 1 ? '男' : '女'
+						this.info.birthday = result.birthday == null ? '无' : result.birthday
+						this.info.account = result.account == null ? '无' : result.account
+						this.info.mobile = result.mobile == null ? '无' : result.mobile
+						this.info.email = result.email == null ? '无' : result.email
+					}
 				}
 			},
 
@@ -420,7 +457,7 @@
 			// 	this.getInfoid()
 			// },
 			onShow() {
-				this.getInfo()
+				this.getinfoid()
 				
 			}
 		}

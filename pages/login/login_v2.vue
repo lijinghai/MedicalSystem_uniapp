@@ -183,7 +183,16 @@
 			return {
 				tip: '点击「添加小程序」，下次访问更便捷',
 				duration: 1,
-
+				
+				info: {
+					bladderCapacity: '500.0',
+					bladderDetrusorPressure: '1.0',
+					bladderCompliance: '1.0'
+				},
+				// 获取用户id
+				infoid: {
+					id: ''
+				},
 				user: {
 					account: '',
 					password: ''
@@ -392,6 +401,16 @@
 						console.log("token====>" + res.data.data.token)
 						// page.onLoad();
 						this.$tip.success('注册成功!')
+						this.infoid = res.data.data
+						console.log("user_id===>"+this.infoid.id)
+						
+						
+						// 添加
+						this.$myRequest({
+							url: '/bladderData/id?id='+this.infoid.id,
+							method: 'POST',
+							data: _this.info,
+						})
 					} else if (res.data.code === 500) { // 获取数据失败
 						console.log("失败")
 						this.loading = false;

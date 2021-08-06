@@ -162,7 +162,8 @@
 			// 	}
 			// },
 
-			//获取用户id
+			//获取用户信息
+			// 获取用户id====>根据id获取信息
 			async getinfoid(){
 				const res = await this.$myRequest({
 					// url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
@@ -184,7 +185,7 @@
 					console.log(res1.data.data.items[0])
 					if (res1.data.data.items[0] != null) {
 						let result = res1.data.data.items[0]
-						this.info.name = result.name == null ? '无' : result.name
+						this.info.name = result.name == null ? '用户' : result.name
 						// this.info.sex = result.sex === 1 ? '男' : '女'
 						this.info.birthday = result.birthday == null ? '无' : result.birthday
 						this.info.account = result.account == null ? '无' : result.account

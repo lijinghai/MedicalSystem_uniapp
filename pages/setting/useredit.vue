@@ -91,7 +91,7 @@
 			};
 		},
 		onLoad: function(option) {
-			this.getInfoid()
+			this.getInfo()
 			// console.log("this.$Route.query",this.$Route.query);
 			// let query=this.$Route.query
 			// if(query){
@@ -222,12 +222,7 @@
 					this.info.name = result.name == null ? '用户' : result.name
 				}
 			},
-			onLoad(options) {
-				// console.log(options)
-				// this.id = options.id
-				// console.log(options.id)
-				this.getInfo()
-			},
+
 
 
 

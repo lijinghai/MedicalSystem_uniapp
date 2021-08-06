@@ -348,6 +348,15 @@ var _vuex = __webpack_require__(/*! vuex */ 52);function ownKeys(object, enumera
       tip: '点击「添加小程序」，下次访问更便捷',
       duration: 1,
 
+      info: {
+        bladderCapacity: '500.0',
+        bladderDetrusorPressure: '1.0',
+        bladderCompliance: '1.0' },
+
+      // 获取用户id
+      infoid: {
+        id: '' },
+
       user: {
         account: '',
         password: '' },
@@ -556,6 +565,16 @@ var _vuex = __webpack_require__(/*! vuex */ 52);function ownKeys(object, enumera
           console.log("token====>" + res.data.data.token);
           // page.onLoad();
           _this5.$tip.success('注册成功!');
+          _this5.infoid = res.data.data;
+          console.log("user_id===>" + _this5.infoid.id);
+
+
+          // 添加
+          _this5.$myRequest({
+            url: '/bladderData/id?id=' + _this5.infoid.id,
+            method: 'POST',
+            data: _this.info });
+
         } else if (res.data.code === 500) {// 获取数据失败
           console.log("失败");
           _this5.loading = false;

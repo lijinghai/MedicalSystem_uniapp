@@ -400,6 +400,10 @@ var _default =
 
       // 获取用户名称和头像
       info: [],
+      // 获取用户id
+      infoid: {
+        id: '' },
+
       // Custom: this.Custom,
       // CustomBar: this.CustomBar,
       spaceShow: true,
@@ -478,7 +482,25 @@ var _default =
   methods: {
 
     //获取用户信息
-    getInfo: function getInfo() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res, result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+    // async getInfo(){
+    // 	const res = await this.$myRequest({
+    // 		// url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
+    // 		url: '/uniappuser/info?token=' + uni.getStorageSync('token')
+    // 	})
+    // 	console.log("用户信息")
+    // 	console.log(res)
+    // 	// this.info = res.data.data.items[0]
+    // 	this.info = res.data.data
+    // 	console.log(res.data.data)
+    // 	if (res.data.data != null) {
+    // 		let result = res.data.data
+    // 		this.info.name = result.name == null ? '用户' : result.name
+    // 	}
+    // },
+
+    //获取用户信息
+    // 获取用户id====>根据id获取信息
+    getinfoid: function getinfoid() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res, res1, result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this.$myRequest({
                     // url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
                     url: '/uniappuser/info?token=' + uni.getStorageSync('token') }));case 2:res = _context.sent;
@@ -486,12 +508,27 @@ var _default =
                 console.log("用户信息");
                 console.log(res);
                 // this.info = res.data.data.items[0]
-                _this.info = res.data.data;
-                console.log(res.data.data);
-                if (res.data.data != null) {
-                  result = res.data.data;
+                _this.infoid = res.data.data;
+                console.log("用户id==>" + _this.infoid.id);if (!(
+                _this.infoid.id != null)) {_context.next = 17;break;}
+                console.log("进来了");_context.next = 11;return (
+                  _this.$myRequest({
+                    url: '/uniappuser/id?limit=1&page=1&sort=1&id=' + _this.infoid.id }));case 11:res1 = _context.sent;
+
+                console.log("用户详情信息");
+                console.log(res1);
+                _this.info = res1.data.data.items[0];
+                console.log(res1.data.data.items[0]);
+                if (res1.data.data.items[0] != null) {
+                  result = res1.data.data.items[0];
                   _this.info.name = result.name == null ? '用户' : result.name;
-                }case 8:case "end":return _context.stop();}}}, _callee);}))();
+                  // this.info.sex = result.sex === 1 ? '男' : '女'
+                  _this.info.birthday = result.birthday == null ? '无' : result.birthday;
+                  _this.info.account = result.account == null ? '无' : result.account;
+                  _this.info.mobile = result.mobile == null ? '无' : result.mobile;
+                  _this.info.email = result.email == null ? '无' : result.email;
+                }case 17:case "end":return _context.stop();}}}, _callee);}))();
+
     },
 
     switchImage: function switchImage(index, name) {
@@ -552,7 +589,7 @@ var _default =
     // 	this.getInfoid()
     // },
     onShow: function onShow() {
-      this.getInfo();
+      this.getinfoid();
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
