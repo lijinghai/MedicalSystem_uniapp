@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "医疗管理系统",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "uni-notice-bar": "/uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar",
-    "add-tip": "/components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
-    "calendar": "/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar",
-    "time-picker": "/uni_modules/uni-datetime-picker/components/uni-datetime-picker/time-picker"
-  }
-}

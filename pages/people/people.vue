@@ -70,7 +70,7 @@
 					</view>
 
 					<view class="padding text-blue text-xl text-bold">
-						你好，{{info.account}}
+						你好，{{info.name}}
 						<!-- <open-data type="userNickName"></open-data> -->
 					</view>
 
@@ -356,6 +356,10 @@
 				// this.info = res.data.data.items[0]
 				this.info = res.data.data
 				console.log(res.data.data)
+				if (res.data.data != null) {
+					let result = res.data.data
+					this.info.name = result.name == null ? '用户' : result.name
+				}
 			},
 
 			switchImage(index, name) {

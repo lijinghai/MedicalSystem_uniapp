@@ -143,26 +143,24 @@
 		methods: {
 
 			// 获取用户姓名和头像的数据
-			async getInfo(Myid) {
-				const res = await this.$myRequest({
-					// url: '/uniappuser/info?token=' + uni.getStorageSync('token')
-					url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ Myid
-				})
-				console.log("用户详情信息")
-				console.log(res)
-				// this.info = res.data.data.items[0]
-				this.info = res.data.data
-				console.log(res.data.data)
-				if (res.data.data != null) {
-					let result = res.data.data
-					this.info.name = result.name == null ? '无' : result.name
-					// this.info.sex = result.sex === 1 ? '男' : '女'
-					this.info.birthday = result.birthday == null ? '无' : result.birthday
-					this.info.account = result.account == null ? '无' : result.account
-					this.info.mobile = result.mobile == null ? '无' : result.mobile
-					this.info.email = result.email == null ? '无' : result.email
-				}
-			},
+			// async getInfo(Myid) {
+			// 	const res = await this.$myRequest({
+			// 		// url: '/uniappuser/info?token=' + uni.getStorageSync('token')
+			// 		url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ Myid
+			// 	})
+			// 	console.log("用户详情信息")
+			// 	console.log(res)
+			// 	// this.info = res.data.data.items[0]
+			// 	this.info = res.data.data
+			// 	console.log(res.data.data)
+			// 	if (res.data.data != null) {
+			// 		let result = res.data.data
+			// 		this.info.name = result.name == null ? '用户' : result.name
+			// 		this.info.account = result.account == null ? '无' : result.account
+			// 		this.info.mobile = result.mobile == null ? '无' : result.mobile
+			// 		this.info.email = result.email == null ? '无' : result.email
+			// 	}
+			// },
 
 			//获取用户id
 			async getinfoid(){
