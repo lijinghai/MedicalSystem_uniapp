@@ -5,7 +5,10 @@
  -->
 <template>
 	<view>
-
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+			<block slot="backText">返回</block>
+			<block slot="content">输尿管B超数据</block>
+		</cu-custom>
 		<view>
 			<scroll-view>
 				<ureteralItem @itemClick="goDetail" :list="findlist"></ureteralItem>
@@ -35,7 +38,7 @@
 					param5: ''
 
 				},
-			options: [],
+				options: [],
 				buttonGroup: [{
 					text: '添加一条默认数据',
 					backgroundColor: '#0392ff',

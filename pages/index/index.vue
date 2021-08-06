@@ -217,7 +217,7 @@
 					console.log(2)
 					// this.NumSteps(index)
 					uni.navigateTo({
-						url: '..//manage/manage'
+						url: '../manage/manage'
 					})
 				} else
 				if (index == 3) {

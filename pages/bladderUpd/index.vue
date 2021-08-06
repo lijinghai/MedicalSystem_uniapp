@@ -4,42 +4,51 @@
 @Date: 2021 6 2
  -->
 <template>
-	<view class="box">
-
-		<view class="tit">请添加膀胱动力学参数</view>
-		<view class="ul">
-
-			<scroll-view>
-				<!-- 方案一 -->
-				<uni-forms ref="form">
-					<uni-forms-item label="病患编号:" name="patientDataId">
-						<input class="input" disabled="true" type="text" v-model="info.patient_data_id" />
-					</uni-forms-item>
-
-					<uni-forms-item label="数据编号:" name="id">
-						<input class="input" disabled="true" type="text" v-model="info.id" />
-					</uni-forms-item>
-
-					<uni-forms-item label="数据一:" name="bladderCapacity">
-						<input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" />
-					</uni-forms-item>
-
-					<uni-forms-item label="数据二:" name="bladderDetrusorPressure">
-						<input class="input" type="text" v-model="info.bladderDetrusorPressure"
-							placeholder="请填写排尿期最大逼尿肌压(cmH2O)" />
-					</uni-forms-item>
-					<uni-forms-item label="数据三:" name="bladderCompliance">
-						<input class="input" type="text" v-model="info.bladderCompliance"
-							placeholder="请填写膀胱顺应性(ml/cmH2O)" />
-					</uni-forms-item>
-				</uni-forms>
-
-				<view class="btn_login" @click="postInfo">
-					添加
-				</view>
-			</scroll-view>
+	<view>
+		<view>
+			<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+				<block slot="backText">返回</block>
+				<block slot="content">膀胱动力学参数修改</block>
+			</cu-custom>
+		</view>
+		<view class="box">
+		
+			<view class="tit">请添加膀胱动力学参数</view>
+			<view class="ul">
+		
+				<scroll-view>
+					<!-- 方案一 -->
+					<uni-forms ref="form">
+						<uni-forms-item label="病患编号:" name="patientDataId">
+							<input class="input" disabled="true" type="text" v-model="info.patient_data_id" />
+						</uni-forms-item>
+		
+						<uni-forms-item label="数据编号:" name="id">
+							<input class="input" disabled="true" type="text" v-model="info.id" />
+						</uni-forms-item>
+		
+						<uni-forms-item label="数据一:" name="bladderCapacity">
+							<input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" />
+						</uni-forms-item>
+		
+						<uni-forms-item label="数据二:" name="bladderDetrusorPressure">
+							<input class="input" type="text" v-model="info.bladderDetrusorPressure"
+								placeholder="请填写排尿期最大逼尿肌压(cmH2O)" />
+						</uni-forms-item>
+						<uni-forms-item label="数据三:" name="bladderCompliance">
+							<input class="input" type="text" v-model="info.bladderCompliance"
+								placeholder="请填写膀胱顺应性(ml/cmH2O)" />
+						</uni-forms-item>
+					</uni-forms>
+		
+					<view class="btn_login" @click="postInfo">
+						添加
+					</view>
+				</scroll-view>
+			</view>
 		</view>
 	</view>
+	
 </template>
 
 <script>

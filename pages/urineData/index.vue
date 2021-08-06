@@ -5,7 +5,10 @@
  -->
 <template>
 	<view>
-
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+			<block slot="backText">返回</block>
+			<block slot="content">尿常规资料</block>
+		</cu-custom>
 		<view>
 			<scroll-view>
 				<urineItem @itemClick="goDetail" :list="findlist"></urineItem>

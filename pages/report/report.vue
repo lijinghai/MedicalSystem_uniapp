@@ -4,126 +4,132 @@
 @Date: 2021 6 15
  -->
 <template>
-	<view class="page">
-
-
-		<!-- <uni-section :title="'您选择的时间为：' + '[' + datetimerange + ']' " type="line"></uni-section> -->
-		<uni-section title="请选择您要查询的时间" type="line"></uni-section>
-		<view class="example-body">
-			<uni-datetime-picker v-model="datetimerange" type="datetimerange" start="2000-3-20 12:00:00"
-				end="2024-3-20 12:00:00" rangeSeparator="至" />
-		</view>
-
-
-
-		<uni-section title="餐饮事件" type="line"></uni-section>
-		<view>
-			<uni-table border stripe emptyText="暂无更多数据">
-				<!-- 表头行 -->
-				<uni-tr>
-					<uni-th align="center">时间</uni-th>
-					
-					<uni-th align="left">液体摄入量(喝水,ml)</uni-th>
-					<uni-th align="center">摄入液体类型(水/咖啡/苏打水/啤酒等)</uni-th>
-				
-				</uni-tr>
-
-				<!-- 表格数据行 -->
-				<uni-tr v-for="(item,index) in findlist" :key="id">
-					<uni-td v-if="item.note === '餐饮事件'">
-						{{item.event_time}}
-					</uni-td>
-					
-					<uni-td v-if="item.note === '餐饮事件'">
-						{{item.total_capacity}}
-					</uni-td>
-					<uni-td v-if="item.note === '餐饮事件'">
-						{{item.water_code}}
-					</uni-td>
-					
-
-				</uni-tr>
+	<view>
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+			<block slot="backText">返回</block>
+			<block slot="content">事件报表</block>
+		</cu-custom>
+		<view class="page">
 		
-
-			</uni-table>
-
+		
+			<!-- <uni-section :title="'您选择的时间为：' + '[' + datetimerange + ']' " type="line"></uni-section> -->
+			<uni-section title="请选择您要查询的时间" type="line"></uni-section>
+			<view class="example-body">
+				<uni-datetime-picker v-model="datetimerange" type="datetimerange" start="2000-3-20 12:00:00"
+					end="2024-3-20 12:00:00" rangeSeparator="至" />
+			</view>
+		
+		
+		
+			<uni-section title="餐饮事件" type="line"></uni-section>
+			<view>
+				<uni-table border stripe emptyText="暂无更多数据">
+					<!-- 表头行 -->
+					<uni-tr>
+						<uni-th align="center">时间</uni-th>
+						
+						<uni-th align="left">液体摄入量(喝水,ml)</uni-th>
+						<uni-th align="center">摄入液体类型(水/咖啡/苏打水/啤酒等)</uni-th>
+					
+					</uni-tr>
+		
+					<!-- 表格数据行 -->
+					<uni-tr v-for="(item,index) in findlist" :key="id">
+						<uni-td v-if="item.note === '餐饮事件'">
+							{{item.event_time}}
+						</uni-td>
+						
+						<uni-td v-if="item.note === '餐饮事件'">
+							{{item.total_capacity}}
+						</uni-td>
+						<uni-td v-if="item.note === '餐饮事件'">
+							{{item.water_code}}
+						</uni-td>
+						
+		
+					</uni-tr>
+			
+		
+				</uni-table>
+		
+			</view>
+		
+			<uni-section title="导尿事件" type="line"></uni-section>
+			<view>
+				<uni-table border stripe emptyText="暂无更多数据">
+					<!-- 表头行 -->
+					<uni-tr>
+						<uni-th align="center">时间</uni-th>
+						<uni-th align="center">导尿量(ml)</uni-th>
+						<uni-th align="center">排尿前导尿急迫或疼痛(是/否)</uni-th>
+						<uni-th align="left">漏尿状况(是/否)</uni-th>
+						<uni-th align="left">是否插管困难(是/否)</uni-th>
+					</uni-tr>
+		
+					<!-- 表格数据行 -->
+					<uni-tr v-for="(item,index) in findlist" :key="id">
+						<uni-td v-if="item.note === '导尿事件'">
+							{{item.event_time}}
+						</uni-td>
+						<uni-td v-if="item.note === '导尿事件'">
+							{{item.total_capacity}}
+						</uni-td>
+						<uni-td v-if="item.note === '导尿事件'">
+							<view v-if="item.is_pain === 0">
+								否
+							</view>
+							<view v-if="item.is_pain === 1">
+								是
+							</view>
+						</uni-td>
+						<uni-td v-if="item.note === '导尿事件'">
+							<view v-if="item.is_leak === 0">
+								否
+							</view>
+							<view v-if="item.is_leak === 1">
+								是
+							</view>
+						</uni-td>
+						<uni-td v-if="item.note === '导尿事件'">
+							<view v-if="item.is_difficult === 0">
+								否
+							</view>
+							<view v-if="item.is_difficult === 1">
+								是
+							</view>
+						</uni-td>
+					</uni-tr>
+				</uni-table>
+			</view>
+		
+			<uni-section title="特殊事件" type="line"></uni-section>
+			<view>
+				<uni-table border stripe emptyText="暂无更多数据">
+					<!-- 表头行 -->
+					<uni-tr>
+						<uni-th align="center">时间</uni-th>
+						<uni-th align="left">自排/导尿量(ml)</uni-th>
+					</uni-tr>
+		
+					<!-- 表格数据行 -->
+					<uni-tr v-for="(item,index) in findlist" :key="id">
+						<uni-td v-if="item.note === '特殊事件'">
+							{{item.event_time}}
+						</uni-td>
+						<uni-td v-if="item.note === '特殊事件'">
+							{{item.total_capacity}}
+						</uni-td>
+					</uni-tr>
+				</uni-table>
+			</view>
+		
+		
+			<view class="goods-carts">
+				<uni-goods-nav :options="options" :fill="true" :button-group="buttonGroup" @click="onClick"
+					@buttonClick="buttonClick" />
+			</view>
+		
 		</view>
-
-		<uni-section title="导尿事件" type="line"></uni-section>
-		<view>
-			<uni-table border stripe emptyText="暂无更多数据">
-				<!-- 表头行 -->
-				<uni-tr>
-					<uni-th align="center">时间</uni-th>
-					<uni-th align="center">导尿量(ml)</uni-th>
-					<uni-th align="center">排尿前导尿急迫或疼痛(是/否)</uni-th>
-					<uni-th align="left">漏尿状况(是/否)</uni-th>
-					<uni-th align="left">是否插管困难(是/否)</uni-th>
-				</uni-tr>
-
-				<!-- 表格数据行 -->
-				<uni-tr v-for="(item,index) in findlist" :key="id">
-					<uni-td v-if="item.note === '导尿事件'">
-						{{item.event_time}}
-					</uni-td>
-					<uni-td v-if="item.note === '导尿事件'">
-						{{item.total_capacity}}
-					</uni-td>
-					<uni-td v-if="item.note === '导尿事件'">
-						<view v-if="item.is_pain === 0">
-							否
-						</view>
-						<view v-if="item.is_pain === 1">
-							是
-						</view>
-					</uni-td>
-					<uni-td v-if="item.note === '导尿事件'">
-						<view v-if="item.is_leak === 0">
-							否
-						</view>
-						<view v-if="item.is_leak === 1">
-							是
-						</view>
-					</uni-td>
-					<uni-td v-if="item.note === '导尿事件'">
-						<view v-if="item.is_difficult === 0">
-							否
-						</view>
-						<view v-if="item.is_difficult === 1">
-							是
-						</view>
-					</uni-td>
-				</uni-tr>
-			</uni-table>
-		</view>
-
-		<uni-section title="特殊事件" type="line"></uni-section>
-		<view>
-			<uni-table border stripe emptyText="暂无更多数据">
-				<!-- 表头行 -->
-				<uni-tr>
-					<uni-th align="center">时间</uni-th>
-					<uni-th align="left">自排/导尿量(ml)</uni-th>
-				</uni-tr>
-
-				<!-- 表格数据行 -->
-				<uni-tr v-for="(item,index) in findlist" :key="id">
-					<uni-td v-if="item.note === '特殊事件'">
-						{{item.event_time}}
-					</uni-td>
-					<uni-td v-if="item.note === '特殊事件'">
-						{{item.total_capacity}}
-					</uni-td>
-				</uni-tr>
-			</uni-table>
-		</view>
-
-
-		<view class="goods-carts">
-			<uni-goods-nav :options="options" :fill="true" :button-group="buttonGroup" @click="onClick"
-				@buttonClick="buttonClick" />
-		</view>
-
 	</view>
 </template>
 

@@ -4,45 +4,51 @@
 @Date: 2021 6 13
  -->
 <template>
-	<view class="box">
-
-		<view class="tit">请添加特殊事件</view>
-		<view class="ul">
-			<scroll-view>
-
-				<!-- 方案一 -->
-				<!-- <uni-forms :rules="rules" ref="form"> -->
-				<uni-forms ref="form">
-					<uni-forms-item label="病患编号:" name="user_id">
-						<input class="input" disabled="true" type="text" v-model="info.user_id" />
-					</uni-forms-item>
-
-
-					<uni-forms-item label="用户漏尿的时间:" name="eventTime">
-						<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
-						<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
-					</uni-forms-item>
-					
-					<uni-forms-item label="自排/漏尿量:" name="totalCapacity">
-						<input class="input" type="text" v-model="info.totalCapacity" placeholder="请填写自排/漏尿量(ml)" />
-					</uni-forms-item>
-
-					<uni-forms-item name="incontinenceType">
-						<view class="text">尿失禁类别:</view>
-						<uni-data-checkbox v-model="formData2.value" :localdata="incontinence_type"></uni-data-checkbox>
-					</uni-forms-item>
-
-					<uni-forms-item name="isPain">
-						<view class="text">排尿前尿急迫或疼痛:</view>
-						<uni-data-checkbox v-model="formData3.value" :localdata="is_pain"></uni-data-checkbox>
-					</uni-forms-item>
-
-				</uni-forms>
-
-				<view class="btn_login" @click="postInfo">
-					添加
-				</view>
-			</scroll-view>
+	<view>
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+			<block slot="backText">返回</block>
+			<block slot="content">记录特殊事件</block>
+		</cu-custom>
+		<view class="box">
+		
+			<view class="tit">请添加特殊事件</view>
+			<view class="ul">
+				<scroll-view>
+		
+					<!-- 方案一 -->
+					<!-- <uni-forms :rules="rules" ref="form"> -->
+					<uni-forms ref="form">
+						<uni-forms-item label="病患编号:" name="user_id">
+							<input class="input" disabled="true" type="text" v-model="info.user_id" />
+						</uni-forms-item>
+		
+		
+						<uni-forms-item label="用户漏尿的时间:" name="eventTime">
+							<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
+							<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
+						</uni-forms-item>
+						
+						<uni-forms-item label="自排/漏尿量:" name="totalCapacity">
+							<input class="input" type="text" v-model="info.totalCapacity" placeholder="请填写自排/漏尿量(ml)" />
+						</uni-forms-item>
+		
+						<uni-forms-item name="incontinenceType">
+							<view class="text">尿失禁类别:</view>
+							<uni-data-checkbox v-model="formData2.value" :localdata="incontinence_type"></uni-data-checkbox>
+						</uni-forms-item>
+		
+						<uni-forms-item name="isPain">
+							<view class="text">排尿前尿急迫或疼痛:</view>
+							<uni-data-checkbox v-model="formData3.value" :localdata="is_pain"></uni-data-checkbox>
+						</uni-forms-item>
+		
+					</uni-forms>
+		
+					<view class="btn_login" @click="postInfo">
+						添加
+					</view>
+				</scroll-view>
+			</view>
 		</view>
 	</view>
 

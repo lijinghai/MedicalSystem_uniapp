@@ -4,16 +4,22 @@
 @Date: 2021 6 4
  -->
 <template>
-	<view class="pics">
-
-		<!-- 可滚动区域 -->
-		<scroll-view class="left" scroll-y>
-			<view @click="leftClickHandle(index,item.id)" :class="active===index?'active':''"
-				v-for="(item,index) in cates" :key="item.id">
-				{{item.ctitle}}
-			</view>
-		</scroll-view>
-
+	<view>
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+			<block slot="backText">返回</block>
+			<block slot="content">事件管理</block>
+		</cu-custom>
+		<view class="pics">
+		
+			<!-- 可滚动区域 -->
+			<scroll-view class="left" scroll-y>
+				<view @click="leftClickHandle(index,item.id)" :class="active===index?'active':''"
+					v-for="(item,index) in cates" :key="item.id">
+					{{item.ctitle}}
+				</view>
+			</scroll-view>
+		
+		</view>
 	</view>
 </template>
 

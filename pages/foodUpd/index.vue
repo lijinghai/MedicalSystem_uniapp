@@ -4,44 +4,50 @@
 @Date: 2021 6 4
  -->
 <template>
-	<view class="box">
-
-		<view class="tit">请添加餐饮事件</view>
-		<view class="ul">
-			<scroll-view>
-
-				<!-- 方案一 -->
-				<!-- <uni-forms :rules="rules" ref="form"> -->
-				<uni-forms ref="form">
-					<uni-forms-item label="病患编号:" name="user_id">
-						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-						<input class="input" disabled="true" type="text" v-model="info.user_id" />
-					</uni-forms-item>
-
-
-					<uni-forms-item label="餐饮时间:" name="eventTime">
-						<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
-						<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
-					</uni-forms-item>
-
-					<uni-forms-item class="c" label="餐饮种类:" name="waterCode">
-						<!-- <input disabled="true" type="text" /> -->
-						<uni-combox class="input" labelWidth="100px" :candidates="candidates" placeholder="请选择所在种类"
-							v-model="a">
-						</uni-combox>
-					</uni-forms-item>
-
-					<uni-forms-item label="液体摄入量:" name="totalCapacity">
-						<input class="input" type="text" v-model="info.totalCapacity" placeholder="请填写液体摄入量(喝水,ml)" />
-					</uni-forms-item>
-
-
-				</uni-forms>
-
-				<view class="btn_login" @click="postInfo">
-					添加
-				</view>
-			</scroll-view>
+	<view>
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+			<block slot="backText">返回</block>
+			<block slot="content">记录餐饮事件</block>
+		</cu-custom>
+		<view class="box">
+		
+			<view class="tit">请添加餐饮事件</view>
+			<view class="ul">
+				<scroll-view>
+		
+					<!-- 方案一 -->
+					<!-- <uni-forms :rules="rules" ref="form"> -->
+					<uni-forms ref="form">
+						<uni-forms-item label="病患编号:" name="user_id">
+							<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+							<input class="input" disabled="true" type="text" v-model="info.user_id" />
+						</uni-forms-item>
+		
+		
+						<uni-forms-item label="餐饮时间:" name="eventTime">
+							<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
+							<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
+						</uni-forms-item>
+		
+						<uni-forms-item class="c" label="餐饮种类:" name="waterCode">
+							<!-- <input disabled="true" type="text" /> -->
+							<uni-combox class="input" labelWidth="100px" :candidates="candidates" placeholder="请选择所在种类"
+								v-model="a">
+							</uni-combox>
+						</uni-forms-item>
+		
+						<uni-forms-item label="液体摄入量:" name="totalCapacity">
+							<input class="input" type="text" v-model="info.totalCapacity" placeholder="请填写液体摄入量(喝水,ml)" />
+						</uni-forms-item>
+		
+		
+					</uni-forms>
+		
+					<view class="btn_login" @click="postInfo">
+						添加
+					</view>
+				</scroll-view>
+			</view>
 		</view>
 	</view>
 

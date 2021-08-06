@@ -4,8 +4,13 @@
 @Date: 2021 6 1
  -->
 <template>
+<view>
+	<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+		<block slot="backText">返回</block>
+		<block slot="content">病理参数</block>
+	</cu-custom>
 	<view class="pics">
-
+	
 		<!-- 可滚动区域 -->
 		<scroll-view class="left" scroll-y>
 			<view @click="leftClickHandle(index,item.id)" :class="active===index?'active':''"
@@ -13,8 +18,9 @@
 				{{item.ctitle}}
 			</view>
 		</scroll-view>
-
+	
 	</view>
+</view>
 </template>
 
 <script>

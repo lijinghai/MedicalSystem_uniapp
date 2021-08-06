@@ -4,74 +4,80 @@
 @Date: 2021 6 12
  -->
 <template>
-	<view class="box">
-
-		<view class="tit">请添加导尿事件</view>
-		<view class="ul">
-			<scroll-view>
-
-				<!-- 方案一 -->
-				<!-- <uni-forms :rules="rules" ref="form"> -->
-				<uni-forms ref="form">
-					<uni-forms-item label="病患编号:" name="user_id">
-						<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-						<input class="input" disabled="true" type="text" v-model="info.user_id" />
-					</uni-forms-item>
-
-
-					<uni-forms-item label="导尿时间:" name="eventTime">
-						<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
-						<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
-					</uni-forms-item>
-
-					<uni-forms-item label="导尿量:" name="totalCapacity">
-						<input class="input" type="text" v-model="info.totalCapacity" placeholder="请填写导尿量(ml)" />
-					</uni-forms-item>
-
-					<uni-forms-item name="urgentLevel">
-						<!-- <uni-group title="基础用法"> -->
-						<!-- <view class="text">尿急迫程度：{{formData.value}}</view> -->
-						<view class="text">尿急迫程度:</view>
-						<!-- <input class="input" disabled="true" type="text" v-model="info1.urgentLevel" /> -->
-						<uni-data-checkbox v-model="formData.value" :localdata="urgent_level"></uni-data-checkbox>
-						<!-- </uni-group> -->
-					</uni-forms-item>
-
-					<uni-forms-item name="isIncontinence">
-						<view class="text">导尿前后是否尿失禁:</view>
-						<uni-data-checkbox v-model="formData1.value" :localdata="is_incontinence"></uni-data-checkbox>
-					</uni-forms-item>
-
-					<uni-forms-item name="incontinenceType">
-						<view class="text">尿失禁类别:</view>
-						<uni-data-checkbox v-model="formData2.value" :localdata="incontinence_type"></uni-data-checkbox>
-					</uni-forms-item>
-
-					<uni-forms-item name="isPain">
-						<view class="text">排尿前尿急迫或疼痛:</view>
-						<uni-data-checkbox v-model="formData3.value" :localdata="is_pain"></uni-data-checkbox>
-					</uni-forms-item>
-
-					<uni-forms-item name="isLeak">
-						<view class="text">是否漏尿:</view>
-						<uni-data-checkbox v-model="formData4.value" :localdata="is_leak"></uni-data-checkbox>
-					</uni-forms-item>
-
-					<uni-forms-item name="isDifficult">
-						<view class="text">是否插管困难:</view>
-						<uni-data-checkbox v-model="formData5.value" :localdata="is_difficult"></uni-data-checkbox>
-					</uni-forms-item>
-
-				</uni-forms>
-
-			</scroll-view>
-
-			<view class="btn_login" @click="postInfo">
-				添加
+	<view>
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+			<block slot="backText">返回</block>
+			<block slot="content">记录导尿事件</block>
+		</cu-custom>
+		<view class="box">
+		
+			<view class="tit">请添加导尿事件</view>
+			<view class="ul">
+				<scroll-view>
+		
+					<!-- 方案一 -->
+					<!-- <uni-forms :rules="rules" ref="form"> -->
+					<uni-forms ref="form">
+						<uni-forms-item label="病患编号:" name="user_id">
+							<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+							<input class="input" disabled="true" type="text" v-model="info.user_id" />
+						</uni-forms-item>
+		
+		
+						<uni-forms-item label="导尿时间:" name="eventTime">
+							<input class="input" disabled="true" type="text" v-model="info1.eventTime" />
+							<test-com class="content" beginYear="2000" endYear="2030" @confirm="onConfirm" />
+						</uni-forms-item>
+		
+						<uni-forms-item label="导尿量:" name="totalCapacity">
+							<input class="input" type="text" v-model="info.totalCapacity" placeholder="请填写导尿量(ml)" />
+						</uni-forms-item>
+		
+						<uni-forms-item name="urgentLevel">
+							<!-- <uni-group title="基础用法"> -->
+							<!-- <view class="text">尿急迫程度：{{formData.value}}</view> -->
+							<view class="text">尿急迫程度:</view>
+							<!-- <input class="input" disabled="true" type="text" v-model="info1.urgentLevel" /> -->
+							<uni-data-checkbox v-model="formData.value" :localdata="urgent_level"></uni-data-checkbox>
+							<!-- </uni-group> -->
+						</uni-forms-item>
+		
+						<uni-forms-item name="isIncontinence">
+							<view class="text">导尿前后是否尿失禁:</view>
+							<uni-data-checkbox v-model="formData1.value" :localdata="is_incontinence"></uni-data-checkbox>
+						</uni-forms-item>
+		
+						<uni-forms-item name="incontinenceType">
+							<view class="text">尿失禁类别:</view>
+							<uni-data-checkbox v-model="formData2.value" :localdata="incontinence_type"></uni-data-checkbox>
+						</uni-forms-item>
+		
+						<uni-forms-item name="isPain">
+							<view class="text">排尿前尿急迫或疼痛:</view>
+							<uni-data-checkbox v-model="formData3.value" :localdata="is_pain"></uni-data-checkbox>
+						</uni-forms-item>
+		
+						<uni-forms-item name="isLeak">
+							<view class="text">是否漏尿:</view>
+							<uni-data-checkbox v-model="formData4.value" :localdata="is_leak"></uni-data-checkbox>
+						</uni-forms-item>
+		
+						<uni-forms-item name="isDifficult">
+							<view class="text">是否插管困难:</view>
+							<uni-data-checkbox v-model="formData5.value" :localdata="is_difficult"></uni-data-checkbox>
+						</uni-forms-item>
+		
+					</uni-forms>
+		
+				</scroll-view>
+		
+				<view class="btn_login" @click="postInfo">
+					添加
+				</view>
 			</view>
 		</view>
+		
 	</view>
-
 
 </template>
 

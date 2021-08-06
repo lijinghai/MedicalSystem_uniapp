@@ -156,13 +156,13 @@ var _default =
   data: function data() {
     return {
       elements: [
-      {
-        title: '返回',
-        name: 'back',
-        color: 'orange',
-        cuIcon: 'back',
-        auth: 'ac' },
-
+      // {
+      // 	title: '返回',
+      // 	name: 'back',
+      // 	color: 'orange',
+      // 	cuIcon: 'back',
+      // 	auth: 'ac'
+      // },
       {
         title: '退出',
         name: 'success',

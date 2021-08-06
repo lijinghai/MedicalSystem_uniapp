@@ -5,7 +5,10 @@
  -->
 <template>
 	<view>
-		
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+			<block slot="backText">返回</block>
+			<block slot="content">肾功能资料</block>
+		</cu-custom>
 		<view>
 			<scroll-view>
 				<renalItem @itemClick="goDetail" :list="findlist"></renalItem>
