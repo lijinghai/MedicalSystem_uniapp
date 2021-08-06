@@ -9,23 +9,126 @@
 			<block slot="backText">返回</block>
 			<block slot="content">尿常规资料</block>
 		</cu-custom>
-		<view>
-			<scroll-view>
-				<urineItem @itemClick="goDetail" :list="findlist"></urineItem>
-			</scroll-view>
-
+		<view class="box">
+		
+			<view class="tit">请添加尿常规资料</view>
+			<view class="ul">
+				<scroll-view>
+					<!-- 方案一 -->
+					<!-- <uni-forms :rules="rules" ref="form"> -->
+					<uni-forms ref="form">
+						<uni-forms-item label="病患编号:" name="patientDataId">
+							<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+							<input class="input" disabled="true" type="text" v-model="info.patient_data_id" />
+						</uni-forms-item>
+						<uni-forms-item label="数据编号:" name="id">
+							<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+							<input class="input" disabled="true" type="text" v-model="info.id" />
+						</uni-forms-item>
+						<uni-forms-item label="尿白细胞:" name="leu">
+							<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
+							<input class="input" type="text" v-model="info.leu" placeholder="请填写尿白细胞" />
+						</uni-forms-item>
+		
+						<uni-forms-item label="亚硝酸盐:" name="nit">
+							<!-- <input class="input" type="text" v-model="info.bladderDetrusorPressure" placeholder="请填写排尿期最大逼尿肌压(cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.nit" placeholder="请填写亚硝酸盐:" />
+						</uni-forms-item>
+						<uni-forms-item label="尿蛋白:" name="pro">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.pro" placeholder="请填写尿蛋白" />
+						</uni-forms-item>
+						<uni-forms-item label="葡萄糖:" name="gluU">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.gluUe" placeholder="请填写葡萄糖" />
+						</uni-forms-item>
+						<uni-forms-item label="酮体:" name="ket">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.ket" placeholder="请填写酮体" />
+						</uni-forms-item>
+						<uni-forms-item label="尿胆原:" name="uro">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.uro" placeholder="请填写尿胆原" />
+						</uni-forms-item>
+						<uni-forms-item label="胆红素:" name="bil">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.bil" placeholder="请填写胆红素" />
+						</uni-forms-item>
+						<uni-forms-item label="PH值:" name="phU">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.phU" placeholder="请填写PH值" />
+						</uni-forms-item>
+						<uni-forms-item label="比重:" name="sg">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.sg" placeholder="请填写比重" />
+						</uni-forms-item>
+						<uni-forms-item label="隐血:" name="blu">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.blu" placeholder="请填写隐血:" />
+						</uni-forms-item>
+						<uni-forms-item label="抗坏血酸:" name="vc">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.vc" placeholder="请填写抗坏血酸" />
+						</uni-forms-item>
+						<uni-forms-item label="颜色:" name="col">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.col" placeholder="请填写颜色" />
+						</uni-forms-item>
+						<uni-forms-item label="透明度:" name="tmd">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.tmd" placeholder="请填写透明度" />
+						</uni-forms-item>
+						<uni-forms-item label="吞噬细胞:" name="tsxb">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.tsxb" placeholder="请填写吞噬细胞" />
+						</uni-forms-item>
+						<uni-forms-item label="白细胞管型:" name="uwbcC">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.uwbcC" placeholder="请填写白细胞管型" />
+						</uni-forms-item>
+						<uni-forms-item label="颗粒管型:" name="klgxF">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.klgxF" placeholder="请填写颗粒管型" />
+						</uni-forms-item>
+						<uni-forms-item label="透明管型:" name="utmCa">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.utmCa" placeholder="请填写透明管型" />
+						</uni-forms-item>
+						<uni-forms-item label="红细胞管型:" name="urbc">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.urbc" placeholder="请填写红细胞管型" />
+						</uni-forms-item>
+						<uni-forms-item label="蜡样管型:" name="lygx">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.lygx" placeholder="请填写蜡样管型" />
+						</uni-forms-item>
+						<uni-forms-item label="白细胞镜检:" name="wbcJ1">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.wbcJ1" placeholder="请填写白细胞镜检" />
+						</uni-forms-item>
+						<uni-forms-item label="红细胞镜检:" name="wbcJ2">
+							<!-- <input class="input" type="text" v-model="info.bladderCompliance" placeholder="请填写膀胱顺应性(ml/cmH2O)" /> -->
+							<input class="input" type="text" v-model="info.wbcJ2" placeholder="请填写红细胞镜检" />
+						</uni-forms-item>
+		
+		
+		
+		
+					</uni-forms>
+		
+					<view class="btn_login" @click="postInfo">
+						提交
+					</view>
+				</scroll-view>
+			</view>
 		</view>
 
-		<view class="goods-carts">
-			<uni-goods-nav :options="options" :fill="true" :button-group="buttonGroup" @click="onClick"
-				@buttonClick="buttonClick" />
-		</view>
-		<text v-if="findlist.length === 0">暂无数据,请点击添加按钮添加数据</text>
+
 	</view>
 </template>
 
 <script>
-	import urineItem from '../../components/urineItem/index.vue';
+
 	export default {
 		data() {
 			return {
@@ -56,17 +159,15 @@
 
 				},
 			options: [],
-				buttonGroup: [{
-					text: '添加一条默认数据',
-					backgroundColor: '#0392ff',
-					color: '#fff'
-				}]
+				
 			}
 		},
 		methods: {
+			
+			// 查询
 			async getFindList() {
 				const res = await this.$myRequest({
-					url: '/urineData?id=1&limit=99999&page=9999&sort=-1'
+					url: '/urineData?id=1&limit=1&page=1&sort=-1'
 				})
 				console.log(res)
 				this.findlist = res.data.data.items
