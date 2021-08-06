@@ -13,7 +13,6 @@
     "pages/specialUpd/index",
     "pages/alarm/alarm",
     "pages/report/report",
-    "pages/register/register",
     "pages/forget/forget",
     "pages/agree/agree",
     "pages/hideAgree/hideAgree",
@@ -57,6 +56,5 @@
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom",
     "tn-custom": "/components/TnCustom/TnCustom"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

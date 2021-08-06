@@ -328,6 +328,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 var _vuex = __webpack_require__(/*! vuex */ 52);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var addTip = function addTip() {__webpack_require__.e(/*! require.ensure | components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip */ "components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip").then((function () {return resolve(__webpack_require__(/*! ../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue */ 260));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
@@ -441,10 +443,11 @@ var _vuex = __webpack_require__(/*! vuex */ 52);function ownKeys(object, enumera
           // 	data: uni.getStorageSync('token'), // 发送的数据
 
           // })
-          console.log("token" + res.data.data.token);
+          console.log("token====>" + res.data.data.token);
           uni.switchTab({
             url: '../index/index' });
 
+          _this2.$tip.success('登录成功!');
         } else if (res.data.code === 500) {// 获取数据失败
           console.log("失败");
           _this2.loading = false;
@@ -530,7 +533,7 @@ var _vuex = __webpack_require__(/*! vuex */ 52);function ownKeys(object, enumera
       var _this = this; // 获取此时的this为一个常量，防止下面请求回调改变出错
       console.log("表单提交");
 
-      // 登录跳转
+      // 注册跳转
       this.$myRequest({
         url: '/uniappuser/add',
         method: 'POST',
@@ -542,23 +545,54 @@ var _vuex = __webpack_require__(/*! vuex */ 52);function ownKeys(object, enumera
         if (res.data.code === 20000) {// 获取数据成功
           console.log("成功");
           uni.setStorageSync('token', res.data.data.token); // 将登录信息以token的方式存在手机硬盘中
-          console.log("token" + res.data.data.token);
-          page.onLoad();
-          // uni.switchTab({
-          // 	url: ''
+
+          // 发送info的请求
+          // this.$myRequest({
+          // 	url: '/pcuser/info?token=' + uni.getStorageSync('token'),
+          // 	method: 'GET',
+          // 	data: uni.getStorageSync('token'), // 发送的数据
+
           // })
+          console.log("token====>" + res.data.data.token);
+          // page.onLoad();
+          _this5.$tip.success('注册成功!');
         } else if (res.data.code === 500) {// 获取数据失败
           console.log("失败");
           _this5.loading = false;
           _this5.$tip.alert(res.data.message);
         }
-      }).catch(function (err) {
-        var msg = "请求出现错误，请稍后再试";
-        _this5.loading = false;
-        _this5.$tip.alert(msg);
-      }).finally(function () {
-        _this5.loading = false;
       });
+
+      // 	// 登录跳转
+      // 	this.$myRequest({
+      // 		url: '/uniappuser/add',
+      // 		method: 'POST',
+      // 		data: loginParams, // 发送的数据
+
+      // 	}).then((res) => {
+      // 		console.log(res)
+      // 		this.loading = false;
+      // 		if (res.data.code === 20000) { // 获取数据成功
+      // 			console.log("成功")
+      // 			// uni.setStorageSync('token', res.data.data.token); // 将登录信息以token的方式存在手机硬盘中
+      // 			// console.log("token" + res.data.data.token)
+      // 			page.onLoad();
+      // 			this.$tip.success('注册成功!')
+      // 			// uni.switchTab({
+      // 			// 	url: ''
+      // 			// })
+      // 		} else if (res.data.code === 500) { // 获取数据失败
+      // 			console.log("失败")
+      // 			this.loading = false;
+      // 			this.$tip.alert(res.data.message);
+      // 		}
+      // 	}).catch((err) => {
+      // 		let msg = "请求出现错误，请稍后再试"
+      // 		this.loading = false;
+      // 		this.$tip.alert(msg);
+      // 	}).finally(() => {
+      // 		this.loading = false;
+      // 	})
 
     },
 

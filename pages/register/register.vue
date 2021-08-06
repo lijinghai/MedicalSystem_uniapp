@@ -114,9 +114,7 @@
 					
 							}).then(res => {
 								console.log(res)
-								// success({ // 请求成功
-								// 	data
-								// })
+				
 								if (res.data.code == 20000) { // 获取数据成功
 									console.log("成功")
 									uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中

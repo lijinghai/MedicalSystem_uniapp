@@ -7,7 +7,7 @@
 	<view>
 
 		<!-- 导航栏 -->
-		<cu-custom bgColor="bg-gradual-blue" >
+		<cu-custom bgColor="bg-gradual-blue">
 			<!-- <block slot="backText">返回</block> -->
 			<block slot="content">登录</block>
 		</cu-custom>
@@ -28,7 +28,7 @@
 					<view class="zai-title text-shadow ">医 依</view>
 
 					<!-- 欢迎登录 -->
-						<view class="cu-bar ">
+					<view class="cu-bar ">
 						<view class="action sub-title">
 							<text class="text-xl text-bold text-blue">欢迎登录</text>
 							<text class="text-ABC text-blue">SignIn</text>
@@ -50,7 +50,8 @@
 						<!-- 密码输入框 -->
 						<view class="cu-form-group margin-top shadow-warp" :class="[shape=='round'?'round':'']">
 							<view class="title"><text class="cuIcon-lock margin-right-xs"></text>密码:</view>
-							<input class="uni-input" placeholder="请输入密码" :password="!showPassword" v-model="user.password" />
+							<input class="uni-input" placeholder="请输入密码" :password="!showPassword"
+								v-model="user.password" />
 							<view class="action text-lg">
 								<text :class="[showPassword ? 'cuIcon-attention' : 'cuIcon-attentionforbid']"
 									@click="changePassword"></text>
@@ -81,11 +82,12 @@
 							<view class="title"><text class="cuIcon-mobile margin-right-xs"></text>手机号:</view>
 							<input placeholder="请输入手机号" type="number" maxlength="11" v-model="user.account"></input>
 						</view>
-						
+
 						<!-- 密码输入框 -->
 						<view class="cu-form-group margin-top shadow-warp" :class="[shape=='round'?'round':'']">
 							<view class="title"><text class="cuIcon-lock margin-right-xs"></text>密码:</view>
-							<input class="uni-input" placeholder="请输入密码" :password="!showPassword" v-model="user.password" />
+							<input class="uni-input" placeholder="请输入密码" :password="!showPassword"
+								v-model="user.password" />
 							<view class="action text-lg">
 								<text :class="[showPassword ? 'cuIcon-attention' : 'cuIcon-attentionforbid']"
 									@click="changePassword"></text>
@@ -124,7 +126,7 @@
 
 				</view>
 			</scroll-view>
-		
+
 			<!-- 登录加载弹窗 -->
 			<view class="cu-load load-modal" v-if="loading">
 				<!-- <view class="cuIcon-emojifill text-orange"></view> -->
@@ -132,7 +134,7 @@
 					class="round"></image>
 				<view class="gray-text">登录中...</view>
 			</view>
-			
+
 			<!-- QQ、微信登录按钮 -->
 			<view class="buttom">
 				<view class="loginType">
@@ -277,10 +279,11 @@
 						// 	data: uni.getStorageSync('token'), // 发送的数据
 
 						// })
-						console.log("token" + res.data.data.token)
+						console.log("token====>" + res.data.data.token)
 						uni.switchTab({
 							url: '../index/index'
 						})
+						this.$tip.success('登录成功!')
 					} else if (res.data.code === 500) { // 获取数据失败
 						console.log("失败")
 						this.loading = false;
@@ -316,7 +319,7 @@
 			changePassword() {
 				this.showPassword = !this.showPassword;
 			},
-			
+
 			// 手机号注册
 			onSMSSend() {
 				let smsParams = {};
@@ -356,49 +359,80 @@
 					this.$tip.toast('请填密码');
 					return;
 				}
-				
+
 				let loginParams = {
-						account: this.user.account,
-						password: this.user.password
+					account: this.user.account,
+					password: this.user.password
+				}
+				this.loading = true;
+
+				const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
+				console.log("表单提交")
+
+				// 注册跳转
+				this.$myRequest({
+					url: '/uniappuser/add',
+					method: 'POST',
+					data: loginParams, // 发送的数据
+
+				}).then((res) => {
+					console.log(res)
+					this.loading = false;
+					if (res.data.code === 20000) { // 获取数据成功
+						console.log("成功")
+						uni.setStorageSync('token', res.data.data.token); // 将登录信息以token的方式存在手机硬盘中
+
+						// 发送info的请求
+						// this.$myRequest({
+						// 	url: '/pcuser/info?token=' + uni.getStorageSync('token'),
+						// 	method: 'GET',
+						// 	data: uni.getStorageSync('token'), // 发送的数据
+
+						// })
+						console.log("token====>" + res.data.data.token)
+						// page.onLoad();
+						this.$tip.success('注册成功!')
+					} else if (res.data.code === 500) { // 获取数据失败
+						console.log("失败")
+						this.loading = false;
+						this.$tip.alert(res.data.message);
 					}
-					this.loading = true;
-				
-					const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
-					console.log("表单提交")
-				
-					// 登录跳转
-					this.$myRequest({
-						url: '/uniappuser/add',
-						method: 'POST',
-						data: loginParams, // 发送的数据
-				
-					}).then((res) => {
-						console.log(res)
-						this.loading = false;
-						if (res.data.code === 20000) { // 获取数据成功
-							console.log("成功")
-							uni.setStorageSync('token', res.data.data.token); // 将登录信息以token的方式存在手机硬盘中
-							console.log("token" + res.data.data.token)
-							page.onLoad();
-							// uni.switchTab({
-							// 	url: ''
-							// })
-						} else if (res.data.code === 500) { // 获取数据失败
-							console.log("失败")
-							this.loading = false;
-							this.$tip.alert(res.data.message);
-						}
-					}).catch((err) => {
-						let msg = "请求出现错误，请稍后再试"
-						this.loading = false;
-						this.$tip.alert(msg);
-					}).finally(() => {
-						this.loading = false;
-					})
-				
-				},
-				
-				
+				})
+
+				// 	// 登录跳转
+				// 	this.$myRequest({
+				// 		url: '/uniappuser/add',
+				// 		method: 'POST',
+				// 		data: loginParams, // 发送的数据
+
+				// 	}).then((res) => {
+				// 		console.log(res)
+				// 		this.loading = false;
+				// 		if (res.data.code === 20000) { // 获取数据成功
+				// 			console.log("成功")
+				// 			// uni.setStorageSync('token', res.data.data.token); // 将登录信息以token的方式存在手机硬盘中
+				// 			// console.log("token" + res.data.data.token)
+				// 			page.onLoad();
+				// 			this.$tip.success('注册成功!')
+				// 			// uni.switchTab({
+				// 			// 	url: ''
+				// 			// })
+				// 		} else if (res.data.code === 500) { // 获取数据失败
+				// 			console.log("失败")
+				// 			this.loading = false;
+				// 			this.$tip.alert(res.data.message);
+				// 		}
+				// 	}).catch((err) => {
+				// 		let msg = "请求出现错误，请稍后再试"
+				// 		this.loading = false;
+				// 		this.$tip.alert(msg);
+				// 	}).finally(() => {
+				// 		this.loading = false;
+				// 	})
+
+			},
+
+
 			// 	let loginParams = {
 			// 		mobile: this.phoneNo,
 			// 		captcha: this.smsCode
@@ -446,13 +480,14 @@
 		padding: 0 20upx;
 		padding-top: 100upx;
 		position: relative;
+
 		.buttom {
 			.loginType {
 				display: flex;
 				// padding: 350rpx 150rpx 150rpx 150rpx;
 				padding: 18rpx 150rpx 150rpx 150rpx;
-				justify-content:space-between;
-				
+				justify-content: space-between;
+
 				.item {
 					display: flex;
 					flex-direction: column;
@@ -461,12 +496,12 @@
 					font-size: 28rpx;
 				}
 			}
-			
+
 			.hint {
 				padding: 20rpx 40rpx;
 				font-size: 20rpx;
 				color: $u-tips-color;
-				
+
 				.link {
 					color: $u-type-warning;
 				}
@@ -514,5 +549,4 @@
 	.zai-btn.button-hover {
 		transform: translate(1upx, 1upx);
 	}
-
 </style>
