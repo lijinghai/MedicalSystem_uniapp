@@ -252,6 +252,9 @@ var _default = {
     return {
       // 获取用户名称和头像
       info: [],
+      // 获取用户id
+      infoid: {
+        id: '' },
 
       personalMsg: {
         avatar: '',
@@ -275,17 +278,19 @@ var _default = {
 
   },
   onLoad: function onLoad() {
-    this.loadinfo();
+    // this.loadinfo()
+    this.getinfoid();
   },
+
   methods: {
 
     // 获取用户姓名和头像的数据
-    getInfo: function getInfo() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res, result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+    getInfo: function getInfo(Myid) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res, result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this.$myRequest({
-                    // url: '/goodsdetail?limit=1&page=1&sort=1&id=' + this.id
-                    url: '/uniappuser/info?token=' + uni.getStorageSync('token') }));case 2:res = _context.sent;
+                    // url: '/uniappuser/info?token=' + uni.getStorageSync('token')
+                    url: '/uniappuser/id?limit=1&page=1&sort=1&id=' + Myid }));case 2:res = _context.sent;
 
-                console.log("用户信息");
+                console.log("用户详情信息");
                 console.log(res);
                 // this.info = res.data.data.items[0]
                 _this.info = res.data.data;
@@ -299,6 +304,38 @@ var _default = {
                   _this.info.mobile = result.mobile == null ? '无' : result.mobile;
                   _this.info.email = result.email == null ? '无' : result.email;
                 }case 8:case "end":return _context.stop();}}}, _callee);}))();
+    },
+
+    //获取用户id
+    getinfoid: function getinfoid() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res, res1, result;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                  _this2.$myRequest({
+                    // url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
+                    url: '/uniappuser/info?token=' + uni.getStorageSync('token') }));case 2:res = _context2.sent;
+
+                console.log("用户信息");
+                console.log(res);
+                // this.info = res.data.data.items[0]
+                _this2.infoid = res.data.data;
+                console.log("用户id==>" + _this2.infoid.id);if (!(
+                _this2.infoid.id != null)) {_context2.next = 17;break;}
+                console.log("进来了");_context2.next = 11;return (
+                  _this2.$myRequest({
+                    url: '/uniappuser/id?limit=1&page=1&sort=1&id=' + _this2.infoid.id }));case 11:res1 = _context2.sent;
+
+                console.log("用户详情信息");
+                console.log(res1);
+                _this2.info = res1.data.data.items[0];
+                console.log(res1.data.data.items[0]);
+                if (res1.data.data.items[0] != null) {
+                  result = res1.data.data.items[0];
+                  _this2.info.name = result.name == null ? '无' : result.name;
+                  // this.info.sex = result.sex === 1 ? '男' : '女'
+                  _this2.info.birthday = result.birthday == null ? '无' : result.birthday;
+                  _this2.info.account = result.account == null ? '无' : result.account;
+                  _this2.info.mobile = result.mobile == null ? '无' : result.mobile;
+                  _this2.info.email = result.email == null ? '无' : result.email;
+                }case 17:case "end":return _context2.stop();}}}, _callee2);}))();
+
     },
 
     getSubStringText: function getSubStringText(text, len) {
@@ -321,7 +358,7 @@ var _default = {
         url: '/pages/setting/useredit' });
 
     },
-    loadinfo: function loadinfo() {var _this2 = this;
+    loadinfo: function loadinfo() {var _this3 = this;
       this.$http.get(this.userUrl, {
         params: {
           id: this.$store.getters.userid } }).
@@ -331,21 +368,21 @@ var _default = {
         if (res.data.success) {
           var result = res.data.data;
           if (result.avatar && result.avatar.length > 0)
-          _this2.personalMsg.avatar = api.getFileAccessHttpUrl(result.avatar);
-          _this2.personalMsg.realname = result.realname;
-          _this2.info.name = result.name;
-          _this2.personalMsg.post = result.post;
-          _this2.info.sex = result.sex === 1 ? '男' : '女';
-          _this2.info.birthday = result.birthday == null ? '无' : result.birthday;
-          _this2.personalMsg.departIds = result.departIds;
-          _this2.personalMsg.workNo = result.workNo;
-          _this2.personalMsg.phone = result.phone;
-          _this2.personalMsg.telephone = result.telephone == null ? '无' : result.telephone;
-          _this2.personalMsg.email = result.email;
-          _this2.personalMsg.post = result.post;
-          _this2.personalMsg.identity = result.identity === 1 ? '普通成员' : '上级';
-          _this2.personalMsg.status = result.status === 1 ? '正常' : '冻结';
-          _this2.personalMsg.orgCode = result.orgCode;
+          _this3.personalMsg.avatar = api.getFileAccessHttpUrl(result.avatar);
+          _this3.personalMsg.realname = result.realname;
+          _this3.info.name = result.name;
+          _this3.personalMsg.post = result.post;
+          _this3.info.sex = result.sex === 1 ? '男' : '女';
+          _this3.info.birthday = result.birthday == null ? '无' : result.birthday;
+          _this3.personalMsg.departIds = result.departIds;
+          _this3.personalMsg.workNo = result.workNo;
+          _this3.personalMsg.phone = result.phone;
+          _this3.personalMsg.telephone = result.telephone == null ? '无' : result.telephone;
+          _this3.personalMsg.email = result.email;
+          _this3.personalMsg.post = result.post;
+          _this3.personalMsg.identity = result.identity === 1 ? '普通成员' : '上级';
+          _this3.personalMsg.status = result.status === 1 ? '正常' : '冻结';
+          _this3.personalMsg.orgCode = result.orgCode;
         }
       }).catch(function (e) {
         console.log("请求错误", e);
@@ -358,8 +395,8 @@ var _default = {
       then(function (res) {
         if (res.success) {var _iterator = _createForOfIteratorHelper(
           res.result),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
-              _this2.personalMsg.orgCode = item.title;
-              _this2.personalMsg.departIds = item.title;
+              _this3.personalMsg.orgCode = item.title;
+              _this3.personalMsg.departIds = item.title;
             }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
         }
       }).catch(function (e) {
@@ -370,18 +407,14 @@ var _default = {
         if (res.success) {
           var postArr = res.result.records;var _iterator2 = _createForOfIteratorHelper(
           postArr),_step2;try {for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {var item = _step2.value;
-              if (_this2.personalMsg.post == item.code) {
-                _this2.personalMsg.post = item.name;
+              if (_this3.personalMsg.post == item.code) {
+                _this3.personalMsg.post = item.name;
               }
             }} catch (err) {_iterator2.e(err);} finally {_iterator2.f();}
         }
       }).catch(function (e) {
         console.log("请求错误", e);
       });
-    },
-
-    onLoad: function onLoad() {
-      this.getInfo();
     } },
 
 

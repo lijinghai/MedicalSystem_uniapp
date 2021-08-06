@@ -426,9 +426,9 @@ var _default =
 {
   data: function data() {
     return {
+
       // 获取用户名称和头像
       info: [],
-
       // Custom: this.Custom,
       // CustomBar: this.CustomBar,
       spaceShow: true,
@@ -505,10 +505,11 @@ var _default =
     // });
   },
   methods: {
-    // 获取用户姓名和头像的数据
+
+    //获取用户信息
     getInfo: function getInfo() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this.$myRequest({
-                    // url: '/goodsdetail?limit=1&page=1&sort=1&id=' + this.id
+                    // url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
                     url: '/uniappuser/info?token=' + uni.getStorageSync('token') }));case 2:res = _context.sent;
 
                 console.log("用户信息");
@@ -573,10 +574,11 @@ var _default =
 
     // 页面进去时执行
     // onLoad() {
-    // 	this.getInfo()
+    // 	this.getInfoid()
     // },
     onShow: function onShow() {
       this.getInfo();
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

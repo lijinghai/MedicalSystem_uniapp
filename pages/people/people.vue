@@ -70,7 +70,7 @@
 					</view>
 
 					<view class="padding text-blue text-xl text-bold">
-						你好，{{info.username}}
+						你好，{{info.account}}
 						<!-- <open-data type="userNickName"></open-data> -->
 					</view>
 
@@ -265,9 +265,9 @@
 	export default {
 		data() {
 			return {
+				
 				// 获取用户名称和头像
 				info: [],
-
 				// Custom: this.Custom,
 				// CustomBar: this.CustomBar,
 				spaceShow: true,
@@ -344,10 +344,11 @@
 			// });
 		},
 		methods: {
-			// 获取用户姓名和头像的数据
-			async getInfo() {
+			
+			//获取用户信息
+			async getInfo(){
 				const res = await this.$myRequest({
-					// url: '/goodsdetail?limit=1&page=1&sort=1&id=' + this.id
+					// url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
 					url: '/uniappuser/info?token=' + uni.getStorageSync('token')
 				})
 				console.log("用户信息")
@@ -412,10 +413,11 @@
 
 			// 页面进去时执行
 			// onLoad() {
-			// 	this.getInfo()
+			// 	this.getInfoid()
 			// },
 			onShow() {
 				this.getInfo()
+				
 			}
 		}
 	}

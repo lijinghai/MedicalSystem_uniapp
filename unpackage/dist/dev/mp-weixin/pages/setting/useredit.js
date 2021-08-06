@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
 //
 //
 //
@@ -199,6 +199,10 @@ var _default =
 {
   data: function data() {
     return {
+      // 获取用户id
+      infoid: [],
+      // userId: '',
+      info: [],
       index: -1,
       switchC: true,
       imgList: [],
@@ -217,53 +221,54 @@ var _default =
 
 
   },
-  onLoad: function onLoad(option) {var _this = this;
-    console.log("this.$Route.query", this.$Route.query);
-    var query = this.$Route.query;
-    if (query) {
-      this.myFormData = query;
-      if (this.myFormData.sex == '女') {
-        this.switchC = false;
-      } else if (this.myFormData.sex == '男') {
-        this.switchC = true;
-      }
-      if (this.myFormData.avatar) {
-        this.imgList = [this.myFormData.avatar];
-      }
-      if (!this.myFormData.birthday) {
-        this.myFormData.birthday = '无';
-      }
-      if (this.myFormData.identity == '普通成员') {
-        this.myFormData.identity = 1;
-      } else if (this.myFormData.identity == '上级') {
-        this.myFormData.identity = 2;
-      }
-      if (this.myFormData.status == '正常') {
-        this.myFormData.status = 1;
-      } else if (this.myFormData.status == '冻结') {
-        this.myFormData.status = 2;
-      }
-      this.Avatar = this.myFormData.avatar;
+  onLoad: function onLoad(option) {
+    this.getInfoid();
+    // console.log("this.$Route.query",this.$Route.query);
+    // let query=this.$Route.query
+    // if(query){
+    // 	this.info=query;
+    // 	if(this.info.sex=='女'){
+    // 	  this.switchC = false
+    // 	}else if(this.info.sex=='男'){
+    // 	  this.switchC = true
+    // 	}
+    // 	if(this.info.avatar){
+    // 	  this.imgList=[this.info.avatar]
+    // 	}
+    // if(!this.myFormData.birthday){
+    //   this.myFormData.birthday= '无'
+    // }
+    // if(this.myFormData.identity=='普通成员'){
+    //   this.myFormData.identity = 1
+    // }else if(this.myFormData.identity=='上级'){
+    //   this.myFormData.identity = 2
+    // }
+    // if(this.myFormData.status=='正常'){
+    //   this.myFormData.status = 1
+    // }else if(this.myFormData.status=='冻结'){
+    //   this.myFormData.status = 2
+    // }
+    // this.Avatar=this.info.avatar
 
-      Object.keys(this.myFormData).map(function (key) {
-        if (_this.myFormData[key] == '无') {
-          _this.myFormData[key] = '';
-        }
-      });
-      console.log("this.myFormData", this.myFormData);
-    }
+    // 	Object.keys(this.myFormData).map(key=>{
+    // 	  if(this.myFormData[key]=='无'){
+    // 		this.myFormData[key] = ''
+    // 	  }
+    // 	})
+    // 	console.log("this.myFormData",this.myFormData)
+    // }
   },
   methods: {
     onSubmit: function onSubmit() {var _this2 = this;
-      var myForm = this.myFormData;
+      var myForm = this.info;
       var checkPhone = new RegExp(/^[1]([3-9])[0-9]{9}$/);
       var checkEmail = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
       console.log("myForm", myForm);
-      if (!myForm.phone || myForm.phone.length == 0) {
+      if (!myForm.mobile || myForm.mobile.length == 0) {
         this.$tip.alert('请输入手机号');
         return false;
       }
-      if (!checkPhone.test(myForm.phone)) {
+      if (!checkPhone.test(myForm.mobile)) {
         this.$tip.alert('请输入正确的手机号');
         return false;
       }
@@ -271,36 +276,96 @@ var _default =
         this.$tip.alert('请输入正确的邮箱地址');
         return false;
       }
-      this.myFormData.id = this.$store.getters.userid;
-      if (this.switchC) {
-        this.myFormData.sex = 1;
-      } else {
-        this.myFormData.sex = 2;
-      }
-      console.log('myform', this.myFormData);
-      this.$tip.loading();
-      this.$http.put('/sys/user/appEdit', this.myFormData).then(function (res) {
+      //  let loginParams = {
+      //  	mobile: this.info.mobile,
+      //  	emial: this.info.email,
+      // name: this.info.name,
+      // sex: this.info.sex
+      //  }
+      var _this = this; // 获取此时的this为一个常量，防止下面请求回调改变出错
+      console.log("表单提交");
+      // 提交跳转
+      this.$myRequest({
+        url: '/uniappuser',
+        method: 'Put',
+        data: _this.info // 发送的数据
+      }).
+      then(function (res) {
         console.log(res);
-        _this2.$tip.loaded();
-        if (res.data.success) {
-          _this2.$tip.toast('提交成功');
-          _this2.$Router.replace({ name: 'userdetail' });
-          /* uni.navigateTo({
-                                                          	url: '/pages/user/userdetail'
-                                                          }) */
+        _this2.loading = false;
+        if (res.data.code === 20000) {// 获取数据成功
+          console.log("成功");
+
+          uni.switchTab({
+            url: '../people/people' });
+
+          _this2.$tip.success('修改成功!');
+        } else if (res.data.code === 500) {// 获取数据失败
+          console.log("失败");
+          _this2.loading = false;
+          _this2.$tip.alert(res.data.message);
         }
-      }).catch(function () {
-        _this2.$tip.loaded();
-        _this2.$tip.error('提交失败');
+      }).catch(function (err) {
+        var msg = "请求出现错误，请稍后再试";
+        _this2.loading = false;
+        _this2.$tip.alert(msg);
+      }).finally(function () {
+        _this2.loading = false;
       });
+      // this.myFormData.id = this.$store.getters.userid
+      // if(this.switchC){
+      // 	this.myFormData.sex=1
+      // }else{
+      // 	this.myFormData.sex=2
+      // }
+      // console.log('myform',this.myFormData)
+      // this.$tip.loading();
+      // this.$http.put('/sys/user/appEdit',this.myFormData).then(res=>{
+      // 	console.log(res)
+      // 	this.$tip.loaded();
+      // 	if (res.data.success){
+      // 		this.$tip.toast('提交成功')
+      // 		this.$Router.replace({name:'userdetail'})
+      // 		/* uni.navigateTo({
+      // 			url: '/pages/user/userdetail'
+      // 		}) */
+      // 	}
+      // }).catch(()=>{
+      // 	this.$tip.loaded();
+      // 	this.$tip.error('提交失败')
+      // });
     },
+
+
+
+    // 获取用户信息
+    getInfo: function getInfo() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+
+                  _this3.$myRequest({
+                    // url: '/uniappuser/id' + this.id
+                    url: '/uniappuser/info?token=' + uni.getStorageSync('token')
+                    // url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
+                  }));case 2:res = _context.sent;
+                _this3.info = res.data.data;
+                console.log("res==>" + _this3.info.id);case 5:case "end":return _context.stop();}}}, _callee);}))();
+    },
+    onLoad: function onLoad(options) {
+      // console.log(options)
+      // this.id = options.id
+      // console.log(options.id)
+      this.getInfo();
+    },
+
+
+
+
     DateChange: function DateChange(e) {
       this.myFormData.birthday = e.detail.value;
     },
     SwitchC: function SwitchC(e) {
       this.switchC = e.detail.value;
     },
-    ChooseImage: function ChooseImage() {var _this3 = this;
+    ChooseImage: function ChooseImage() {var _this4 = this;
       var that = this;
       uni.chooseImage({
         count: 4, //默认9
@@ -317,7 +382,7 @@ var _default =
           catch(function (err) {
             that.$tip.error(err.data.message);
           });
-          _this3.imgList = res.tempFilePaths;
+          _this4.imgList = res.tempFilePaths;
         } });
 
     },
@@ -327,7 +392,7 @@ var _default =
         current: e.currentTarget.dataset.url });
 
     },
-    DelImg: function DelImg(e) {var _this4 = this;
+    DelImg: function DelImg(e) {var _this5 = this;
       uni.showModal({
         title: '召唤师',
         content: '确定要删除这段回忆吗？',
@@ -335,7 +400,7 @@ var _default =
         confirmText: '再见',
         success: function success(res) {
           if (res.confirm) {
-            _this4.imgList.splice(e.currentTarget.dataset.index, 1);
+            _this5.imgList.splice(e.currentTarget.dataset.index, 1);
           }
         } });
 

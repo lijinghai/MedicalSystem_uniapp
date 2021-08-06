@@ -60,7 +60,7 @@
 			</view>
 
 			<!-- 对外信息展示 -->
-			<view class="cu-list menu">
+			<!-- 	<view class="cu-list menu">
 				<view class="cu-item animation-slide-bottom" :style="[{animation: 'show ' + 0.4+ 's 1'}]">
 					<view class="content">
 						<text class="text-grey">用户名</text>
@@ -70,7 +70,7 @@
 							class="text-grey">{{info.name}}</text>
 					</view>
 				</view>
-			</view>
+			</view> -->
 
 
 
@@ -110,7 +110,10 @@
 			return {
 				// 获取用户名称和头像
 				info: [],
-
+				// 获取用户id
+				infoid: {
+					id: ''
+				},
 				personalMsg: {
 					avatar: '',
 					realname: '',
@@ -133,22 +136,24 @@
 			};
 		},
 		onLoad() {
-			this.loadinfo()
+			// this.loadinfo()
+			this.getinfoid()
 		},
+	
 		methods: {
-			
+
 			// 获取用户姓名和头像的数据
-			async getInfo() {
+			async getInfo(Myid) {
 				const res = await this.$myRequest({
-					// url: '/goodsdetail?limit=1&page=1&sort=1&id=' + this.id
-					url: '/uniappuser/info?token=' + uni.getStorageSync('token')
+					// url: '/uniappuser/info?token=' + uni.getStorageSync('token')
+					url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ Myid
 				})
-				console.log("用户信息")
+				console.log("用户详情信息")
 				console.log(res)
 				// this.info = res.data.data.items[0]
 				this.info = res.data.data
 				console.log(res.data.data)
-				if (res.data.data !=null) {
+				if (res.data.data != null) {
 					let result = res.data.data
 					this.info.name = result.name == null ? '无' : result.name
 					// this.info.sex = result.sex === 1 ? '男' : '女'
@@ -156,6 +161,38 @@
 					this.info.account = result.account == null ? '无' : result.account
 					this.info.mobile = result.mobile == null ? '无' : result.mobile
 					this.info.email = result.email == null ? '无' : result.email
+				}
+			},
+
+			//获取用户id
+			async getinfoid(){
+				const res = await this.$myRequest({
+					// url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
+					url: '/uniappuser/info?token=' + uni.getStorageSync('token')
+				})
+				console.log("用户信息")
+				console.log(res)
+				// this.info = res.data.data.items[0]
+				this.infoid = res.data.data
+				console.log("用户id==>"+this.infoid.id)
+				if(this.infoid.id != null) {
+					console.log("进来了")
+					const res1 = await this.$myRequest({
+						url: '/uniappuser/id?limit=1&page=1&sort=1&id='+ this.infoid.id
+					})
+					console.log("用户详情信息")
+					console.log(res1)
+					this.info = res1.data.data.items[0]
+					console.log(res1.data.data.items[0])
+					if (res1.data.data.items[0] != null) {
+						let result = res1.data.data.items[0]
+						this.info.name = result.name == null ? '无' : result.name
+						// this.info.sex = result.sex === 1 ? '男' : '女'
+						this.info.birthday = result.birthday == null ? '无' : result.birthday
+						this.info.account = result.account == null ? '无' : result.account
+						this.info.mobile = result.mobile == null ? '无' : result.mobile
+						this.info.email = result.email == null ? '无' : result.email
+					}
 				}
 			},
 
@@ -237,12 +274,8 @@
 					console.log("请求错误", e)
 				})
 			},
-
-			onLoad() {
-				this.getInfo()
-			}
 		},
-		
+
 		// 格式化
 		filters: {
 			// 格式化性别
