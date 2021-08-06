@@ -181,6 +181,70 @@
 				"navigationBarTitleText": "修改肾功能资料",
 				"enablePullDownRefresh": true
 			}
+		},{
+			"path": "pages/me/salary",
+			"style": {
+				"navigationBarTitleText": "薪资排行",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/me/aboutMe",
+			"style": {
+				"navigationBarTitleText": "关于作者",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/me/mentalTest/list",
+			"style": {
+				"navigationBarTitleText": "答题测试",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/me/mentalTest/index",
+			"style": {
+				"navigationBarTitleText": "答题测试",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/me/mentalTest/explain",
+			"style": {
+				"navigationBarTitleText": "答题规则说明"
+			}
+		},
+		{
+			"path": "pages/me/course",
+			"style": {
+				"navigationBarTitleText": "班级课程",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/signOut/signOut",
+			"style": {
+				"navigationBarTitleText": "退出登录"
+			}
+		},
+		{
+			"path": "pages/signOut/success",
+			"style": {
+				"navigationBarTitleText": "退出成功页面"
+			}
+		},
+		{
+			"path": "pages/setting/userdetail",
+			"style": {
+				"navigationBarTitleText": "用户详情"
+			}
+		},
+		{
+			"path": "pages/setting/useredit",
+			"style": {
+				"navigationBarTitleText": "用户编辑"
+			}
 		}
 
 	],

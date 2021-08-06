@@ -23,7 +23,17 @@
     "pages/renalData/index",
     "pages/renalUpd/index",
     "pages/ureteralData/index",
-    "pages/ureteralUpd/index"
+    "pages/ureteralUpd/index",
+    "pages/me/salary",
+    "pages/me/aboutMe",
+    "pages/me/mentalTest/list",
+    "pages/me/mentalTest/index",
+    "pages/me/mentalTest/explain",
+    "pages/me/course",
+    "pages/signOut/signOut",
+    "pages/signOut/success",
+    "pages/setting/userdetail",
+    "pages/setting/useredit"
   ],
   "subPackages": [],
   "window": {
