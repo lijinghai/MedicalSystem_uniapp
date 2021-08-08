@@ -6,8 +6,8 @@
 <template>
 	<view>
 		<scroll-view :scroll-y="modalName==null" class="page" :class="modalName!=null?'show':''">
-			<cu-custom bgColor="bg-gradual-pink" :isBack="true">
-				<block slot="backText">返回</block>
+			<cu-custom bgColor="bg-gradual-pink" >
+				<!-- <block slot="backText">返回</block> -->
 				<block slot="content">结果</block>
 			</cu-custom>
 			<view class="solids-bottom padding-xs flex align-center">
