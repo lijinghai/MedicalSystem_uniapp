@@ -575,9 +575,17 @@ var _vuex = __webpack_require__(/*! vuex */ 52);function ownKeys(object, enumera
             method: 'POST',
             data: _this.info });
 
+
           // 添加一条尿常规参数的值
           _this5.$myRequest({
             url: '/urineData/id?id=' + _this5.infoid.id,
+            method: 'POST',
+            data: _this.info });
+
+
+          // 添加一条输尿管B超参数的值
+          _this5.$myRequest({
+            url: '/ureteralData/id?id=' + _this5.infoid.id,
             method: 'POST',
             data: _this.info });
 

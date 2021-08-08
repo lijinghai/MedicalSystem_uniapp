@@ -411,9 +411,17 @@
 							method: 'POST',
 							data: _this.info,
 						})
+						
 						// 添加一条尿常规参数的值
 						this.$myRequest({
 							url: '/urineData/id?id='+this.infoid.id,
+							method: 'POST',
+							data: _this.info,
+						})
+						
+						// 添加一条输尿管B超参数的值
+						this.$myRequest({
+							url: '/ureteralData/id?id='+this.infoid.id,
 							method: 'POST',
 							data: _this.info,
 						})
