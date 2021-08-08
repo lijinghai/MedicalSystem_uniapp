@@ -130,7 +130,24 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -195,8 +212,7 @@ var _default =
 {
   data: function data() {
     return {
-      elements1: [
-      {
+      elements1: [{
         title: '膀胱动力',
         name: 'index',
         desc: '膀胱动力学资料',
@@ -204,9 +220,7 @@ var _default =
         cuIcon: 'newsfill',
         auth: 'ac' }],
 
-
-      elements2: [
-      {
+      elements2: [{
         title: '尿常规',
         name: 'index',
         desc: '尿常规资料',
@@ -214,9 +228,7 @@ var _default =
         cuIcon: 'newsfill',
         auth: 'ac' }],
 
-
-      elements3: [
-      {
+      elements3: [{
         title: '肾功能',
         name: 'index',
         desc: '肾功能资料',
@@ -224,16 +236,13 @@ var _default =
         cuIcon: 'newsfill',
         auth: 'ac' }],
 
-
-      elements4: [
-      {
+      elements4: [{
         title: '输尿管B超',
         name: 'index',
         desc: '输尿管B超数据资料',
         color: 'pink',
         cuIcon: 'newsfill',
         auth: 'ac' }]
-
 
 
 
@@ -259,33 +268,52 @@ var _default =
       // secondData: []
     };
   },
+  // onUnload：监听页面的卸载
+  // 当前处于A页面，点击返回按钮时，则将是A页面卸载
+  onUnload: function onUnload() {
+    uni.reLaunch({
+      url: '../index/index' });
+
+  },
   methods: {
-    getPicsCate: function getPicsCate() {
-      // this.leftClickHandle(0, this.cates[0].id)
-      return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:case "end":return _context.stop();}}}, _callee);}))();},
-    leftClickHandle: function leftClickHandle(index, g_id) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
-                console.log("id:" + g_id);
-                _this.active = index;
 
-                if (g_id === 1) {
-                  uni.navigateTo({
-                    url: '../bladderData/index' });
 
-                }
-                if (g_id === 2)
-                uni.navigateTo({
-                  url: '../urineData/index' });
+    // 返回首页跳转
+    // goIndex() {
+    // 	console.log("点击了")
+    // 	// uni.navigateTo({
+    // 	// 	url: '../index/index'
+    // 	// })
+    // 	uni.redirectTo({
+    // 		url: '../index/index'
+    // 	})
+    // }
+    // async getPicsCate() {
+    // 	// this.leftClickHandle(0, this.cates[0].id)
+    // },
+    // async leftClickHandle(index, g_id) {
+    // 	console.log("id:" + g_id)
+    // 	this.active = index
 
-                if (g_id === 3)
-                uni.navigateTo({
-                  url: '../renalData/index' });
-
-                if (g_id === 4)
-                uni.navigateTo({
-                  url: '../ureteralData/index' });case 6:case "end":return _context2.stop();}}}, _callee2);}))();
-
-    } },
-
+    // 	if (g_id === 1) {
+    // 		uni.navigateTo({
+    // 			url: '../bladderData/index'
+    // 		})
+    // 	}
+    // 	if (g_id === 2)
+    // 		uni.navigateTo({
+    // 			url: '../urineData/index'
+    // 		})
+    // 	if (g_id === 3)
+    // 		uni.navigateTo({
+    // 			url: '../renalData/index'
+    // 		})
+    // 	if (g_id === 4)
+    // 		uni.navigateTo({
+    // 			url: '../ureteralData/index'
+    // 		})
+    // }
+  },
   onLoad: function onLoad() {
     // this.getPicsCate()
 
