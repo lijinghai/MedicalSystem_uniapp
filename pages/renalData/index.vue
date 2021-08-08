@@ -18,12 +18,12 @@
 				<!-- 方案一 -->
 				<!-- <uni-forms :rules="rules" ref="form"> -->
 				<uni-forms  ref="form">
-					<uni-forms-item label="病患编号:" name="patientDataId">
+					<!-- <uni-forms-item label="病患编号:" name="patientDataId">
 						<input class="input" disabled="true" type="text" v-model="info.patient_data_id" />
 					</uni-forms-item>
 					<uni-forms-item label="数据编号:" name="id">
 						<input class="input" disabled="true" type="text" v-model="info.id" />
-					</uni-forms-item>
+					</uni-forms-item> -->
 					<uni-forms-item label="尿素:" name="param1">
 						<input class="input" type="text" v-model="info.param1" placeholder="请填写尿素" />
 					</uni-forms-item>

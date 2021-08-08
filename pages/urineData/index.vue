@@ -17,14 +17,14 @@
 					<!-- 方案一 -->
 					<!-- <uni-forms :rules="rules" ref="form"> -->
 					<uni-forms ref="form">
-						<uni-forms-item label="病患编号:" name="patientDataId">
+						<!-- <uni-forms-item label="病患编号:" name="patientDataId"> -->
 							<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-							<input class="input" disabled="true" type="text" v-model="info.patient_data_id" />
-						</uni-forms-item>
-						<uni-forms-item label="数据编号:" name="id">
+							<!-- <input class="input" disabled="true" type="text" v-model="info.patient_data_id" /> -->
+						<!-- </uni-forms-item> -->
+						<!-- <uni-forms-item label="数据编号:" name="id"> -->
 							<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-							<input class="input" disabled="true" type="text" v-model="info.id" />
-						</uni-forms-item>
+							<!-- <input class="input" disabled="true" type="text" v-model="info.id" /> -->
+						<!-- </uni-forms-item> -->
 						<uni-forms-item label="尿白细胞:" name="leu">
 							<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
 							<input class="input" type="text" v-model="info.leu" placeholder="请填写尿白细胞" />
