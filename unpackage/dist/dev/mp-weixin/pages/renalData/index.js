@@ -301,7 +301,7 @@ var _default = {
                     url: '/renalData?id=1&limit=1&page=1&sort=-1' }));case 2:res = _context.sent;
 
                 console.log(res);
-                _this2.findlist = res.data.data.items;case 5:case "end":return _context.stop();}}}, _callee);}))();
+                _this2.info = res.data.data.items[0];case 5:case "end":return _context.stop();}}}, _callee);}))();
     },
 
     //修改事件
