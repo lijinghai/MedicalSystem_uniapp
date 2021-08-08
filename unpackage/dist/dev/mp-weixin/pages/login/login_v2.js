@@ -569,9 +569,15 @@ var _vuex = __webpack_require__(/*! vuex */ 52);function ownKeys(object, enumera
           console.log("user_id===>" + _this5.infoid.id);
 
 
-          // 添加
+          // 添加一条膀胱动力学参数的值
           _this5.$myRequest({
             url: '/bladderData/id?id=' + _this5.infoid.id,
+            method: 'POST',
+            data: _this.info });
+
+          // 添加一条尿常规参数的值
+          _this5.$myRequest({
+            url: '/urineData/id?id=' + _this5.infoid.id,
             method: 'POST',
             data: _this.info });
 

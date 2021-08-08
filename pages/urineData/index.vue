@@ -247,9 +247,9 @@
 			},
 		},
 		// 注册组件
-		components: {
-			"urineItem": urineItem
-		},
+		// components: {
+		// 	"urineItem": urineItem
+		// },
 		onLoad() {
 			this.getFindList()
 		}
@@ -272,5 +272,206 @@
 		right: var(--window-right);
 		/* #endif */
 		bottom: 0;
+	}
+	.demo-uni-row {
+		margin-bottom: 10px;
+		/* QQ、字节小程序文档写有 :host，但实测不生效 */
+		/* 百度小程序没有 :host，需要设置block */
+		/* #ifdef MP-TOUTIAO || MP-QQ || MP-BAIDU */
+		display: block;
+		/* #endif */
+	}
+	
+	/* 支付宝小程序没有 demo-uni-row 层级 */
+	/* 微信小程序使用了虚拟化节点，没有 demo-uni-row 层级 */
+	/* #ifdef MP-ALIPAY || MP-WEIXIN */
+	/deep/ .uni-row {
+		margin-bottom: 10px;
+	}
+	
+	/* #endif */
+	
+	.demo-uni-col {
+		height: 36px;
+		border-radius: 4px;
+	}
+	
+	.dark_deep {
+		background-color: #99a9bf;
+	}
+	
+	.dark {
+		background-color: #d3dce6;
+	}
+	
+	.light {
+		background-color: #e5e9f2;
+	}
+	
+	.example-body {
+		padding: 0px 12px;
+		background-color: #FFFFFF;
+	}
+	
+	.result-box {
+		text-align: center;
+		padding: 20px 0px;
+		font-size: 16px;
+	}
+	
+	.box {
+		width: 100vw;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		padding: 0 80rpx;
+		box-sizing: border-box;
+	
+		.tit {
+			width: 100%;
+			font-size: 50rpx;
+			font-family: PingFangSC-Semibold, PingFang SC;
+			font-weight: 600;
+			color: #333333;
+			margin-top: 40rpx;
+			margin-bottom: 124rpx;
+		}
+	
+		.ul {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+	
+			.li {
+				margin-bottom: 30rpx;
+				display: flex;
+				align-items: center;
+				width: 100%;
+				height: 80rpx;
+				border-bottom: 2rpx solid #eeeeee;
+	
+				.title {
+					height: 40rpx;
+					font-size: 28rpx;
+					font-family: PingFangSC-Medium, PingFang SC;
+					font-weight: 500;
+					color: #333333;
+					line-height: 40rpx;
+				}
+	
+				.xiala {
+					width: 12rpx;
+					height: 6rpx;
+					margin-left: 5rpx;
+				}
+	
+				.shu {
+					width: 2rpx;
+					height: 52rpx;
+					margin-left: 36rpx;
+					background: #3790ff;
+					margin-right: 20rpx;
+				}
+	
+				.pr {
+					flex: 1;
+					font-size: 28rpx;
+					font-family: PingFangSC-Regular, PingFang SC;
+					font-weight: 400;
+					color: #333333;
+					line-height: 40rpx;
+				}
+	
+				.img {
+					font-size: 28rpx;
+					font-family: PingFangSC-Medium, PingFang SC;
+					font-weight: 500;
+					color: #3790ff;
+					line-height: 40rpx;
+				}
+	
+				.remove {
+					width: 38rpx;
+					height: 38rpx;
+				}
+	
+				.yc {
+					width: 48rpx;
+					height: 30rpx;
+				}
+	
+				.xs {
+					width: 48rpx;
+					height: 22rpx;
+				}
+			}
+		}
+	
+		.btn_login {
+			margin-top: 88rpx;
+			margin-bottom: 32rpx;
+			width: 590rpx;
+			height: 120rpx;
+			background: #3790ff;
+			border-radius: 60rpx;
+			font-size: 36rpx;
+			font-family: PingFangSC-Medium, PingFang SC;
+			font-weight: 500;
+			color: #ffffff;
+			text-align: center;
+			line-height: 120rpx;
+		}
+	
+		.btn2 {
+			background-color: #3790ff !important;
+		}
+	
+		.select_login {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 24rpx;
+			font-family: PingFangSC-Regular, PingFang SC;
+			font-weight: 400;
+			color: #9395a2;
+		}
+	
+		.des {
+			position: absolute;
+			bottom: 40rpx;
+			width: 648rpx;
+			font-size: 24rpx;
+			margin-bottom: 40rpx;
+			margin-top: 70rpx;
+			text-align: center;
+			font-family: PingFangSC-Regular, PingFang SC;
+			font-weight: 400;
+			color: #afafb8;
+			line-height: 40rpx;
+	
+			.text1 {
+				margin-left: 10rpx;
+				color: #333333 !important;
+			}
+	
+			.text2 {
+				color: #3790ff !important;
+			}
+		}
+	}
+	.btn_login {
+		margin-top: 88rpx;
+		margin-bottom: 32rpx;
+		width: 590rpx;
+		height: 120rpx;
+		background: #3790ff;
+		border-radius: 60rpx;
+		font-size: 36rpx;
+		font-family: PingFangSC-Medium, PingFang SC;
+		font-weight: 500;
+		color: #ffffff;
+		text-align: center;
+		line-height: 120rpx;
 	}
 </style>

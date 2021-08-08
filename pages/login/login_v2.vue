@@ -405,9 +405,15 @@
 						console.log("user_id===>"+this.infoid.id)
 						
 						
-						// 添加
+						// 添加一条膀胱动力学参数的值
 						this.$myRequest({
 							url: '/bladderData/id?id='+this.infoid.id,
+							method: 'POST',
+							data: _this.info,
+						})
+						// 添加一条尿常规参数的值
+						this.$myRequest({
+							url: '/urineData/id?id='+this.infoid.id,
 							method: 'POST',
 							data: _this.info,
 						})
