@@ -48,7 +48,7 @@
 					isLeak: 0,
 					isDifficult: 0,
 				},
-				info:[],
+
 				options: [],
 				buttonGroup: [{
 					text: '添加一条默认数据',

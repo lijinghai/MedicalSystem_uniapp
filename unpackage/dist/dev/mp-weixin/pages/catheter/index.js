@@ -96,10 +96,10 @@ var components
 try {
   components = {
     uniGoodsNav: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 286))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 279))
     },
     uEmpty: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-empty/u-empty */ "uview-ui/components/u-empty/u-empty").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-empty/u-empty.vue */ 528))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-empty/u-empty */ "uview-ui/components/u-empty/u-empty").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-empty/u-empty.vue */ 286))
     }
   }
 } catch (e) {
@@ -156,7 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var foodItem = function foodItem() {__webpack_require__.e(/*! require.ensure | components/catheterItem/index */ "components/catheterItem/index").then((function () {return resolve(__webpack_require__(/*! ../../components/catheterItem/index.vue */ 329));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var foodItem = function foodItem() {__webpack_require__.e(/*! require.ensure | components/catheterItem/index */ "components/catheterItem/index").then((function () {return resolve(__webpack_require__(/*! ../../components/catheterItem/index.vue */ 329));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -191,8 +191,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 {
-  data: function data() {var _ref;
-    return _ref = {
+  data: function data() {
+    return {
       findlist: [],
       info: {
         eventTime: '',
@@ -204,14 +204,14 @@ __webpack_require__.r(__webpack_exports__);
         incontinenceType: 1,
         isPain: 0,
         isLeak: 0,
-        isDifficult: 0 } }, _defineProperty(_ref, "info",
+        isDifficult: 0 },
 
-    []), _defineProperty(_ref, "options",
-    []), _defineProperty(_ref, "buttonGroup",
-    [{
-      text: '添加一条默认数据',
-      backgroundColor: '#0392ff',
-      color: '#fff' }]), _ref;
+
+      options: [],
+      buttonGroup: [{
+        text: '添加一条默认数据',
+        backgroundColor: '#0392ff',
+        color: '#fff' }] };
 
 
   },

@@ -307,11 +307,12 @@ __webpack_require__.r(__webpack_exports__);
             console.log("成功");
             uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
             uni.navigateTo({
-              url: '../manage/manage' });
+              url: '../special/index' });
 
-            uni.showModal({
-              title: '编辑成功！！' });
-
+            _this2.$tip.success('编辑成功！！');
+            // uni.showModal({
+            // 	title: '编辑成功！！'
+            // })
           } else {// 获取数据失败
             console.log("失败");
             uni.showModal({

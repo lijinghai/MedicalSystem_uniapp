@@ -114,7 +114,7 @@ try {
       return __webpack_require__.e(/*! import() | uni_modules/uni-table/components/uni-td/uni-td */ "uni_modules/uni-table/components/uni-td/uni-td").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-table/components/uni-td/uni-td.vue */ 389))
     },
     uniGoodsNav: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 286))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 279))
     }
   }
 } catch (e) {

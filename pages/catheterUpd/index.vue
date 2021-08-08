@@ -18,10 +18,10 @@
 					<!-- 方案一 -->
 					<!-- <uni-forms :rules="rules" ref="form"> -->
 					<uni-forms ref="form">
-						<uni-forms-item label="病患编号:" name="user_id">
+						<!-- <uni-forms-item label="病患编号:" name="user_id"> -->
 							<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-							<input class="input" disabled="true" type="text" v-model="info.user_id" />
-						</uni-forms-item>
+							<!-- <input class="input" disabled="true" type="text" v-model="info.user_id" /> -->
+						<!-- </uni-forms-item> -->
 		
 		
 						<uni-forms-item label="导尿时间:" name="eventTime">
@@ -256,11 +256,12 @@
 							console.log("成功")
 							uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
 							uni.navigateTo({
-								url: '../manage/manage'
+								url: '../catheter/index'
 							})
-							uni.showModal({
-								title: '编辑成功！！'
-							})
+							this.$tip.success('编辑成功！！')
+							// uni.showModal({
+							// 	title: '编辑成功！！'
+							// })
 						} else { // 获取数据失败
 							console.log("失败")
 							uni.showModal({
