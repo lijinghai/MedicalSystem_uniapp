@@ -139,7 +139,7 @@
 		// onUnload：监听页面的卸载
 		// 当前处于A页面，点击返回按钮时，则将是A页面卸载
 		onUnload() {
-			uni.reLaunch({
+			uni.switchTab({
 				url: '../index/index'
 			})
 		},
