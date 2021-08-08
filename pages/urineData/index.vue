@@ -172,44 +172,88 @@
 				console.log(res)
 				this.findlist = res.data.data.items
 			},
-			goDetail(id) {
-				console.log("id：" + id)
-				uni.navigateTo({
-					url: '/pages/urineUpd/index?id=' + id
-				})
-			},
-			buttonClick() {
-				// 添加数据
-				console.log("添加")
-				const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
-				console.log("表单提交")
-				// 添加跳转
-				this.$myRequest({
-					url: '/urineData',
-					method: 'POST',
-					data: _this.info,
+			
+			//修改事件
+			postInfo() {
 				
-				}).then(res => {
-					console.log(res)
-					// success({ // 请求成功
-					// 	data
-					// })
-					if (res.data.code == 20000) { // 获取数据成功
-						console.log("成功")
-						uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
-						uni.navigateTo({
-							url: '../urineData/index'
-						})
-						uni.showModal({
-							title: '编辑成功！！'
-						})
-					} else { // 获取数据失败
-						console.log("失败")
-						uni.showModal({
-							title: '请按要求填写信息！！'
-						})
-					}
+				this.$refs.form.submit().then(res => {
+					console.log('表单数据信息：', res);
+					const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
+					console.log("表单提交")
+					// 登录跳转
+			
+					this.$myRequest({
+						url: '/urineData',
+						method: 'PUT',
+						data: _this.info,
+			
+					}).then(res => {
+						console.log(res)
+						// success({ // 请求成功
+						// 	data
+						// })
+						if (res.data.code == 20000) { // 获取数据成功
+							console.log("成功")
+							uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
+							uni.navigateTo({
+								url: '../parameter/parameter'
+							})
+							this.$tip.success('编辑成功!')
+			
+						} else { // 获取数据失败
+							console.log("失败")
+							uni.showModal({
+								title: '请按要求填写信息！！'
+							})
+						}
+					})
+				}).catch(err => {
+					console.log('表单错误信息：', err);
 				})
+				
+			},
+			
+			
+			// goDetail(id) {
+			// 	console.log("id：" + id)
+			// 	uni.navigateTo({
+			// 		url: '/pages/urineUpd/index?id=' + id
+			// 	})
+			// },
+			
+			
+			// buttonClick() {
+			// 	// 添加数据
+			// 	console.log("添加")
+			// 	const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
+			// 	console.log("表单提交")
+			// 	// 添加跳转
+			// 	this.$myRequest({
+			// 		url: '/urineData',
+			// 		method: 'POST',
+			// 		data: _this.info,
+				
+			// 	}).then(res => {
+			// 		console.log(res)
+			// 		// success({ // 请求成功
+			// 		// 	data
+			// 		// })
+			// 		if (res.data.code == 20000) { // 获取数据成功
+			// 			console.log("成功")
+			// 			uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
+			// 			uni.navigateTo({
+			// 				url: '../urineData/index'
+			// 			})
+			// 			uni.showModal({
+			// 				title: '编辑成功！！'
+			// 			})
+			// 		} else { // 获取数据失败
+			// 			console.log("失败")
+			// 			uni.showModal({
+			// 				title: '请按要求填写信息！！'
+			// 			})
+			// 		}
+			// 	})
 				
 				
 				
@@ -244,7 +288,7 @@
 				// 		console.log("错误")
 				// 	}
 				// })
-			},
+			// },
 		},
 		// 注册组件
 		// components: {
