@@ -171,7 +171,7 @@
 					url: '/urineData?id=1&limit=1&page=1&sort=-1'
 				})
 				console.log(res)
-				this.findlist = res.data.data.items
+				this.info = res.data.data.items[0]
 			},
 			
 			//修改事件
