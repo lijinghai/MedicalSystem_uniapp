@@ -25,55 +25,55 @@
 						<input class="input" disabled="true" type="text" v-model="info.id" />
 					</uni-forms-item> -->
 					<uni-forms-item label="尿素:" name="param1">
-						<input class="input" type="text" v-model="info.param1" placeholder="请填写尿素" />
+						<input class="input" type="number" v-model="info.param1" placeholder="请填写尿素" />
 					</uni-forms-item>
 					
 					<uni-forms-item label="肌酐:" name="param2">
-						<input class="input" type="text" v-model="info.param2"
+						<input class="input" type="number" v-model="info.param2"
 							placeholder="请填写肌酐:" />
 					</uni-forms-item>
 					<uni-forms-item label="葡萄糖:" name="param2">
-						<input class="input" type="text" v-model="info.param3"
+						<input class="input" type="number" v-model="info.param3"
 							placeholder="请填写葡萄糖" />
 					</uni-forms-item>
 					<uni-forms-item label="钾:" name="param4">
-						<input class="input" type="text" v-model="info.param4"
+						<input class="input" type="number" v-model="info.param4"
 							placeholder="请填写钾" />
 					</uni-forms-item>
 					<uni-forms-item label="钠:" name="param5">
-						<input class="input" type="text" v-model="info.param5"
+						<input class="input" type="number" v-model="info.param5"
 							placeholder="请填写钠" />
 					</uni-forms-item>
 					<uni-forms-item label="氯:" name="param6">
-						<input class="input" type="text" v-model="info.param6"
+						<input class="input" type="number" v-model="info.param6"
 							placeholder="请填写氯" />
 					</uni-forms-item>
 					<uni-forms-item label="钙:" name="param7">
-						<input class="input" type="text" v-model="info.param7"
+						<input class="input" type="number" v-model="info.param7"
 							placeholder="请填写钙" />
 					</uni-forms-item>
 					<uni-forms-item label="二氧化碳:" name="param8">
-						<input class="input" type="text" v-model="info.param8"
+						<input class="input" type="number" v-model="info.param8"
 							placeholder="请填写二氧化碳" />
 					</uni-forms-item>
 					<uni-forms-item label="尿酸:" name="param9">
-						<input class="input" type="text" v-model="info.param9"
+						<input class="input" type="number" v-model="info.param9"
 							placeholder="请填写尿酸" />
 					</uni-forms-item>
 					<uni-forms-item label="磷:" name="param10">
-						<input class="input" type="text" v-model="info.param10"
+						<input class="input" type="number" v-model="info.param10"
 							placeholder="请填写磷" />
 					</uni-forms-item>
 					<uni-forms-item label="镁:" name="param11">
-						<input class="input" type="text" v-model="info.param11"
+						<input class="input" type="number" v-model="info.param11"
 							placeholder="请填写镁" />
 					</uni-forms-item>
 					<uni-forms-item label="淀粉酶:" name="param12">
-						<input class="input" type="text" v-model="info.param12"
+						<input class="input" type="number" v-model="info.param12"
 							placeholder="请填写淀粉酶" />
 					</uni-forms-item>
 					<uni-forms-item label="脂肪酶测定:" name="param13">
-						<input class="input" type="text" v-model="info.param13"
+						<input class="input" type="number" v-model="info.param13"
 							placeholder="请填写脂肪酶测定" />
 					</uni-forms-item>
 					

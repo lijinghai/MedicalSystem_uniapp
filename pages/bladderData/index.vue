@@ -27,17 +27,17 @@
 							<input class="input" disabled="true" type="text" v-model="info.id" />
 						</uni-forms-item> -->
 
-						<uni-forms-item label="膀胱测压量:" name="bladderCapacity">
-							<input class="input" type="text" v-model="info.bladderCapacity"
+						<uni-forms-item label="膀胱测压容量:" name="bladderCapacity">
+							<input class="input" type="number" v-model="info.bladderCapacity" 
 								placeholder="请填写最大膀胱测压容量(ml)" />
 						</uni-forms-item>
 
 						<uni-forms-item label="排尿期最大逼尿肌压:" name="bladderDetrusorPressure">
-							<input class="input" type="text" v-model="info.bladderDetrusorPressure"
+							<input class="input" type="number" v-model="info.bladderDetrusorPressure"
 								placeholder="请填写排尿期最大逼尿肌压(cmH2O)" />
 						</uni-forms-item>
 						<uni-forms-item label="膀胱顺应性:" name="bladderCompliance">
-							<input class="input" type="text" v-model="info.bladderCompliance"
+							<input class="input" type="number" v-model="info.bladderCompliance"
 								placeholder="请填写膀胱顺应性(ml/cmH2O)" />
 						</uni-forms-item>
 					</uni-forms>
