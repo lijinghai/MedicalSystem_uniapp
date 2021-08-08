@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var testCom = function testCom() {__webpack_require__.e(/*! require.ensure | components/FL-pciker_view_ts/FL-pciker_view_ts */ "components/FL-pciker_view_ts/FL-pciker_view_ts").then((function () {return resolve(__webpack_require__(/*! ../../components/FL-pciker_view_ts/FL-pciker_view_ts.vue */ 382));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var testCom = function testCom() {__webpack_require__.e(/*! require.ensure | components/FL-pciker_view_ts/FL-pciker_view_ts */ "components/FL-pciker_view_ts/FL-pciker_view_ts").then((function () {return resolve(__webpack_require__(/*! ../../components/FL-pciker_view_ts/FL-pciker_view_ts.vue */ 322));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -70,24 +70,31 @@
   components: {
     testCom: testCom },
 
-  data: function data() {
-    return {
+  data: function data() {var _ref;
+    return _ref = {
       // candidates: ['如下：', 'normal_water', 'coffee', 'soda_water', 'beer'],
-      candidates: ['normal_water', 'coffee', 'soda_water', 'beer'],
+      candidates: ['白开水', '咖啡', '苏打水', '啤酒'],
       a: '',
       val: {
         selectRes: '' },
 
       pwd_show: true,
       info: {
-        userId: '',
-        eventTime: '',
-        waterCode: '',
-        totalCapacity: '' },
+        user_id: '',
+        event_time: '',
+        water_code: '',
+        total_capacity: '' } }, _defineProperty(_ref, "info",
 
-      info1: {
-        eventTime: '',
-        waterCode: '' } };
+    {
+      userId: '',
+      eventTime: '',
+      waterCode: '',
+      totalCapacity: '' }), _defineProperty(_ref, "info",
+
+    []), _defineProperty(_ref, "info1",
+    {
+      eventTime: '',
+      waterCode: '' }), _ref;
 
 
   },
@@ -109,18 +116,17 @@
 
         then(function (res) {
           console.log(res);
-          // success({ // 请求成功
-          // 	data
-          // })
+
           if (res.data.code == 20000) {// 获取数据成功
             console.log("成功");
             uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
             uni.navigateTo({
-              url: '../manage/manage' });
+              url: '../foodData/index' });
 
-            uni.showModal({
-              title: '编辑成功！！' });
-
+            _this2.$tip.success('编辑成功！！');
+            // uni.showModal({
+            // 	title: '编辑成功！！'
+            // })
           } else {// 获取数据失败
             console.log("失败");
             uni.showModal({
@@ -134,49 +140,18 @@
     },
 
 
-
-    // 		uni.request({
-    // 			// 路径
-    // 			url: 'http://localhost:8091/events',
-    // 			// 请求方法
-    // 			method: 'PUT',
-    // 			data: _this.info, // 发送的数据
-    // 			success({ // 请求成功
-    // 				data
-    // 			}) {
-    // 				if (data.code == 20000) { // 获取数据成功
-    // 					console.log("成功")
-    // 					uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
-    // 					// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
-    // 					uni.navigateTo({
-    // 						url: '../manage/manage'
-    // 					})
-    // 					uni.showModal({
-    // 						title: '编辑成功！！'
-    // 					})
-    // 				} else { // 获取数据失败
-    // 					console.log("失败")
-    // 					uni.showModal({
-    // 						title: '请按要求填写信息！！'
-    // 					})
-    // 				}
-    // 			},
-    // 			fail: (res) => {
-    // 				console.log("错误")
-    // 			}
-    // 		})
-    // 	}).catch(err => {
-    // 		console.log('表单错误信息：', err);
-    // 	})
-
-    // },
+    // 查询
     getInfo: function getInfo() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this3.$myRequest({
-                    url: '/events/id?limit=19&page=1&sort=1&id=' + _this3.id }));case 2:res = _context.sent;
+                    url: '/events/id?limit=1&page=1&sort=1&id=' + _this3.id }));case 2:res = _context.sent;
 
                 console.log("res==>" + _this3.id);
-                _this3.info = res.data.data.items[0];case 5:case "end":return _context.stop();}}}, _callee);}))();
+                _this3.info = res.data.data.items[0];
+                console.log("info.totalCapacity=====>");
+                console.log(_this3.info.totalCapacity);case 7:case "end":return _context.stop();}}}, _callee);}))();
     },
+
+
     onLoad: function onLoad(options) {
       console.log(options);
       this.id = options.id;
@@ -319,13 +294,13 @@ var components
 try {
   components = {
     uniForms: function() {
-      return Promise.all(/*! import() | uni_modules/uni-forms/components/uni-forms/uni-forms */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-forms/components/uni-forms/uni-forms")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-forms/components/uni-forms/uni-forms.vue */ 360))
+      return Promise.all(/*! import() | uni_modules/uni-forms/components/uni-forms/uni-forms */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-forms/components/uni-forms/uni-forms")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-forms/components/uni-forms/uni-forms.vue */ 300))
     },
     uniFormsItem: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-forms/components/uni-forms-item/uni-forms-item */ "uni_modules/uni-forms/components/uni-forms-item/uni-forms-item").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item.vue */ 368))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-forms/components/uni-forms-item/uni-forms-item */ "uni_modules/uni-forms/components/uni-forms-item/uni-forms-item").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item.vue */ 308))
     },
     uniCombox: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-combox/components/uni-combox/uni-combox */ "uni_modules/uni-combox/components/uni-combox/uni-combox").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-combox/components/uni-combox/uni-combox.vue */ 375))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-combox/components/uni-combox/uni-combox */ "uni_modules/uni-combox/components/uni-combox/uni-combox").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-combox/components/uni-combox/uni-combox.vue */ 315))
     }
   }
 } catch (e) {

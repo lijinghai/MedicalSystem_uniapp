@@ -61,7 +61,7 @@
 				<text class="text-ABC text-blue">basic</text>
 			</view>
 			<!-- <view class="action" @click="goVideo"><text class="text-lg text-grey text-shadow">更多</text></view> -->
-			<view class="action" @tap="NumSteps1"><text class="text-lg text-grey text-shadow">下一步</text></view>
+			<!-- <view class="action" @tap="NumSteps1"><text class="text-lg text-grey text-shadow">下一步</text></view> -->
 		</view>
 
 		<!-- 步骤条 -->

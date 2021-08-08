@@ -18,9 +18,9 @@
 					<!-- 方案一 -->
 					<!-- <uni-forms :rules="rules" ref="form"> -->
 					<uni-forms ref="form">
-						<uni-forms-item label="病患编号:" name="user_id">
+					<!-- 	<uni-forms-item label="病患编号:" name="user_id">
 							<input class="input" disabled="true" type="text" v-model="info.user_id" />
-						</uni-forms-item>
+						</uni-forms-item> -->
 		
 		
 						<uni-forms-item label="用户漏尿的时间:" name="eventTime">

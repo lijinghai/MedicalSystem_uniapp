@@ -87,14 +87,6 @@
 			}
 		},
 		{
-			"path": "pages/alarm/alarm",
-			"style": {
-				"navigationBarTitleText": "闹钟设置",
-				"enablePullDownRefresh": true
-			}
-
-		},
-		{
 			"path": "pages/report/report",
 			"style": {
 				"navigationBarTitleText": "事件报表",
@@ -102,30 +94,8 @@
 			}
 
 		},
-		{
-			"path": "pages/forget/forget",
-			"style": {
-				"navigationBarTitleText": "忘记密码",
-				"enablePullDownRefresh": true
-			}
 		
-		},
-		{
-			"path": "pages/agree/agree",
-			"style": {
-				"navigationBarTitleText": "用户协议",
-				"enablePullDownRefresh": true
-			}
-		
-		},
-		{
-			"path": "pages/hideAgree/hideAgree",
-			"style": {
-				"navigationBarTitleText": "用户隐私协议",
-				"enablePullDownRefresh": true
-			}
-		
-		},
+	
 		{
 			"path": "pages/bladderData/index",
 			"style": {
@@ -133,13 +103,7 @@
 				"enablePullDownRefresh": true
 			}
 		},
-		{
-			"path": "pages/bladderUpd/index",
-			"style": {
-				"navigationBarTitleText": "修改膀胱动力学资料",
-				"enablePullDownRefresh": true
-			}
-		},
+	
 		{
 			"path": "pages/urineData/index",
 			"style": {
@@ -147,13 +111,7 @@
 				"enablePullDownRefresh": true
 			}
 		},
-		{
-			"path": "pages/urineUpd/index",
-			"style": {
-				"navigationBarTitleText": "修改尿常规资料",
-				"enablePullDownRefresh": true
-			}
-		},
+	
 		{
 			"path": "pages/renalData/index",
 			"style": {
@@ -161,13 +119,7 @@
 				"enablePullDownRefresh": true
 			}
 		},
-		{
-			"path": "pages/renalUpd/index",
-			"style": {
-				"navigationBarTitleText": "修改肾功能资料",
-				"enablePullDownRefresh": true
-			}
-		},
+		
 		{
 			"path": "pages/ureteralData/index",
 			"style": {
@@ -176,12 +128,6 @@
 			}
 		},
 		{
-			"path": "pages/ureteralUpd/index",
-			"style": {
-				"navigationBarTitleText": "修改肾功能资料",
-				"enablePullDownRefresh": true
-			}
-		},{
 			"path": "pages/me/salary",
 			"style": {
 				"navigationBarTitleText": "薪资排行",

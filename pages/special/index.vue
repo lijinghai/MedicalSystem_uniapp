@@ -20,7 +20,13 @@
 			<uni-goods-nav :options="options" :fill="true" :button-group="buttonGroup" @click="onClick"
 				@buttonClick="buttonClick" />
 		</view>
-		<text v-if="findlist.length === 0">暂无数据,请点击添加按钮添加数据</text>
+		<!-- <text v-if="findlist.length === 0">暂无数据,请点击添加按钮添加数据</text> -->
+		<view v-if="findlist.length === 0">
+			<view class="u-demo-area">
+				<u-empty mode="data">
+				</u-empty>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -49,6 +55,11 @@
 					color: '#fff'
 				}]
 			}
+		},
+		onUnload() {
+			uni.switchTab({
+				url: '../index/index'
+			})
 		},
 		methods: {
 			async getFindList() {
@@ -88,9 +99,10 @@
 						uni.navigateTo({
 							url: '../special/index'
 						})
-						uni.showModal({
-							title: '编辑成功！！'
-						})
+						this.$tip.success('编辑成功！！')
+						// uni.showModal({
+						// 	title: '编辑成功！！'
+						// })
 					} else { // 获取数据失败
 						console.log("失败")
 						uni.showModal({

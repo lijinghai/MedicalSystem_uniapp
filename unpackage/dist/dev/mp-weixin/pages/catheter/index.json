@@ -3,6 +3,7 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav",
+    "u-empty": "/uview-ui/components/u-empty/u-empty",
     "food-item": "/components/catheterItem/index"
   }
 }

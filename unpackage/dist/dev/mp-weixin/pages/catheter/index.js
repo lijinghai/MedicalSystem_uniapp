@@ -96,7 +96,10 @@ var components
 try {
   components = {
     uniGoodsNav: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 346))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 286))
+    },
+    uEmpty: function() {
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-empty/u-empty */ "uview-ui/components/u-empty/u-empty").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-empty/u-empty.vue */ 528))
     }
   }
 } catch (e) {
@@ -153,7 +156,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var foodItem = function foodItem() {__webpack_require__.e(/*! require.ensure | components/catheterItem/index */ "components/catheterItem/index").then((function () {return resolve(__webpack_require__(/*! ../../components/catheterItem/index.vue */ 389));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var foodItem = function foodItem() {__webpack_require__.e(/*! require.ensure | components/catheterItem/index */ "components/catheterItem/index").then((function () {return resolve(__webpack_require__(/*! ../../components/catheterItem/index.vue */ 329));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
 
 
 
@@ -182,8 +191,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 {
-  data: function data() {
-    return {
+  data: function data() {var _ref;
+    return _ref = {
       findlist: [],
       info: {
         eventTime: '',
@@ -195,14 +204,20 @@ __webpack_require__.r(__webpack_exports__);
         incontinenceType: 1,
         isPain: 0,
         isLeak: 0,
-        isDifficult: 0 },
+        isDifficult: 0 } }, _defineProperty(_ref, "info",
 
-      options: [],
-      buttonGroup: [{
-        text: '添加一条默认数据',
-        backgroundColor: '#0392ff',
-        color: '#fff' }] };
+    []), _defineProperty(_ref, "options",
+    []), _defineProperty(_ref, "buttonGroup",
+    [{
+      text: '添加一条默认数据',
+      backgroundColor: '#0392ff',
+      color: '#fff' }]), _ref;
 
+
+  },
+  onUnload: function onUnload() {
+    uni.switchTab({
+      url: '../index/index' });
 
   },
   methods: {
@@ -219,7 +234,7 @@ __webpack_require__.r(__webpack_exports__);
         url: '/pages/catheterUpd/index?id=' + id });
 
     },
-    buttonClick: function buttonClick() {
+    buttonClick: function buttonClick() {var _this3 = this;
       // 添加数据
       console.log("添加");
       var _this = this; // 获取此时的this为一个常量，防止下面请求回调改变出错
@@ -242,9 +257,10 @@ __webpack_require__.r(__webpack_exports__);
           uni.navigateTo({
             url: '../catheter/index' });
 
-          uni.showModal({
-            title: '编辑成功！！' });
-
+          _this3.$tip.success('编辑成功！！');
+          // uni.showModal({
+          // 	title: '编辑成功！！'
+          // })
         } else {// 获取数据失败
           console.log("失败");
           uni.showModal({

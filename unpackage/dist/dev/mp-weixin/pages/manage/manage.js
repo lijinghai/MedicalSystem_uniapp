@@ -176,6 +176,11 @@ var _default =
       secondData: [] };
 
   },
+  onUnload: function onUnload() {
+    uni.switchTab({
+      url: '../index/index' });
+
+  },
   methods: {
     getPicsCate: function getPicsCate() {
       // this.leftClickHandle(0, this.cates[0].id)

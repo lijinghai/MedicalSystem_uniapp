@@ -96,7 +96,10 @@ var components
 try {
   components = {
     uniGoodsNav: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 346))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 286))
+    },
+    uEmpty: function() {
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-empty/u-empty */ "uview-ui/components/u-empty/u-empty").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-empty/u-empty.vue */ 528))
     }
   }
 } catch (e) {
@@ -153,7 +156,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var foodItem = function foodItem() {__webpack_require__.e(/*! require.ensure | components/specialItem/index */ "components/specialItem/index").then((function () {return resolve(__webpack_require__(/*! ../../components/specialItem/index.vue */ 407));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var foodItem = function foodItem() {__webpack_require__.e(/*! require.ensure | components/specialItem/index */ "components/specialItem/index").then((function () {return resolve(__webpack_require__(/*! ../../components/specialItem/index.vue */ 347));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
 
 
 
@@ -205,6 +214,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
   },
+  onUnload: function onUnload() {
+    uni.switchTab({
+      url: '../index/index' });
+
+  },
   methods: {
     getFindList: function getFindList() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this2.$myRequest({
@@ -219,7 +233,7 @@ __webpack_require__.r(__webpack_exports__);
         url: '/pages/specialUpd/index?id=' + id });
 
     },
-    buttonClick: function buttonClick() {
+    buttonClick: function buttonClick() {var _this3 = this;
       // 添加数据
       console.log("添加");
       var _this = this; // 获取此时的this为一个常量，防止下面请求回调改变出错
@@ -243,9 +257,10 @@ __webpack_require__.r(__webpack_exports__);
           uni.navigateTo({
             url: '../special/index' });
 
-          uni.showModal({
-            title: '编辑成功！！' });
-
+          _this3.$tip.success('编辑成功！！');
+          // uni.showModal({
+          // 	title: '编辑成功！！'
+          // })
         } else {// 获取数据失败
           console.log("失败");
           uni.showModal({

@@ -138,7 +138,7 @@
 			<!-- QQ、微信登录按钮 -->
 			<view class="buttom">
 				<view class="loginType">
-					<view class="wechat item">
+					<!-- <view class="wechat item">
 						<view class="icon">
 							<u-icon size="70" name="weixin-fill" color="rgb(83,194,64)"></u-icon>
 						</view>
@@ -149,7 +149,7 @@
 							<u-icon size="70" name="qq-fill" color="rgb(17,183,233)"></u-icon>
 						</view>
 						QQ
-					</view>
+					</view> -->
 				</view>
 				<view class="hint">
 					登录代表同意

@@ -44,6 +44,11 @@
 				secondData: []
 			}
 		},
+		onUnload() {
+			uni.switchTab({
+				url:'../index/index'
+			})
+		},
 		methods: {
 			async getPicsCate() {
 				// this.leftClickHandle(0, this.cates[0].id)

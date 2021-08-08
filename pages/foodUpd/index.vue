@@ -18,10 +18,10 @@
 					<!-- 方案一 -->
 					<!-- <uni-forms :rules="rules" ref="form"> -->
 					<uni-forms ref="form">
-						<uni-forms-item label="病患编号:" name="user_id">
+						<!-- <uni-forms-item label="病患编号:" name="user_id"> -->
 							<!-- <input class="input" type="text" v-model="info.bladderCapacity" placeholder="请填写最大膀胱测压容量(ml)" /> -->
-							<input class="input" disabled="true" type="text" v-model="info.user_id" />
-						</uni-forms-item>
+						<!-- 	<input class="input" disabled="true" type="text" v-model="info.user_id" />
+						</uni-forms-item> -->
 		
 		
 						<uni-forms-item label="餐饮时间:" name="eventTime">
@@ -63,18 +63,25 @@
 		data() {
 			return {
 				// candidates: ['如下：', 'normal_water', 'coffee', 'soda_water', 'beer'],
-				candidates: ['normal_water', 'coffee', 'soda_water', 'beer'],
+				candidates: ['白开水', '咖啡', '苏打水', '啤酒'],
 				a: '',
 				val: {
 					selectRes: ''
 				},
 				pwd_show: true,
 				info: {
+					user_id: '',
+					event_time: '',
+					water_code: '',
+					total_capacity: ''
+				},
+				info: {
 					userId: '',
 					eventTime: '',
 					waterCode: '',
 					totalCapacity: ''
 				},
+				info:[],
 				info1: {
 					eventTime: '',
 					waterCode: ''
@@ -99,18 +106,17 @@
 
 					}).then(res => {
 						console.log(res)
-						// success({ // 请求成功
-						// 	data
-						// })
+
 						if (res.data.code == 20000) { // 获取数据成功
 							console.log("成功")
 							uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
 							uni.navigateTo({
-								url: '../manage/manage'
+								url: '../foodData/index'
 							})
-							uni.showModal({
-								title: '编辑成功！！'
-							})
+							this.$tip.success('编辑成功！！')
+							// uni.showModal({
+							// 	title: '编辑成功！！'
+							// })
 						} else { // 获取数据失败
 							console.log("失败")
 							uni.showModal({
@@ -124,49 +130,18 @@
 			},
 
 
-
-			// 		uni.request({
-			// 			// 路径
-			// 			url: 'http://localhost:8091/events',
-			// 			// 请求方法
-			// 			method: 'PUT',
-			// 			data: _this.info, // 发送的数据
-			// 			success({ // 请求成功
-			// 				data
-			// 			}) {
-			// 				if (data.code == 20000) { // 获取数据成功
-			// 					console.log("成功")
-			// 					uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
-			// 					// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
-			// 					uni.navigateTo({
-			// 						url: '../manage/manage'
-			// 					})
-			// 					uni.showModal({
-			// 						title: '编辑成功！！'
-			// 					})
-			// 				} else { // 获取数据失败
-			// 					console.log("失败")
-			// 					uni.showModal({
-			// 						title: '请按要求填写信息！！'
-			// 					})
-			// 				}
-			// 			},
-			// 			fail: (res) => {
-			// 				console.log("错误")
-			// 			}
-			// 		})
-			// 	}).catch(err => {
-			// 		console.log('表单错误信息：', err);
-			// 	})
-
-			// },
+			// 查询
 			async getInfo() {
 				const res = await this.$myRequest({
-					url: '/events/id?limit=19&page=1&sort=1&id=' + this.id
+					url: '/events/id?limit=1&page=1&sort=1&id=' + this.id
 				})
 				console.log("res==>" + this.id)
 				this.info = res.data.data.items[0]
+				console.log("info.totalCapacity=====>")
+				console.log(this.info.totalCapacity)
 			},
+			
+			
 			onLoad(options) {
 				console.log(options)
 				this.id = options.id

@@ -96,7 +96,10 @@ var components
 try {
   components = {
     uniGoodsNav: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 346))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 286))
+    },
+    uEmpty: function() {
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-empty/u-empty */ "uview-ui/components/u-empty/u-empty").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-empty/u-empty.vue */ 528))
     }
   }
 } catch (e) {
@@ -153,7 +156,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var foodItem = function foodItem() {__webpack_require__.e(/*! require.ensure | components/foodItem/index */ "components/foodItem/index").then((function () {return resolve(__webpack_require__(/*! ../../components/foodItem/index.vue */ 353));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var foodItem = function foodItem() {__webpack_require__.e(/*! require.ensure | components/foodItem/index */ "components/foodItem/index").then((function () {return resolve(__webpack_require__(/*! ../../components/foodItem/index.vue */ 293));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -199,13 +212,20 @@ __webpack_require__.r(__webpack_exports__);
 
       options: [],
       buttonGroup: [{
-        text: '添加一条默认数据',
+        text: '添加餐饮事件',
         backgroundColor: '#0392ff',
         color: '#fff' }] };
 
 
   },
+  onUnload: function onUnload() {
+    uni.switchTab({
+      url: '../index/index' });
+
+  },
   methods: {
+
+    // 查询
     getFindList: function getFindList() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this2.$myRequest({
                     url: '/events/first?limit=999999&page=1&sort=-1' }));case 2:res = _context.sent;
@@ -213,13 +233,16 @@ __webpack_require__.r(__webpack_exports__);
                 console.log(res);
                 _this2.findlist = res.data.data.items;case 5:case "end":return _context.stop();}}}, _callee);}))();
     },
+
+    // 点击跳转
     goDetail: function goDetail(id) {
       console.log("id：" + id);
       uni.navigateTo({
         url: '/pages/foodUpd/index?id=' + id });
 
     },
-    buttonClick: function buttonClick() {
+
+    buttonClick: function buttonClick() {var _this3 = this;
       // 添加数据
       console.log("添加");
       var _this = this; // 获取此时的this为一个常量，防止下面请求回调改变出错
@@ -233,18 +256,20 @@ __webpack_require__.r(__webpack_exports__);
 
       then(function (res) {
         console.log(res);
-        // success({ // 请求成功
-        // 	data
-        // })
+
         if (res.data.code == 20000) {// 获取数据成功
           console.log("成功");
-          uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
+          console.log("该条信息的id为====>");
+          console.log(res.data.data.id);
+
           uni.navigateTo({
             url: '../foodData/index' });
 
-          uni.showModal({
-            title: '编辑成功！！' });
 
+          _this3.$tip.success('添加成功！！');
+          // uni.showModal({
+          // 	title: '编辑成功！！'
+          // })
         } else {// 获取数据失败
           console.log("失败");
           uni.showModal({
@@ -253,37 +278,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
 
-
-      // 	uni.request({
-      // 		// 路径
-      // 		url: 'http://localhost:8091/events/first',
-      // 		// 请求方法
-      // 		method: 'POST',
-      // 		data: _this.info, // 发送的数据
-      // 		success({ // 请求成功
-      // 			data
-      // 		}) {
-      // 			if (data.code == 20000) { // 获取数据成功
-      // 				console.log("成功")
-      // 				uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
-      // 				// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
-      // 				uni.navigateTo({
-      // 					url: '../foodData/index'
-      // 				})
-      // 				uni.showModal({
-      // 					title: '添加成功！！'
-      // 				})
-      // 			} else { // 获取数据失败
-      // 				console.log("失败")
-      // 				uni.showModal({
-      // 					title: '请按要求填写信息！！'
-      // 				})
-      // 			}
-      // 		},
-      // 		fail: (res) => {
-      // 			console.log("错误")
-      // 		}
-      // 	})
     } },
 
   // 注册组件
