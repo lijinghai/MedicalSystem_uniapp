@@ -95,8 +95,11 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
-    uniGoodsNav: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */ "uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 346))
+    uniForms: function() {
+      return Promise.all(/*! import() | uni_modules/uni-forms/components/uni-forms/uni-forms */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-forms/components/uni-forms/uni-forms")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-forms/components/uni-forms/uni-forms.vue */ 360))
+    },
+    uniFormsItem: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-forms/components/uni-forms-item/uni-forms-item */ "uni_modules/uni-forms/components/uni-forms-item/uni-forms-item").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item.vue */ 368))
     }
   }
 } catch (e) {
@@ -153,35 +156,77 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var ureteralItem = function ureteralItem() {__webpack_require__.e(/*! require.ensure | components/ureteralItem/index */ "components/ureteralItem/index").then((function () {return resolve(__webpack_require__(/*! ../../components/ureteralItem/index.vue */ 463));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{
+// import ureteralItem from '../../components/ureteralItem/index.vue';
+var _default = {
   data: function data() {
     return {
       findlist: [],
@@ -193,99 +238,142 @@ __webpack_require__.r(__webpack_exports__);
         param5: '' },
 
 
-      options: [],
-      buttonGroup: [{
-        text: '添加一条默认数据',
-        backgroundColor: '#0392ff',
-        color: '#fff' }] };
-
-
+      options: []
+      // buttonGroup: [{
+      // 	text: '添加一条默认数据',
+      // 	backgroundColor: '#0392ff',
+      // 	color: '#fff'
+      // }]
+    };
   },
   methods: {
+
+    // 查询
     getFindList: function getFindList() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this2.$myRequest({
-                    url: '/ureteralData?id=1&limit=99999&page=9999&sort=-1' }));case 2:res = _context.sent;
+                    url: '/ureteralData?id=1&limit=1&page=1&sort=-1' }));case 2:res = _context.sent;
 
                 console.log(res);
                 _this2.findlist = res.data.data.items;case 5:case "end":return _context.stop();}}}, _callee);}))();
     },
-    goDetail: function goDetail(id) {
-      console.log("id：" + id);
-      uni.navigateTo({
-        url: '/pages/ureteralUpd/index?id=' + id });
 
-    },
-    buttonClick: function buttonClick() {
-      // 添加数据
-      console.log("添加");
-      var _this = this; // 获取此时的this为一个常量，防止下面请求回调改变出错
-      console.log("表单提交");
-      // 添加跳转
+    //修改事件
+    postInfo: function postInfo() {var _this3 = this;
 
-      this.$myRequest({
-        url: '/ureteralData',
-        method: 'POST',
-        data: _this.info }).
+      this.$refs.form.submit().then(function (res) {
+        console.log('表单数据信息：', res);
+        var _this = _this3; // 获取此时的this为一个常量，防止下面请求回调改变出错
+        console.log("表单提交");
+        // 登录跳转
 
-      then(function (res) {
-        console.log(res);
-        // success({ // 请求成功
-        // 	data
-        // })
-        if (res.data.code == 20000) {// 获取数据成功
-          console.log("成功");
-          uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
-          uni.navigateTo({
-            url: '../ureteralData/index' });
+        _this3.$myRequest({
+          url: '/ureteralData',
+          method: 'PUT',
+          data: _this.info }).
 
-          uni.showModal({
-            title: '编辑成功！！' });
+        then(function (res) {
+          console.log(res);
+          // success({ // 请求成功
+          // 	data
+          // })
+          if (res.data.code == 20000) {// 获取数据成功
+            console.log("成功");
+            uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
+            uni.navigateTo({
+              url: '../parameter/parameter' });
 
-        } else {// 获取数据失败
-          console.log("失败");
-          uni.showModal({
-            title: '请按要求填写信息！！' });
+            _this3.$tip.success('编辑成功!');
 
-        }
+          } else {// 获取数据失败
+            console.log("失败");
+            uni.showModal({
+              title: '请按要求填写信息！！' });
+
+          }
+        });
+      }).catch(function (err) {
+        console.log('表单错误信息：', err);
       });
 
+    }
 
-      // uni.request({
-      // 	// 路径
-      // 	url: 'http://localhost:8091/ureteralData',
-      // 	// 请求方法
-      // 	method: 'POST',
-      // 	data: _this.info, // 发送的数据
-      // 	success({ // 请求成功
-      // 		data
-      // 	}) {
-      // 		if (data.code == 20000) { // 获取数据成功
-      // 			console.log("成功")
-      // 			uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
-      // 			// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
-      // 			uni.navigateTo({
-      // 				url: '../ureteralData/index'
-      // 			})
-      // 			uni.showModal({
-      // 				title: '添加成功！！'
-      // 			})
-      // 		} else { // 获取数据失败
-      // 			console.log("失败")
-      // 			uni.showModal({
-      // 				title: '请按要求填写信息！！'
-      // 			})
-      // 		}
-      // 	},
-      // 	fail: (res) => {
-      // 		console.log("错误")
-      // 	}
-      // })
-    } },
+    // goDetail(id) {
+    // 	console.log("id：" + id)
+    // 	uni.navigateTo({
+    // 		url: '/pages/ureteralUpd/index?id=' + id
+    // 	})
+    // },
+    // buttonClick() {
+    // 	// 添加数据
+    // 	console.log("添加")
+    // 	const _this = this // 获取此时的this为一个常量，防止下面请求回调改变出错
+    // 	console.log("表单提交")
+    // 	// 添加跳转
 
-  // 注册组件
-  components: {
-    "ureteralItem": ureteralItem },
+    // 	this.$myRequest({
+    // 		url: '/ureteralData',
+    // 		method: 'POST',
+    // 		data: _this.info,
 
+    // 	}).then(res => {
+    // 		console.log(res)
+    // 		// success({ // 请求成功
+    // 		// 	data
+    // 		// })
+    // 		if (res.data.code == 20000) { // 获取数据成功
+    // 			console.log("成功")
+    // 			uni.setStorageSync('token', res.data.token); // 将登录信息以token的方式存在手机硬盘中
+    // 			uni.navigateTo({
+    // 				url: '../ureteralData/index'
+    // 			})
+    // 			uni.showModal({
+    // 				title: '编辑成功！！'
+    // 			})
+    // 		} else { // 获取数据失败
+    // 			console.log("失败")
+    // 			uni.showModal({
+    // 				title: '请按要求填写信息！！'
+    // 			})
+    // 		}
+    // 	})
+
+
+    // uni.request({
+    // 	// 路径
+    // 	url: 'http://localhost:8091/ureteralData',
+    // 	// 请求方法
+    // 	method: 'POST',
+    // 	data: _this.info, // 发送的数据
+    // 	success({ // 请求成功
+    // 		data
+    // 	}) {
+    // 		if (data.code == 20000) { // 获取数据成功
+    // 			console.log("成功")
+    // 			uni.setStorageSync('token', data.token); // 将登录信息以token的方式存在手机硬盘中
+    // 			// uni.setStorageSync('userInfo', data.result.userInfo); // 将用户信息存储在手机硬盘中
+    // 			uni.navigateTo({
+    // 				url: '../ureteralData/index'
+    // 			})
+    // 			uni.showModal({
+    // 				title: '添加成功！！'
+    // 			})
+    // 		} else { // 获取数据失败
+    // 			console.log("失败")
+    // 			uni.showModal({
+    // 				title: '请按要求填写信息！！'
+    // 			})
+    // 		}
+    // 	},
+    // 	fail: (res) => {
+    // 		console.log("错误")
+    // 	}
+    // })
+    // },
+  },
+  // // 注册组件
+  // components: {
+  // 	"ureteralItem": ureteralItem
+  // },
   onLoad: function onLoad() {
     this.getFindList();
   } };exports.default = _default;
