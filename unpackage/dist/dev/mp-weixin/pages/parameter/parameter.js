@@ -155,30 +155,109 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      cates: [{
-        id: 1,
-        ctitle: '膀胱动力学资料' },
-
+      elements1: [
       {
-        id: 2,
-        ctitle: '尿常规资料' },
+        title: '膀胱动力',
+        name: 'index',
+        desc: '膀胱动力学资料',
+        color: 'cyan',
+        cuIcon: 'newsfill',
+        auth: 'ac' }],
 
+
+      elements2: [
       {
-        id: 3,
-        ctitle: '肾功能资料' },
+        title: '尿常规',
+        name: 'index',
+        desc: '尿常规资料',
+        color: 'red',
+        cuIcon: 'newsfill',
+        auth: 'ac' }],
 
+
+      elements3: [
       {
-        id: 4,
-        ctitle: '输尿管B超数据资料' }],
+        title: '肾功能',
+        name: 'index',
+        desc: '肾功能资料',
+        color: 'orange',
+        cuIcon: 'newsfill',
+        auth: 'ac' }],
 
 
-      active: 0,
-      secondData: [] };
+      elements4: [
+      {
+        title: '输尿管B超',
+        name: 'index',
+        desc: '输尿管B超数据资料',
+        color: 'pink',
+        cuIcon: 'newsfill',
+        auth: 'ac' }]
 
+
+
+
+
+      // cates: [{
+      // 		id: 1,
+      // 		ctitle: '膀胱动力学资料'
+      // 	},
+      // 	{
+      // 		id: 2,
+      // 		ctitle: '尿常规资料'
+      // 	},
+      // 	{
+      // 		id: 3,
+      // 		ctitle: '肾功能资料'
+      // 	},
+      // 	{
+      // 		id: 4,
+      // 		ctitle: '输尿管B超数据资料'
+      // 	}
+      // ],
+      // active: 0,
+      // secondData: []
+    };
   },
   methods: {
     getPicsCate: function getPicsCate() {
@@ -208,7 +287,7 @@ var _default =
     } },
 
   onLoad: function onLoad() {
-    this.getPicsCate();
+    // this.getPicsCate()
 
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
