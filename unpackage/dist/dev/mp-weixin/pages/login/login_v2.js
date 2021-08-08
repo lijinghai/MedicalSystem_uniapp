@@ -589,6 +589,13 @@ var _vuex = __webpack_require__(/*! vuex */ 52);function ownKeys(object, enumera
             method: 'POST',
             data: _this.info });
 
+
+          // 添加一条肾功能参数的值
+          _this5.$myRequest({
+            url: '/renalData/id?id=' + _this5.infoid.id,
+            method: 'POST',
+            data: _this.info });
+
         } else if (res.data.code === 500) {// 获取数据失败
           console.log("失败");
           _this5.loading = false;

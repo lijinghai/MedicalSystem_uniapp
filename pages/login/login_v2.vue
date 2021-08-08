@@ -425,6 +425,13 @@
 							method: 'POST',
 							data: _this.info,
 						})
+						
+						// 添加一条肾功能参数的值
+						this.$myRequest({
+							url: '/renalData/id?id='+this.infoid.id,
+							method: 'POST',
+							data: _this.info,
+						})
 					} else if (res.data.code === 500) { // 获取数据失败
 						console.log("失败")
 						this.loading = false;
