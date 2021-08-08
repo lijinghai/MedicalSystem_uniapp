@@ -124,6 +124,7 @@
 					param12: '',
 					param13: ''
 				},
+				info:[],
 				options: [],
 				// buttonGroup: [
 				// 	{

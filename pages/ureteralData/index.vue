@@ -80,6 +80,7 @@
 					param5: ''
 
 				},
+				info:[],
 				options: [],
 				// buttonGroup: [{
 				// 	text: '添加一条默认数据',
