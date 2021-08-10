@@ -1,6 +1,6 @@
 // 异步请求接口封装
-const BASE_URL = 'http://172.18.0.220:8091'
-// const BASE_URL = 'http://42.192.231.74:8091'
+// const BASE_URL = 'http://172.18.0.220:8091'
+const BASE_URL = 'http://localhost:8091'
 export const myRequest = (options) => {
 	return new Promise((resolve, reject) => {
 		uni.request({

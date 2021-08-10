@@ -59,6 +59,13 @@
                 "ios" : {
                     "appstore" : ""
                 }
+            },
+            "splashscreen" : {
+                "androidStyle" : "default",
+                "android" : {
+                    "hdpi" : "",
+                    "xhdpi" : ""
+                }
             }
         },
         "uniStatistics" : {
