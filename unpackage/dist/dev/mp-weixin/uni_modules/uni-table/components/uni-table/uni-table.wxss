@@ -33,8 +33,7 @@
   width: 100%;
   border-radius: 5px;
   background-color: #fff;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   display: table;
   overflow-x: auto;
 }
@@ -61,8 +60,7 @@
   height: 50px;
   line-height: 50px;
   overflow: hidden;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .empty-border {
   border-right: 1px #ebeef5 solid;
@@ -83,18 +81,11 @@
   right: 0;
   background-color: rgba(255, 255, 255, 0.8);
   z-index: 99;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   margin: auto;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 .uni-table--loader {
   width: 30px;

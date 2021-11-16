@@ -18,18 +18,11 @@
 .uni-datetime-picker-btn {
 	margin-top: 60px;
 
-	display: -webkit-box;
-	display: -webkit-flex;
 	display: flex;
 	cursor: pointer;
 
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-webkit-flex-direction: row;
-	        flex-direction: row;
-	-webkit-box-pack: justify;
-	-webkit-justify-content: space-between;
-	        justify-content: space-between;
+	flex-direction: row;
+	justify-content: space-between;
 }
 .uni-datetime-picker-btn-text {
 	font-size: 14px;
@@ -37,14 +30,9 @@
 }
 .uni-datetime-picker-btn-group {
 
-	display: -webkit-box;
-	display: -webkit-flex;
 	display: flex;
 
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-webkit-flex-direction: row;
-	        flex-direction: row;
+	flex-direction: row;
 }
 .uni-datetime-picker-cancel {
 	margin-right: 30px;
@@ -56,8 +44,7 @@
 	left: 0px;
 	right: 0px;
 	background-color: rgba(0, 0, 0, 0.4);
-	-webkit-transition-duration: 0.3s;
-	        transition-duration: 0.3s;
+	transition-duration: 0.3s;
 	z-index: 998;
 }
 .uni-datetime-picker-popup {
@@ -76,8 +63,7 @@
 	left: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	        transform: translate(-50%, -50%);
-	-webkit-transition-duration: 0.3s;
-	        transition-duration: 0.3s;
+	transition-duration: 0.3s;
 	z-index: 999;
 }
 .fix-nvue-height {
@@ -94,8 +80,7 @@
 	border-radius: 5px;
 	padding: 7px 10px;
 
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 	cursor: pointer;
 }
 .uni-datetime-picker-timebox-pointer {
@@ -125,15 +110,9 @@
 }
 .uni-datetime-picker__container-box {
 	position: relative;
-	display: -webkit-box;
-	display: -webkit-flex;
 	display: flex;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	        align-items: center;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	        justify-content: center;
+	align-items: center;
+	justify-content: center;
 	margin-top: 40px;
 }
 .time-hide-second {

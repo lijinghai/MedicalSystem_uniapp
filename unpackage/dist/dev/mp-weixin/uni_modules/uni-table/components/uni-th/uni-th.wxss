@@ -27,8 +27,7 @@
 .uni-table-th {
   padding: 12px 10px;
   display: table-cell;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 14px;
   font-weight: bold;
   color: #909399;
@@ -38,12 +37,8 @@
   border-right: 1px #ebeef5 solid;
 }
 .uni-table-th-content {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  align-items: center;
 }
 .arrow {
   display: block;

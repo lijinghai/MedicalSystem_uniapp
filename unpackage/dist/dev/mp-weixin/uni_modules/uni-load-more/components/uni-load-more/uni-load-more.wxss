@@ -25,20 +25,11 @@
 /* 透明度 */
 /* 文章场景相关 */
 .uni-load-more.data-v-90d4256a {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   height: 40px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 .uni-load-more__text.data-v-90d4256a {
   font-size: 15px;
@@ -213,8 +204,7 @@
 }
 .uni-load-more__img--android-MP > view.data-v-90d4256a {
   position: absolute;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   border-radius: 50%;

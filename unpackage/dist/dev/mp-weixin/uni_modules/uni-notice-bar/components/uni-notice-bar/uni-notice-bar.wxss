@@ -25,19 +25,11 @@
 /* 透明度 */
 /* 文章场景相关 */
 .uni-noticebar.data-v-a1596656 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: center;
   padding: 6px 12px;
   margin-bottom: 10px;
 }
@@ -48,13 +40,8 @@
   margin-right: 5px;
 }
 .uni-noticebar__content-wrapper.data-v-a1596656 {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
+  flex: 1;
+  flex-direction: column;
   overflow: hidden;
 }
 .uni-noticebar__content-wrapper--single.data-v-a1596656 {
@@ -62,33 +49,22 @@
 }
 .uni-noticebar__content-wrapper--single.data-v-a1596656,
 .uni-noticebar__content-wrapper--scrollable.data-v-a1596656 {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 .uni-noticebar__content-wrapper--scrollable.data-v-a1596656 {
   position: relative;
   height: 18px;
 }
 .uni-noticebar__content--scrollable.data-v-a1596656 {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
+  flex: 1;
   display: block;
   overflow: hidden;
 }
 .uni-noticebar__content--single.data-v-a1596656 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-flex: 0;
-  -webkit-flex: none;
-          flex: none;
+  flex: none;
   width: 100%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
+  justify-content: center;
 }
 .uni-noticebar__content-text.data-v-a1596656 {
   font-size: 14px;
@@ -115,18 +91,10 @@
           animation-play-state: paused;
 }
 .uni-noticebar__more.data-v-a1596656 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: inline-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
   padding-left: 5px;
 }
 .uni-noticebar__more-text.data-v-a1596656 {

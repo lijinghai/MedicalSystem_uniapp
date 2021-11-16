@@ -7,7 +7,6 @@
     /* width: 100%; 
     height: 100vh; */ 
     color: #fff; 
-  background: -webkit-linear-gradient(45deg,#F15BB5, #9A5CE5, #01BEFF,#00F5D4); 
   background: linear-gradient(45deg,#F15BB5, #9A5CE5, #01BEFF,#00F5D4); 
     background-size: 500% 500%; 
     -webkit-animation: gradientBG-data-v-3cae2b38 15s ease infinite; 

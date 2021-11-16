@@ -26,12 +26,10 @@
 /* 文章场景相关 */
 view.data-v-9c8ef540,
 scroll-view.data-v-9c8ef540 {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .u-tabs.data-v-9c8ef540 {
   width: 100%;
-  -webkit-transition-property: background-color, color;
   transition-property: background-color, color;
 }
 .data-v-9c8ef540::-webkit-scrollbar,.data-v-9c8ef540::-webkit-scrollbar,.data-v-9c8ef540::-webkit-scrollbar {
@@ -51,28 +49,18 @@ scroll-view.data-v-9c8ef540 {
 }
 .u-tabs-scorll-flex.data-v-9c8ef540 {
 
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 .u-tabs-scorll-flex .u-tabs-item.data-v-9c8ef540 {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 .u-tabs-item.data-v-9c8ef540 {
   position: relative;
   display: inline-block;
   text-align: center;
-  -webkit-transition-property: background-color, color, font-weight;
   transition-property: background-color, color, font-weight;
 }
 .content.data-v-9c8ef540 {
@@ -83,14 +71,12 @@ scroll-view.data-v-9c8ef540 {
 .boxStyle.data-v-9c8ef540 {
   pointer-events: none;
   position: absolute;
-  -webkit-transition-property: all;
   transition-property: all;
 }
 .boxStyle2.data-v-9c8ef540 {
   pointer-events: none;
   position: absolute;
   bottom: 0;
-  -webkit-transition-property: all;
   transition-property: all;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
@@ -99,29 +85,18 @@ scroll-view.data-v-9c8ef540 {
   pointer-events: none;
   position: absolute;
   top: 0;
-  -webkit-transition-property: left, background-color;
   transition-property: left, background-color;
 
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 
   flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 .itemBackground.data-v-9c8ef540 {
   height: 100%;
   width: 100%;
-  -webkit-transition-property: all;
   transition-property: all;
 }
 .u-scroll-bar.data-v-9c8ef540 {

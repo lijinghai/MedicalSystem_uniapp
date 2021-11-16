@@ -25,8 +25,6 @@
 /* 透明度 */
 /* 文章场景相关 */
 .new_item {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   padding: 10rpx 20rpx;
   border-bottom: 1px solid #87CEFF;
@@ -38,16 +36,9 @@
 }
 .new_item .right {
   margin-left: 15rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .new_item .right .title {
   font-size: 30rpx;

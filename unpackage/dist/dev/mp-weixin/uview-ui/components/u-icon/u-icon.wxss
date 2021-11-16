@@ -48,8 +48,6 @@
 }
 .u-iconfont.data-v-6e20bb40 {
 	position: relative;
-	display: -webkit-box;
-	display: -webkit-flex;
 	display: flex;
 	font: normal normal normal 14px/1 "uicon-iconfont";
 	font-size: inherit;
@@ -58,12 +56,8 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 .u-iconfont.data-v-6e20bb40::before {
-	display: -webkit-box;
-	display: -webkit-flex;
 	display: flex;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	        align-items: center;
+	align-items: center;
 }
 .uicon-en.data-v-6e20bb40:before {
 	content: "\e70a";
@@ -717,48 +711,24 @@
 	content: "\e65e";
 }
 .u-icon.data-v-6e20bb40 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: inline-flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  align-items: center;
 }
 .u-icon--left.data-v-6e20bb40 {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-  -webkit-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 .u-icon--right.data-v-6e20bb40 {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  align-items: center;
 }
 .u-icon--top.data-v-6e20bb40 {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-  -webkit-flex-direction: column-reverse;
-          flex-direction: column-reverse;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
+  flex-direction: column-reverse;
+  justify-content: center;
 }
 .u-icon--bottom.data-v-6e20bb40 {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
+  flex-direction: column;
+  justify-content: center;
 }
 .u-icon__icon.data-v-6e20bb40 {
   position: relative;

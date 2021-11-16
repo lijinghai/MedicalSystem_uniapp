@@ -25,15 +25,9 @@
 /* 透明度 */
 /* 文章场景相关 */
 .u-badge.data-v-2b1712d8 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: inline-flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   line-height: 24rpx;
   padding: 4rpx 8rpx;
   border-radius: 100rpx;

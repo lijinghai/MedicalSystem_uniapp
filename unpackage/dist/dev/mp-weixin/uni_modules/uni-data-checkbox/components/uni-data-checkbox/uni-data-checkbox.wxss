@@ -25,19 +25,10 @@
 /* 透明度 */
 /* 文章场景相关 */
 .uni-data-loading {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   height: 36px;
   padding-left: 10px;
   color: #999;
@@ -47,33 +38,17 @@
   z-index: 0;
 }
 .uni-data-checklist .checklist-group {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-          flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .uni-data-checklist .checklist-group.is-list {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 .uni-data-checklist .checklist-group .checklist-box {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  align-items: center;
   position: relative;
   margin: 5px 0;
   margin-right: 25px;
@@ -83,22 +58,11 @@
   opacity: 0;
 }
 .uni-data-checklist .checklist-group .checklist-box .checklist-content {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 .uni-data-checklist .checklist-group .checklist-box .checklist-content .checklist-text {
   font-size: 14px;
@@ -119,10 +83,8 @@
   opacity: 0;
 }
 .uni-data-checklist .checklist-group .checklist-box .checkbox__inner {
-  -webkit-flex-shrink: 0;
-          flex-shrink: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  flex-shrink: 0;
+  box-sizing: border-box;
   position: relative;
   width: 16px;
   height: 16px;
@@ -147,19 +109,11 @@
           transform: rotate(40deg);
 }
 .uni-data-checklist .checklist-group .checklist-box .radio__inner {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-shrink: 0;
-          flex-shrink: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 16px;
   height: 16px;
@@ -215,7 +169,6 @@
   padding: 5px 15px;
   border: 1px #DCDFE6 solid;
   border-radius: 3px;
-  -webkit-transition: border-color 0.2s;
   transition: border-color 0.2s;
 }
 .uni-data-checklist .checklist-group .checklist-box.is--button.is-disable {
@@ -280,8 +233,6 @@
   color: #fff;
 }
 .uni-data-checklist .checklist-group .checklist-box.is--list {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   padding: 10px 15px;
   padding-left: 0;

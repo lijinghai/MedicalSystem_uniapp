@@ -27,40 +27,26 @@
 .u-progress.data-v-0fa21744 {
   overflow: hidden;
   height: 15px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: inline-flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  align-items: center;
   width: 100%;
   border-radius: 100rpx;
 }
 .u-active.data-v-0fa21744 {
   width: 0;
   height: 100%;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  align-items: center;
 
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 
   justify-items: flex-end;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
+  justify-content: space-around;
   font-size: 20rpx;
   color: #ffffff;
-  -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 .u-striped.data-v-0fa21744 {
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-size: 39px 39px;
 }

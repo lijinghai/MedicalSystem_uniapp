@@ -26,33 +26,19 @@
 /* 文章场景相关 */
 .uni-section.data-v-f7ca1098 {
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   margin-top: 10px;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  align-items: center;
   padding: 0 10px;
   height: 50px;
   background-color: #f8f8f8;
   font-weight: normal;
 }
 .uni-section__head.data-v-f7ca1098 {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin-right: 10px;
 }
 .line.data-v-f7ca1098 {
@@ -71,16 +57,9 @@
   background-color: #c0c0c0;
 }
 .uni-section__content.data-v-f7ca1098 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
+  flex-direction: column;
+  flex: 1;
   color: #333;
 }
 .uni-section__content-title.data-v-f7ca1098 {
@@ -88,13 +67,8 @@
   color: #333;
 }
 .distraction.data-v-f7ca1098 {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  align-items: center;
 }
 .uni-section__content-sub.data-v-f7ca1098 {
   font-size: 24rpx;

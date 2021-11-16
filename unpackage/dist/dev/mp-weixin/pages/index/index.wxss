@@ -25,9 +25,7 @@
 /* 透明度 */
 /* 文章场景相关 */
 .swiper-box.data-v-57280228 {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 .swiper-item.data-v-57280228 {
   height: 100%;
@@ -48,14 +46,10 @@
 }
 .hide-content-box-left.data-v-57280228 {
   left: 0;
-  background-image: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(60%, #f3f3f3));
-  background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0), #f3f3f3 60%);
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0), #f3f3f3 60%);
 }
 .hide-content-box-right.data-v-57280228 {
   right: 0;
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(60%, #f3f3f3));
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), #f3f3f3 60%);
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #f3f3f3 60%);
 }
 .kite-classify-scroll.data-v-57280228 {
@@ -72,8 +66,7 @@
   background-color: #ffffff;
   border-radius: 10rpx;
   overflow: hidden;
-  -webkit-box-shadow: 2px 2px 3px rgba(26, 26, 26, 0.2);
-          box-shadow: 2px 2px 3px rgba(26, 26, 26, 0.2);
+  box-shadow: 2px 2px 3px rgba(26, 26, 26, 0.2);
 }
 .nav-li.data-v-57280228 {
   padding: 40rpx 30rpx;
@@ -165,27 +158,16 @@
   padding: 40rpx;
 }
 .steps .out-box.data-v-57280228 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 .steps .out-box .self-box.data-v-57280228 {
   position: relative;
   width: 120rpx;
   height: 120rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 .steps .out-box .self-box view.data-v-57280228 {
   width: 100rpx;

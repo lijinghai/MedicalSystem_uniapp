@@ -25,13 +25,8 @@
 /* 透明度 */
 /* 文章场景相关 */
 .uni-calendar.data-v-94becebc {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 .uni-calendar__mask.data-v-94becebc {
   position: fixed;
@@ -40,10 +35,8 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.4);
-  -webkit-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
+  transition-duration: 0.3s;
   opacity: 0;
   z-index: 99;
 }
@@ -55,12 +48,10 @@
   bottom: 0;
   left: 0;
   right: 0;
-  -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
+  transition-duration: 0.3s;
   -webkit-transform: translateY(460px);
           transform: translateY(460px);
   z-index: 99;
@@ -74,32 +65,16 @@
 }
 .uni-calendar__header.data-v-94becebc {
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   height: 50px;
 }
 .uni-calendar--fixed-top.data-v-94becebc {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
   border-top-color: #c8c7cc;
   border-top-style: solid;
   border-top-width: 1px;
@@ -135,19 +110,10 @@
   letter-spacing: 3px;
 }
 .uni-calendar__header-btn-box.data-v-94becebc {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: 50px;
   height: 50px;
 }
@@ -171,36 +137,18 @@
 }
 .uni-calendar__weeks.data-v-94becebc {
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 .uni-calendar__weeks-item.data-v-94becebc {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 .uni-calendar__weeks-day.data-v-94becebc {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
+  flex: 1;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 45px;
   border-bottom-color: #F5F5F5;
   border-bottom-style: solid;
@@ -213,15 +161,9 @@
   position: relative;
 }
 .uni-calendar__box-bg.data-v-94becebc {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -248,39 +190,21 @@
   line-height: 50px;
 }
 .uni-date-changed.data-v-94becebc {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 .uni-date-changed--time.data-v-94becebc {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 .uni-date-changed--time-start.data-v-94becebc {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: right;
-  -webkit-justify-content: right;
-          justify-content: right;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  justify-content: right;
+  align-items: center;
 }
 .uni-date-changed--time-end.data-v-94becebc {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: left;
-  -webkit-justify-content: left;
-          justify-content: left;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  justify-content: left;
+  align-items: center;
 }
 .uni-date-changed--time-date.data-v-94becebc {
   color: #999;
@@ -288,15 +212,9 @@
 }
 .time-picker-style.data-v-94becebc {
   width: 62px;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 .mr-10.data-v-94becebc {
   margin-right: 10px;
